@@ -153,7 +153,40 @@ export default function Membership() {
 
   return (
     <main className="min-h-screen" style={{ background: '#F0F2F8' }}>
-      <div className="max-w-6xl mx-auto px-6 py-12">
+      {/* Hero */}
+      <div className="pt-32 sm:pt-36 pb-12 sm:pb-16 text-center relative overflow-hidden"
+        style={{
+          backgroundImage: "url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1920&q=90')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center center',
+        }}>
+        {/* Dark overlay */}
+        <div className="absolute inset-0" style={{ background: 'rgba(10,14,26,0.55)' }} />
+        {/* Dot pattern */}
+        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
+        {/* Amber glow */}
+        <div className="absolute top-0 right-0 w-96 h-96 pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(232,131,106,0.15) 0%, transparent 70%)', transform: 'translate(20%,-20%)' }} />
+        <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6">
+          <span className="section-tag" style={{ color: '#E8836A' }}>Plans & Pricing</span>
+          <h1 className="font-display font-bold text-white mt-2 mb-4" style={{ fontSize: 'clamp(2rem, 5vw, 3.8rem)' }}>
+            Find Your Match <em className="not-italic" style={{ color: '#E8836A' }}>Faster</em>
+          </h1>
+          <p className="font-body text-sm sm:text-base max-w-md mx-auto" style={{ color: 'rgba(255,255,255,0.70)' }}>
+            Simple, transparent pricing. Join 2 lakh+ Telugu families. No hidden charges.
+          </p>
+          {/* Stats row */}
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 mt-8">
+            {[['2L+','Verified Profiles'],['4800+','Happy Marriages'],['98%','Satisfaction']].map(([val,label]) => (
+              <div key={label} className="text-center">
+                <div className="font-display font-bold text-2xl sm:text-3xl" style={{ color: '#E8836A' }}>{val}</div>
+                <div className="font-body text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.5)' }}>{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-12">
         <MembershipContent yearly={yearly} setYearly={setYearly} />
         <div style={{ textAlign: 'center', marginTop: 32 }}>
           <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: 14, color: '#6B7280', marginBottom: 12 }}>

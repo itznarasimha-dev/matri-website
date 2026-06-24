@@ -158,8 +158,8 @@ export default function Dashboard() {
           </div>
         </section>
 
-        {/* 3-column row */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 18 }}>
+        {/* 3-column row — stacks on mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3" style={{ gap: 18 }}>
 
           {/* Profile Status */}
           <Card title="Profile Status">
@@ -235,7 +235,7 @@ export default function Dashboard() {
                 <div key={req.id}
                   onMouseEnter={e => e.currentTarget.style.boxShadow = "0 6px 24px rgba(35,56,176,0.10)"}
                   onMouseLeave={e => e.currentTarget.style.boxShadow = "0 1px 12px rgba(35,56,176,0.07)"}
-                  style={{ background: "#fff", borderRadius: 16, padding: "15px 20px", boxShadow: "0 1px 12px rgba(35,56,176,0.07)", border: "1px solid #E8EBF5", display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap", transition: "box-shadow 0.2s", borderLeft: !isAcc && !isDec ? `4px solid ${tier.color}` : "4px solid #E5E7EB" }}>
+                  style={{ background: "#fff", borderRadius: 16, padding: "12px 14px", boxShadow: "0 1px 12px rgba(35,56,176,0.07)", border: "1px solid #E8EBF5", display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", transition: "box-shadow 0.2s", borderLeft: !isAcc && !isDec ? `4px solid ${tier.color}` : "4px solid #E5E7EB" }}>
                   <div style={{ position: "relative", flexShrink: 0 }}>
                     <img src={req.photo} alt={req.name} style={{ width: 54, height: 54, borderRadius: 12, objectFit: "cover", objectPosition: "top center" }} />
                     <span style={{ position: "absolute", top: -6, left: -6, fontSize: 9, fontWeight: 700, padding: "2px 6px", borderRadius: 6, background: tier.bg, color: tier.color }}>{req.tier}</span>

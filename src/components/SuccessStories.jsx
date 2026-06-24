@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Heart } from 'lucide-react'
-import { useReveal } from '../useReveal'
+import { useReveal, useRevealStagger } from '../useReveal'
 
 const couples = [
   {
@@ -25,33 +25,36 @@ const couples = [
 
 export default function SuccessStories() {
   const headRef = useReveal()
+  const cardRefs = useRevealStagger(couples.length)
 
   return (
-    <section className="py-16 md:py-28" style={{ background: '#F0F4FF' }}>
-      <div className="max-w-7xl mx-auto px-6">
-        <div ref={headRef} className="reveal text-center mb-14">
+    <section className="py-14 sm:py-20 lg:py-28" style={{ background: '#F0F4FF' }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div ref={headRef} className="reveal text-center mb-10 sm:mb-14">
           <span className="section-tag" style={{ color: '#2338B0' }}>Marriages Made on Mangalayam</span>
           <h2 className="section-title">Over 4,800 couples.<br />Countless blessings.</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8 mb-10 sm:mb-12">
           {couples.map((c, i) => (
             <div key={c.names}
-              className="reveal rounded-2xl p-7 text-center bg-white transition-all duration-300"
-              style={{ transitionDelay: `${i * 120}ms`, border: '1px solid #E2E5F0', boxShadow: '0 2px 16px rgba(35,56,176,0.06)' }}
+              ref={el => cardRefs.current[i] = el}
+              data-idx={i}
+              className="reveal rounded-2xl p-6 sm:p-7 text-center bg-white transition-all duration-300"
+              style={{ border: '1px solid #E2E5F0', boxShadow: '0 2px 16px rgba(35,56,176,0.06)' }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = '#2338B0'; e.currentTarget.style.transform = 'translateY(-8px)'; e.currentTarget.style.boxShadow = '0 16px 40px rgba(35,56,176,0.14)' }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = '#E2E5F0'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 2px 16px rgba(35,56,176,0.06)' }}
             >
               <div className="flex items-center justify-center gap-3 mb-5">
-                <img src={c.photo1} alt="" className="w-16 h-16 rounded-full object-cover object-top"
+                <img src={c.photo1} alt="" className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover object-top"
                   style={{ border: '2px solid rgba(35,56,176,0.25)' }} />
-                <Heart className="w-5 h-5" style={{ color: '#2338B0', fill: '#2338B0', animation: 'heartBeat 3s ease-in-out infinite' }} />
-                <img src={c.photo2} alt="" className="w-16 h-16 rounded-full object-cover object-top"
+                <Heart className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" style={{ color: '#2338B0', fill: '#2338B0', animation: 'heartBeat 3s ease-in-out infinite' }} />
+                <img src={c.photo2} alt="" className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover object-top"
                   style={{ border: '2px solid rgba(35,56,176,0.25)' }} />
               </div>
-              <h3 className="font-display text-2xl font-bold mb-1" style={{ color: '#1A1F36' }}>{c.names}</h3>
+              <h3 className="font-display text-xl sm:text-2xl font-bold mb-1" style={{ color: '#1A1F36' }}>{c.names}</h3>
               <p className="font-body text-xs mb-4 font-semibold" style={{ color: '#2338B0' }}>{c.date} · {c.location}</p>
-              <p className="font-display italic text-base leading-relaxed mb-5" style={{ color: '#6B7280' }}>{c.quote}</p>
+              <p className="font-display italic text-sm sm:text-base leading-relaxed mb-5" style={{ color: '#6B7280' }}>{c.quote}</p>
               <Link to="/success-stories"
                 className="font-body text-sm font-semibold transition-colors duration-200"
                 style={{ color: '#2338B0', borderBottom: '1px solid rgba(35,56,176,0.3)' }}

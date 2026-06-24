@@ -53,7 +53,7 @@
     overflow-x: hidden;
     background-color: var(--color-bg);
     color: var(--color-text);
-    font-family: 'DM Sans', system-ui, sans-serif;
+    font-family: 'DM Sans', 'Outfit', system-ui, sans-serif;
     font-size: 16px;
     line-height: 1.75;
     letter-spacing: 0.01em;
@@ -67,7 +67,19 @@
     padding-top: 80px;
   }
 
-  h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; }
+  /* Responsive base */
+  img { max-width: 100%; }
+  .container-pad { @apply px-4 sm:px-6 lg:px-8; }
+
+  @media (max-width: 640px) {
+    .section-title  { font-size: 1.9rem !important; }
+    .section-title-light { font-size: 1.9rem !important; }
+    .display-heading { font-size: 2.8rem !important; }
+  }
+
+  /* Only apply serif to landing page headings — dashboard uses Cormorant Garamond inline */
+  .font-heading h1, .font-heading h2, .font-heading h3,
+  .section-title, .section-title-light, .display-heading { font-family: 'Playfair Display', Georgia, serif; }
 
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -232,6 +244,18 @@
   0%,100% { transform: translateY(0); }
   50%     { transform: translateY(-8px); }
 }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
 @keyframes heartBeat {
   0%,100% { transform: scale(1); }
   14%     { transform: scale(1.2); }
@@ -276,6 +300,27 @@
   from { opacity: 0; transform: scale(0.95); }
   to   { opacity: 1; transform: scale(1); }
 }
+
+/* ── FLOATING LABELS MOBILE FIX ──────────────── */
+@media (max-width: 640px) {
+  .mobile-panel { width: 100vw !important; }
+  .navbar__inner { padding: 0 1rem; }
+
+  /* Section spacing tighter on mobile */
+  .section-title  { font-size: clamp(1.7rem, 7vw, 2.5rem) !important; }
+  .section-title-light { font-size: clamp(1.7rem, 7vw, 2.5rem) !important; }
+
+  /* Stack hero stats */
+  .hero-stats { flex-wrap: wrap; gap: 1.25rem; }
+
+  /* Dashboard interest rows wrap better */
+  .interest-row { flex-wrap: wrap; }
+}
+
+/* ── RESPONSIVE PADDING UTILITY ───────────────── */
+.section-px { padding-left: 1rem; padding-right: 1rem; }
+@media (min-width: 640px)  { .section-px { padding-left: 1.5rem; padding-right: 1.5rem; } }
+@media (min-width: 1024px) { .section-px { padding-left: 2rem; padding-right: 2rem; } }
 
 /* ── NAVBAR ───────────────────────────────────── */
 .navbar {
@@ -378,10 +423,12 @@
   width: 36px; height: 36px; border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
   background: transparent; border: none; cursor: pointer;
-  color: #2338B0;
-  transition: background 0.2s;
+  color: white;
+  transition: background 0.2s, color 0.2s;
 }
-.navbar__hamburger:hover { background: rgba(35,56,176,0.08); }
+.navbar__hamburger:hover { background: rgba(255,255,255,0.12); }
+.navbar-scrolled .navbar__hamburger { color: #2338B0; }
+.navbar-scrolled .navbar__hamburger:hover { background: rgba(35,56,176,0.08); }
 
 /* Mobile panel */
 .mobile-panel {

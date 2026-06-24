@@ -48,7 +48,7 @@ export default function Login() {
   }
 
   return (
-    <main className="min-h-[calc(100vh-80px)] flex" style={{ background: '#2C1654' }}>
+    <main className="min-h-screen flex" style={{ background: '#2C1654' }}>
       {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
 
       {/* Left visual */}
@@ -87,24 +87,24 @@ export default function Login() {
       </div>
 
       {/* Right form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center px-6 py-16">
-        <div className="w-full max-w-md">
+      <div className="w-full lg:w-1/2 flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16">
+        <div className="w-full max-w-md mx-auto">
           <Link to="/" className="flex items-center gap-2 mb-10">
-            <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: '#7B2FBE', boxShadow: '0 4px 12px rgba(123,47,190,0.4)' }}>
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: '#2338B0', boxShadow: '0 4px 12px rgba(35,56,176,0.4)' }}>
               <LotusIcon size={18} color="white" />
             </div>
             <div>
               <span className="block font-telugu text-[9px]" style={{ color: '#D4A017' }}>మంగళాయం</span>
-              <span style={{ fontFamily: '"Playfair Display", serif', letterSpacing: '0.02em', fontSize: '1.25rem', fontWeight: 700, color: '#7B2FBE' }}>Mangalayam</span>
+              <span style={{ fontFamily: '"Playfair Display", serif', letterSpacing: '0.02em', fontSize: '1.25rem', fontWeight: 700, color: '#2338B0' }}>Mangalayam</span>
             </div>
           </Link>
 
           <h1 className="font-heading text-white text-3xl font-bold mb-1">Welcome Back</h1>
           <p className="font-body text-sm mb-8" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Sign in to continue your journey.{' '}
-            <Link to="/register" className="transition-colors duration-200" style={{ color: '#7B2FBE' }}
-              onMouseEnter={e => { e.target.style.color = '#D4A017' }}
-              onMouseLeave={e => { e.target.style.color = '#7B2FBE' }}
+            <Link to="/register" className="transition-colors duration-200" style={{ color: '#E8836A' }}
+              onMouseEnter={e => { e.target.style.color = 'white' }}
+              onMouseLeave={e => { e.target.style.color = '#E8836A' }}
             >
               New here? Register Free
             </Link>
@@ -149,7 +149,7 @@ export default function Login() {
                 <input type="checkbox" style={{ accentColor: '#7B2FBE' }} className="w-3.5 h-3.5" />
                 Remember me
               </label>
-              <a href="#" className="font-body transition-colors duration-200" style={{ color: '#7B2FBE' }}>Forgot Password?</a>
+              <a href="#" className="font-body transition-colors duration-200" style={{ color: '#E8836A' }}>Forgot Password?</a>
             </div>
 
             <button type="submit" className="btn-primary w-full py-4 text-base">Sign In →</button>

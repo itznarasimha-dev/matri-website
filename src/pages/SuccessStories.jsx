@@ -125,7 +125,7 @@ export default function SuccessStoriesPage() {
     <main className="min-h-screen" style={{ background: '#2C1654' }}>
       {/* Hero */}
       <div
-        className="relative pt-24 pb-24 text-center overflow-hidden"
+        className="relative pt-32 sm:pt-36 pb-16 sm:pb-24 text-center overflow-hidden"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1722952934708-749c22eb2e58?w=1920&q=90')",
           backgroundSize: 'cover',
@@ -159,12 +159,12 @@ export default function SuccessStoriesPage() {
       </div>
 
       {/* Stories */}
-      <div className="max-w-5xl mx-auto px-6 py-20 space-y-24">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-14 sm:py-20 space-y-16 sm:space-y-24">
         {stories.map((s, i) => <StoryCard key={i} s={s} i={i} />)}
       </div>
 
       {/* Love Timeline */}
-      <div ref={headRef} className="reveal max-w-7xl mx-auto px-6 pb-20">
+      <div ref={headRef} className="reveal max-w-7xl mx-auto px-4 sm:px-6 pb-14 sm:pb-20">
         <div className="text-center mb-8">
           <span className="section-tag">Love Timeline</span>
           <h2 className="section-title-light">Our Journey of Unions</h2>

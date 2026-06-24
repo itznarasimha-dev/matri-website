@@ -26,8 +26,8 @@ export default function MembershipTeaser() {
           backgroundSize: '40px 40px',
         }} />
 
-      <div ref={ref} className="reveal max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div ref={ref} className="reveal max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
           {/* Left */}
           <div>

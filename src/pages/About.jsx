@@ -1,5 +1,5 @@
 import { Heart, Target, Eye, Users, Globe } from 'lucide-react'
-import { useReveal } from '../useReveal'
+import { useReveal, useRevealStagger } from '../useReveal'
 import CTASection from '../components/CTASection'
 import LotusIcon from '../components/LotusIcon'
 
@@ -19,16 +19,17 @@ const milestones = [
 ]
 
 export default function About() {
-  const ref1 = useReveal()
-  const ref2 = useReveal()
-  const ref3 = useReveal()
+  const ref1      = useReveal()
+  const ref2      = useReveal()
+  const ref3      = useReveal()
+  const valueRefs = useRevealStagger(values.length)
 
   return (
     <main className="min-h-screen" style={{ background: '#F0F2F8' }}>
 
       {/* Hero */}
       <div
-        className="relative pt-28 pb-28 text-center overflow-hidden"
+        className="relative pt-32 sm:pt-36 pb-20 sm:pb-28 text-center overflow-hidden"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1920&q=90')",
           backgroundSize: 'cover',
@@ -36,7 +37,7 @@ export default function About() {
         }}
       >
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(135deg, rgba(14,11,20,0.75) 0%, rgba(26,42,143,0.60) 100%)' }} />
+          style={{ background: 'rgba(10,14,26,0.52)' }} />
         <div className="relative z-10 max-w-2xl mx-auto px-6">
           <LotusIcon size={40} color="#F8B500" className="mx-auto mb-4 opacity-70" />
           <span className="section-tag" style={{ color: '#F8B500' }}>Our Story</span>
@@ -50,10 +51,10 @@ export default function About() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 py-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
 
         {/* Mission & Vision */}
-        <div ref={ref1} className="reveal grid md:grid-cols-2 gap-8 mb-20">
+        <div ref={ref1} className="reveal grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-14 sm:mb-20">
           {[
             { icon: Target, title: 'Our Mission', text: 'To provide the most trusted, safe, and emotionally intelligent matrimony platform for Telugu families worldwide — combining the warmth of tradition with the power of modern technology.' },
             { icon: Eye,    title: 'Our Vision',  text: 'To be the first choice for every Telugu family seeking a life partner — not just in India, but across every corner of the world where Telugu culture thrives.' },
@@ -81,14 +82,16 @@ export default function About() {
             <span className="section-tag">Core Values</span>
             <h2 className="section-title">What We Stand For</h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {values.map((v, i) => {
               const Icon = v.icon
               return (
                 <div
                   key={v.title}
-                  className="rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-2"
-                  style={{ background: '#FFFFFF', border: '1px solid #E2E5F0', boxShadow: '0 2px 16px rgba(35,56,176,0.06)', transitionDelay: `${i * 80}ms` }}
+                  ref={el => valueRefs.current[i] = el}
+                  data-idx={i}
+                  className="reveal rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-2"
+                  style={{ background: '#FFFFFF', border: '1px solid #E2E5F0', boxShadow: '0 2px 16px rgba(35,56,176,0.06)' }}
                   onMouseEnter={e => { e.currentTarget.style.borderColor = '#2338B0'; e.currentTarget.style.boxShadow = '0 16px 48px rgba(35,56,176,0.12)' }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = '#E2E5F0'; e.currentTarget.style.boxShadow = '0 2px 16px rgba(35,56,176,0.06)' }}
                 >

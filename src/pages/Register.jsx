@@ -67,7 +67,7 @@ export default function Register() {
   if (user) return <Navigate to="/dashboard" replace />
 
   return (
-    <main className="min-h-[calc(100vh-80px)] flex items-center justify-center py-16 px-4" style={{ background: '#F5ECD7' }}>
+    <main className="min-h-screen flex items-center justify-center py-12 sm:py-16 px-4" style={{ background: '#F5ECD7' }}>
       {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
 
       {/* Success overlay */}
@@ -100,7 +100,7 @@ export default function Register() {
         </Link>
 
         {/* Card */}
-        <div className="bg-white rounded-3xl p-8 shadow-card" style={{ border: '1px solid #E8D5B0' }}>
+        <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-card" style={{ border: '1px solid #E8D5B0' }}>
           <h1 className="font-heading text-dark text-3xl font-bold mb-1">Create Profile</h1>
           <p className="font-body text-sm text-muted mb-6">
             Already registered?{' '}

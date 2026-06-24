@@ -28,11 +28,14 @@ function ScrollToTop() {
 function Layout() {
   const { pathname } = useLocation()
   const isDash = dashboardRoutes.some(r => pathname.startsWith(r))
+  // Pages with a full-screen hero that sits behind the transparent navbar
+  const heroRoutes = ['/', '/about', '/contact', '/success-stories', '/membership']
+  const isHero = heroRoutes.includes(pathname)
   return (
     <>
       <ScrollToTop />
       {!isDash && <Navbar />}
-      <div className={!isDash ? 'has-navbar' : ''}>
+      <div className={!isDash && !isHero ? 'has-navbar' : ''}>
         <Routes>
           {/* Public */}
           <Route path="/"                element={<Home />} />

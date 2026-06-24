@@ -1,223 +1,304 @@
 import { useEffect, useRef, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { Heart, Bookmark, MapPin, Briefcase, GraduationCap, Star, ChevronLeft, MessageCircle } from 'lucide-react'
+import {
+  Heart, Bookmark, MapPin, Briefcase, GraduationCap,
+  ChevronLeft, MessageCircle, User, Home, Utensils,
+  Cigarette, Wine, Star, CheckCircle, Phone
+} from 'lucide-react'
 import { profiles, profileDetails } from '../data/profiles'
+import DashLayout from '../components/DashLayout'
 
-function MatchCircle({ score }) {
+function MatchRing({ score }) {
   const circleRef = useRef(null)
-  const radius = 40
-  const circumference = 2 * Math.PI * radius
-  const offset = circumference * (1 - score / 100)
+  const r = 36
+  const circ = 2 * Math.PI * r
 
   useEffect(() => {
     const el = circleRef.current
     if (!el) return
-    el.style.strokeDashoffset = circumference
+    el.style.strokeDashoffset = circ
     const t = setTimeout(() => {
       el.style.transition = 'stroke-dashoffset 1.2s cubic-bezier(0.16,1,0.3,1)'
-      el.style.strokeDashoffset = offset
+      el.style.strokeDashoffset = circ * (1 - score / 100)
     }, 300)
     return () => clearTimeout(t)
-  }, [circumference, offset])
+  }, [circ, score])
 
   return (
-    <div className="flex flex-col items-center py-6">
-      <svg width="100" height="100" viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r={radius} fill="none" stroke="rgba(212,160,23,0.15)" strokeWidth="6" />
-        <circle
-          ref={circleRef}
-          cx="50" cy="50" r={radius}
-          fill="none"
-          stroke="#D4A017"
-          strokeWidth="6"
-          strokeLinecap="round"
-          style={{ strokeDasharray: circumference, transform: 'rotate(-90deg)', transformOrigin: '50% 50%' }}
+    <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+      <svg width={88} height={88} viewBox="0 0 88 88">
+        <defs>
+          <linearGradient id="matchGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#2338B0" />
+            <stop offset="100%" stopColor="#F8B500" />
+          </linearGradient>
+        </defs>
+        <circle cx={44} cy={44} r={r} fill="none" stroke="#E8EBF5" strokeWidth={7} />
+        <circle ref={circleRef} cx={44} cy={44} r={r} fill="none"
+          stroke="url(#matchGrad)" strokeWidth={7} strokeLinecap="round"
+          style={{ strokeDasharray: circ, transform: 'rotate(-90deg)', transformOrigin: '50% 50%' }}
         />
-        <text x="50" y="46" textAnchor="middle" fontFamily="Bodoni Moda" fontSize="18" fontWeight="700" fill="#D4A017">{score}%</text>
-        <text x="50" y="60" textAnchor="middle" fontFamily="Outfit" fontSize="8" fill="rgba(255,255,255,0.5)">Match</text>
       </svg>
+      <div style={{ position: 'absolute', textAlign: 'center' }}>
+        <div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: 18, color: '#2338B0', lineHeight: 1 }}>{score}</div>
+        <div style={{ fontFamily: 'Outfit, sans-serif', fontSize: 9, color: '#9CA3AF', fontWeight: 600 }}>% Match</div>
+      </div>
     </div>
   )
 }
 
-function HoroscopeBar({ score = 78 }) {
+function HoroscopeBar({ score }) {
   const barRef = useRef(null)
   useEffect(() => {
     const observer = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting && barRef.current) {
-        barRef.current.style.width = `${score}%`
-      }
-    }, { threshold: 0.5 })
+      if (e.isIntersecting && barRef.current) barRef.current.style.width = `${score}%`
+    }, { threshold: 0.3 })
     if (barRef.current) observer.observe(barRef.current)
     return () => observer.disconnect()
   }, [score])
 
   return (
-    <div className="mt-4 px-5 pb-5">
-      <div className="flex items-center justify-between mb-2">
-        <span className="font-body text-xs text-white/50">Horoscope Match</span>
-        <span className="font-body text-xs font-bold" style={{ color: '#D4A017' }}>{score}%</span>
+    <div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
+        <span style={{ fontFamily: 'Outfit, sans-serif', fontSize: 12, color: '#6B7280' }}>Horoscope Match</span>
+        <span style={{ fontFamily: 'Outfit, sans-serif', fontSize: 12, fontWeight: 700, color: '#F8B500' }}>{score}%</span>
       </div>
-      <div className="h-1.5 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.08)' }}>
-        <div
-          ref={barRef}
-          className="h-full rounded-full transition-all duration-1000"
-          style={{ width: 0, background: 'linear-gradient(90deg, #7B2FBE, #D4A017)', transitionTimingFunction: 'cubic-bezier(0.16,1,0.3,1)' }}
-        />
+      <div style={{ height: 6, borderRadius: 6, background: '#E8EBF5', overflow: 'hidden' }}>
+        <div ref={barRef} style={{ height: '100%', width: 0, borderRadius: 6, background: 'linear-gradient(90deg, #2338B0, #F8B500)', transition: 'width 1.2s cubic-bezier(0.16,1,0.3,1)' }} />
       </div>
     </div>
   )
 }
 
+const S = {
+  card: { background: '#fff', borderRadius: 16, border: '1px solid #E8EBF5', boxShadow: '0 1px 12px rgba(35,56,176,0.07)' },
+  label: { fontFamily: 'Outfit, sans-serif', fontSize: 11, fontWeight: 600, color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.06em' },
+  value: { fontFamily: 'Outfit, sans-serif', fontSize: 13, fontWeight: 600, color: '#111827' },
+  sectionTitle: { fontFamily: 'Cormorant Garamond, serif', fontWeight: 700, fontSize: 17, color: '#1A1F36', marginBottom: 14 },
+}
+
 export default function ProfileDetails() {
-  const { id }    = useParams()
-  const profile   = profiles.find(p => p.id === Number(id)) ?? profiles[0]
-  const details   = profileDetails[profile.id] ?? profileDetails[1]
-  const [saved, setSaved] = useState(false)
+  const { id }  = useParams()
+  const profile = profiles.find(p => p.id === Number(id)) ?? profiles[0]
+  const details = profileDetails[profile.id] ?? profileDetails[1]
+  const [saved, setSaved]         = useState(false)
+  const [interested, setInterested] = useState(false)
+
+  const quickStats = [
+    { label: 'Age',      value: `${profile.age} yrs` },
+    { label: 'Height',   value: profile.height },
+    { label: 'Caste',    value: profile.caste },
+    { label: 'Religion', value: profile.religion },
+    { label: 'Location', value: profile.location },
+    { label: 'Education',value: profile.education },
+  ]
+
+  const lifestyle = [
+    { icon: Utensils,  label: 'Diet',     value: details.diet },
+    { icon: Cigarette, label: 'Smoking',  value: details.smoke },
+    { icon: Wine,      label: 'Drinking', value: details.drink },
+  ]
 
   return (
-    <main className="min-h-screen" style={{ background: '#2C1654' }}>
-      {/* Hero */}
-      <div className="relative h-64 overflow-hidden">
-        <img src={profile.photo} alt="" className="w-full h-full object-cover object-top" />
-        <div className="absolute inset-0" style={{ background: 'rgba(44,22,84,0.75)' }} />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-          <div
-            className="w-28 h-28 rounded-full overflow-hidden mb-3"
-            style={{ border: '3px solid #D4A017', boxShadow: '0 0 32px rgba(212,160,23,0.25)' }}
-          >
-            <img src={profile.photo} alt={profile.name} className="w-full h-full object-cover object-top" />
-          </div>
-          <h1 className="font-display text-4xl font-bold text-white">{profile.name}</h1>
-          <p className="font-body text-sm mt-1" style={{ color: '#D4A017' }}>
-            {profile.age} · {profile.location} · {profile.profession}
-          </p>
-        </div>
-      </div>
+    <DashLayout>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
 
-      <div className="max-w-6xl mx-auto px-6 py-10">
-        <Link to="/matches" className="inline-flex items-center gap-2 font-body text-sm mb-8 transition-colors duration-200" style={{ color: 'rgba(255,255,255,0.4)' }}
-          onMouseEnter={e => { e.currentTarget.style.color = '#D4A017' }}
-          onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.4)' }}
+        {/* Back */}
+        <Link to="/matches"
+          style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontFamily: 'Outfit, sans-serif', fontSize: 13, fontWeight: 600, color: '#6B7280', textDecoration: 'none', width: 'fit-content' }}
+          onMouseEnter={e => e.currentTarget.style.color = '#2338B0'}
+          onMouseLeave={e => e.currentTarget.style.color = '#6B7280'}
         >
-          <ChevronLeft className="w-4 h-4" /> Back to Matches
+          <ChevronLeft size={16} /> Back to Matches
         </Link>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Main content */}
-          <div className="lg:col-span-2 space-y-6">
-            {[
-              {
-                title: 'About Me',
-                content: <p className="font-body text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>{details.about}</p>,
-              },
-              {
-                title: 'Education & Profession',
-                content: (
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    {[
-                      { icon: GraduationCap, label: 'Education', value: profile.education },
-                      { icon: Briefcase,     label: 'Profession', value: profile.profession },
-                    ].map(({ icon: Icon, label, value }) => (
-                      <div key={label} className="flex items-center gap-3 p-4 rounded-2xl" style={{ background: 'rgba(212,160,23,0.06)', border: '1px solid rgba(212,160,23,0.12)' }}>
-                        <Icon className="w-8 h-8 shrink-0" style={{ color: '#D4A017' }} />
-                        <div>
-                          <div className="font-heading text-white font-semibold text-sm">{value}</div>
-                          <div className="font-body text-xs text-white/40">{label}</div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                ),
-              },
-              {
-                title: 'Family Details',
-                content: (
-                  <div className="space-y-3 text-sm">
-                    {Object.entries(details.family).map(([k, v]) => (
-                      <div key={k} className="flex gap-3">
-                        <span className="capitalize font-heading font-semibold text-white/80 w-24 shrink-0">{k}:</span>
-                        <span className="font-body" style={{ color: 'rgba(255,255,255,0.55)' }}>{v}</span>
-                      </div>
-                    ))}
-                  </div>
-                ),
-              },
-              {
-                title: 'Lifestyle',
-                content: (
-                  <div className="flex flex-wrap gap-3">
-                    {[['Diet', details.diet], ['Smoking', details.smoke], ['Drinking', details.drink], ['Hobbies', details.hobbies]].map(([k, v]) => (
-                      <div key={k} className="px-4 py-3 rounded-xl" style={{ border: '1px solid rgba(212,160,23,0.2)', background: 'rgba(255,255,255,0.03)' }}>
-                        <span className="font-body text-xs text-white/40 block">{k}</span>
-                        <span className="font-heading text-white font-semibold text-sm">{v}</span>
-                      </div>
-                    ))}
-                  </div>
-                ),
-              },
-              {
-                title: 'Partner Expectations',
-                content: <p className="font-body text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>{details.expectations}</p>,
-              },
-            ].map(({ title, content }) => (
-              <div
-                key={title}
-                className="rounded-2xl p-6"
-                style={{ background: '#3D1F6B', border: '1px solid rgba(212,160,23,0.1)' }}
-              >
-                <h2 className="font-heading text-white font-bold text-lg mb-4">{title}</h2>
-                {content}
-              </div>
-            ))}
+        {/* ── Hero banner ── */}
+        <div style={{ ...S.card, overflow: 'hidden' }}>
+          {/* Cover strip */}
+          <div style={{ height: 130, background: 'linear-gradient(135deg, #2338B0, #3D52C8, #F8B500)', position: 'relative' }}>
+            <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+            {/* Match badge */}
+            <div style={{ position: 'absolute', top: 14, right: 16, background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.3)', borderRadius: 20, padding: '4px 14px', display: 'flex', alignItems: 'center', gap: 6 }}>
+              <Star size={12} color="#F8B500" fill="#F8B500" />
+              <span style={{ fontFamily: 'Outfit, sans-serif', fontSize: 12, fontWeight: 700, color: 'white' }}>{profile.score}% Match</span>
+            </div>
           </div>
 
-          {/* Sticky sidebar */}
-          <div className="lg:col-span-1">
-            <div
-              className="rounded-2xl overflow-hidden sticky top-24"
-              style={{ background: '#3D1F6B', border: '1px solid rgba(212,160,23,0.15)' }}
-            >
-              <MatchCircle score={profile.score} />
+          {/* Avatar + info row */}
+          <div className="px-4 md:px-7" style={{ paddingBottom: 24, display: 'flex', alignItems: 'flex-end', gap: 16, flexWrap: 'wrap' }}>
+            <div style={{ marginTop: -52, position: 'relative', flexShrink: 0 }}>
+              <img src={profile.photo} alt={profile.name}
+                style={{ width: 104, height: 104, borderRadius: '50%', objectFit: 'cover', objectPosition: 'top center', border: '4px solid white', boxShadow: '0 4px 20px rgba(35,56,176,0.2)' }} />
+              <span style={{ position: 'absolute', bottom: 6, right: 6, width: 14, height: 14, borderRadius: '50%', background: '#22C55E', border: '2px solid white', boxShadow: '0 0 6px #22C55E' }} />
+            </div>
 
-              {/* Quick stats */}
-              <div className="grid grid-cols-2 gap-2 px-5 pb-4">
-                {[['Age', profile.age], ['Height', profile.height], ['Caste', profile.caste], ['Religion', profile.religion]].map(([label, val]) => (
-                  <div key={label} className="rounded-xl p-3 text-center" style={{ background: 'rgba(212,160,23,0.06)' }}>
-                    <div className="font-heading text-white font-bold text-sm">{val}</div>
-                    <div className="font-body text-[11px] text-white/40">{label}</div>
+            <div style={{ paddingTop: 10, flex: 1, minWidth: 0 }}>
+              <div style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 700, fontSize: 26, color: '#111827' }}>{profile.name}</div>
+              <div style={{ display: 'flex', gap: 16, marginTop: 5, flexWrap: 'wrap' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontFamily: 'Outfit, sans-serif', fontSize: 13, color: '#6B7280' }}>
+                  <MapPin size={13} color="#2338B0" /> {profile.location}
+                </span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontFamily: 'Outfit, sans-serif', fontSize: 13, color: '#6B7280' }}>
+                  <Briefcase size={13} color="#2338B0" /> {profile.profession}
+                </span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontFamily: 'Outfit, sans-serif', fontSize: 13, color: '#6B7280' }}>
+                  <GraduationCap size={13} color="#2338B0" /> {profile.education}
+                </span>
+              </div>
+            </div>
+
+            {/* Action buttons */}
+            <div className="w-full md:w-auto" style={{ display: 'flex', gap: 8, paddingTop: 12, flexWrap: 'wrap' }}>
+              <button onClick={() => setInterested(s => !s)}
+                style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '9px 16px', borderRadius: 10, fontFamily: 'Outfit, sans-serif', fontSize: 13, fontWeight: 700, cursor: 'pointer', transition: 'all 0.15s', border: 'none', flex: 1,
+                  background: interested ? '#FEE2E2' : 'linear-gradient(135deg,#2338B0,#3D52C8)',
+                  color: interested ? '#EF4444' : 'white',
+                  boxShadow: interested ? 'none' : '0 4px 14px rgba(35,56,176,0.3)' }}>
+                <Heart size={14} fill={interested ? '#EF4444' : 'none'} />
+                {interested ? 'Interest Sent' : 'Send Interest'}
+              </button>
+              <button onClick={() => setSaved(s => !s)}
+                style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '9px 16px', borderRadius: 10, fontFamily: 'Outfit, sans-serif', fontSize: 13, fontWeight: 700, cursor: 'pointer', transition: 'all 0.15s', flex: 1,
+                  background: saved ? '#EEF1FF' : 'white',
+                  color: saved ? '#2338B0' : '#374151',
+                  border: `1px solid ${saved ? '#2338B0' : '#E8EBF5'}` }}>
+                <Bookmark size={14} fill={saved ? '#2338B0' : 'none'} color={saved ? '#2338B0' : '#374151'} />
+                {saved ? 'Saved' : 'Save'}
+              </button>
+              <button style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '9px 16px', borderRadius: 10, fontFamily: 'Outfit, sans-serif', fontSize: 13, fontWeight: 700, cursor: 'pointer', background: '#DCFCE7', color: '#16A34A', border: 'none', flex: 1, justifyContent: 'center' }}>
+                <MessageCircle size={14} /> Chat
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Main grid ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-5">
+
+          {/* Left column */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+
+            {/* Quick stats grid */}
+            <div style={{ ...S.card, padding: 20 }}>
+              <div style={S.sectionTitle}>Profile Details</div>
+              <div className="grid grid-cols-2 md:grid-cols-3" style={{ gap: 10 }}>
+                {quickStats.map(s => (
+                  <div key={s.label} style={{ background: '#F8F9FF', borderRadius: 10, padding: '10px 14px', border: '1px solid #E8EBF5' }}>
+                    <div style={S.label}>{s.label}</div>
+                    <div style={{ ...S.value, marginTop: 3 }}>{s.value}</div>
                   </div>
                 ))}
               </div>
+            </div>
 
-              {/* Horoscope bar */}
-              <HoroscopeBar score={profile.score} />
+            {/* About */}
+            <div style={{ ...S.card, padding: 20 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
+                <div style={{ width: 30, height: 30, borderRadius: 8, background: '#EEF1FF', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <User size={14} color="#2338B0" />
+                </div>
+                <div style={S.sectionTitle}>About Me</div>
+              </div>
+              <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: 13, color: '#6B7280', lineHeight: 1.8 }}>{details.about}</p>
+            </div>
 
-              {/* Action buttons */}
-              <div className="px-5 pb-6 space-y-3">
-                <button className="btn-primary w-full justify-center gap-2">
-                  <Heart className="w-4 h-4" /> Send Interest
+            {/* Family */}
+            <div style={{ ...S.card, padding: 20 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>
+                <div style={{ width: 30, height: 30, borderRadius: 8, background: '#EEF1FF', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Home size={14} color="#2338B0" />
+                </div>
+                <div style={S.sectionTitle}>Family Details</div>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                {Object.entries(details.family).map(([k, v]) => (
+                  <div key={k} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 14px', background: '#F8F9FF', borderRadius: 10, border: '1px solid #E8EBF5' }}>
+                    <span style={{ ...S.label, textTransform: 'capitalize' }}>{k}</span>
+                    <span style={S.value}>{v}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Lifestyle */}
+            <div style={{ ...S.card, padding: 20 }}>
+              <div style={S.sectionTitle}>Lifestyle</div>
+              <div className="grid grid-cols-3" style={{ gap: 10, marginBottom: 16 }}>
+                {lifestyle.map(({ icon: Icon, label, value }) => (
+                  <div key={label} style={{ background: '#F8F9FF', borderRadius: 10, padding: '12px 14px', border: '1px solid #E8EBF5', textAlign: 'center' }}>
+                    <Icon size={16} color="#2338B0" style={{ margin: '0 auto 6px' }} />
+                    <div style={S.label}>{label}</div>
+                    <div style={{ ...S.value, marginTop: 3 }}>{value}</div>
+                  </div>
+                ))}
+              </div>
+              {/* Hobbies */}
+              <div style={{ ...S.label, marginBottom: 8 }}>Hobbies & Interests</div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7 }}>
+                {details.hobbies.split(', ').map(h => (
+                  <span key={h} style={{ padding: '4px 12px', borderRadius: 20, background: '#EEF1FF', color: '#2338B0', fontFamily: 'Outfit, sans-serif', fontSize: 12, fontWeight: 500 }}>{h}</span>
+                ))}
+              </div>
+            </div>
+
+            {/* Partner Expectations */}
+            <div style={{ ...S.card, padding: 20 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
+                <div style={{ width: 30, height: 30, borderRadius: 8, background: '#FEF3C7', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <CheckCircle size={14} color="#B45309" />
+                </div>
+                <div style={S.sectionTitle}>Partner Expectations</div>
+              </div>
+              <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: 13, color: '#6B7280', lineHeight: 1.8, background: '#F8F9FF', borderRadius: 10, padding: '12px 16px', border: '1px solid #E8EBF5' }}>
+                {details.expectations}
+              </p>
+            </div>
+          </div>
+
+          {/* Right sidebar */}
+          <div className="order-first lg:order-last" style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            {/* Mobile: horizontal row for match + connect */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+
+            {/* Match score card */}
+            <div style={{ ...S.card, padding: 20, textAlign: 'center' }}>
+              <div style={{ fontFamily: 'Outfit, sans-serif', fontSize: 11, fontWeight: 600, color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 12 }}>Compatibility</div>
+              <MatchRing score={profile.score} />
+              <div style={{ marginTop: 16 }}>
+                <HoroscopeBar score={profile.score} />
+              </div>
+            </div>
+
+            {/* Contact card */}
+            <div style={{ ...S.card, padding: 20 }}>
+              <div style={{ fontFamily: 'Outfit, sans-serif', fontSize: 11, fontWeight: 600, color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 14 }}>Connect</div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                <button onClick={() => setInterested(s => !s)}
+                  style={{ width: '100%', padding: '11px', borderRadius: 10, border: 'none', cursor: 'pointer', fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, transition: 'all 0.15s',
+                    background: interested ? '#FEE2E2' : 'linear-gradient(135deg,#2338B0,#3D52C8)',
+                    color: interested ? '#EF4444' : 'white',
+                    boxShadow: interested ? 'none' : '0 4px 14px rgba(35,56,176,0.25)' }}>
+                  <Heart size={14} fill={interested ? '#EF4444' : 'none'} />
+                  {interested ? 'Interest Sent ✓' : 'Send Interest'}
                 </button>
-                <button
-                  onClick={() => setSaved(s => !s)}
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-full font-body font-semibold text-sm transition-all duration-200"
-                  style={
-                    saved
-                      ? { background: 'rgba(212,160,23,0.15)', border: '2px solid #D4A017', color: '#D4A017' }
-                      : { border: '2px solid rgba(212,160,23,0.4)', color: '#D4A017' }
-                  }
-                >
-                  <Bookmark className="w-4 h-4" />
-                  {saved ? 'Saved' : 'Save Profile'}
+                <button style={{ width: '100%', padding: '11px', borderRadius: 10, border: 'none', cursor: 'pointer', fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, background: '#DCFCE7', color: '#16A34A' }}>
+                  <MessageCircle size={14} /> Send Message
                 </button>
-                <button className="w-full flex items-center justify-center gap-2 py-3 rounded-full font-body font-semibold text-sm bg-green-600 hover:bg-green-500 text-white transition-colors duration-200">
-                  <MessageCircle className="w-4 h-4" /> Chat
+                <button style={{ width: '100%', padding: '11px', borderRadius: 10, cursor: 'pointer', fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, background: 'white', color: '#374151', border: '1px solid #E8EBF5' }}>
+                  <Phone size={14} color="#2338B0" /> Request Contact
                 </button>
               </div>
+            </div>
+            </div>{/* end grid */}
+
+            {/* Profile ID tag */}
+            <div style={{ ...S.card, padding: 16, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span style={{ fontFamily: 'Outfit, sans-serif', fontSize: 12, color: '#9CA3AF' }}>Profile ID</span>
+              <span style={{ fontFamily: 'Outfit, sans-serif', fontSize: 12, fontWeight: 700, color: '#2338B0', background: '#EEF1FF', padding: '3px 10px', borderRadius: 20 }}>MGL{String(profile.id).padStart(5, '0')}</span>
             </div>
           </div>
         </div>
       </div>
-    </main>
+    </DashLayout>
   )
 }
