@@ -27,30 +27,30 @@ export default function WhyChooseUs() {
               <svg viewBox="0 0 400 500" className="w-full h-full" style={{ opacity: 0.9 }}>
                 <circle cx="200" cy="250" r="180" stroke="rgba(255,255,255,0.08)" strokeWidth="1" fill="none" />
                 <circle cx="200" cy="250" r="140" stroke="rgba(255,255,255,0.06)" strokeWidth="1" fill="none" />
-                <circle cx="200" cy="250" r="100" stroke="rgba(248,181,0,0.1)"    strokeWidth="1" fill="none" />
+                <circle cx="200" cy="250" r="100" stroke="rgba(232,131,106,0.12)"  strokeWidth="1" fill="none" />
 
                 <ellipse cx="155" cy="190" rx="28" ry="34" fill="rgba(255,255,255,0.25)" />
                 <path d="M127 224 Q155 310 130 400 L180 400 Q175 310 185 280 Q195 310 190 400 L210 400 Q185 310 183 224 Z" fill="rgba(255,255,255,0.2)" />
-                <path d="M127 224 Q100 270 95 360 L135 360 Q130 270 155 280 Z" fill="rgba(248,181,0,0.4)" />
+                <path d="M127 224 Q100 270 95 360 L135 360 Q130 270 155 280 Z" fill="rgba(232,131,106,0.35)" />
 
                 <ellipse cx="245" cy="185" rx="26" ry="32" fill="rgba(255,255,255,0.2)" />
                 <path d="M219 217 Q225 310 215 400 L260 400 Q255 310 265 280 Q270 310 268 400 L285 400 Q278 310 271 217 Z" fill="rgba(255,255,255,0.18)" />
-                <path d="M219 217 Q205 260 208 340 L225 340 Q222 270 235 260 Z" fill="rgba(248,181,0,0.3)" />
+                <path d="M219 217 Q205 260 208 340 L225 340 Q222 270 235 260 Z" fill="rgba(232,131,106,0.25)" />
 
-                <path d="M175 210 Q200 230 225 210" stroke="#F8B500" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-                <circle cx="200" cy="228" r="5" fill="#F8B500" opacity="0.9" />
+                <path d="M175 210 Q200 230 225 210" stroke="#E8836A" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+                <circle cx="200" cy="228" r="5" fill="#E8836A" opacity="0.9" />
 
                 {[0,60,120,180,240,300].map((a, i) => (
                   <circle key={i}
                     cx={200 + 170 * Math.cos(a * Math.PI / 180)}
                     cy={250 + 170 * Math.sin(a * Math.PI / 180)}
-                    r="3" fill="#F8B500" opacity="0.4" />
+                    r="3" fill="#E8836A" opacity="0.4" />
                 ))}
               </svg>
               <div className="absolute bottom-0 left-0 right-0 p-8"
                 style={{ background: 'linear-gradient(to top, rgba(26,31,54,0.9), transparent)' }}>
-                <p className="font-telugu text-base font-bold" style={{ color: '#F8B500' }}>మంగళాయం</p>
-                <p style={{ fontFamily: '"Bodoni Moda", serif', fontSize: '1.5rem', fontWeight: 700, color: 'white', marginTop: 4 }}>Telugu. Trusted. Timeless.</p>
+                <p className="font-telugu text-base font-bold" style={{ color: '#E8836A' }}>మంగళాయం</p>
+                <p style={{ fontFamily: '"Playfair Display", serif', fontSize: '1.5rem', fontWeight: 700, color: 'white', marginTop: 4 }}>Telugu. Trusted. Timeless.</p>
               </div>
             </div>
           </div>

@@ -118,7 +118,7 @@ export default function About() {
                   className="absolute -left-[41px] top-0 w-5 h-5 rounded-full"
                   style={{ background: '#2338B0', border: '3px solid #F0F2F8', boxShadow: '0 0 0 2px #2338B0' }}
                 />
-                <span className="font-body text-xs font-bold" style={{ color: '#F8B500' }}>{m.year}</span>
+                <span className="font-body text-xs font-bold" style={{ color: '#E8836A' }}>{m.year}</span>
                 <h3 className="font-heading font-bold mt-1 mb-1" style={{ color: '#1A1F36' }}>{m.title}</h3>
                 <p className="font-body text-sm" style={{ color: '#6B7280' }}>{m.desc}</p>
               </div>

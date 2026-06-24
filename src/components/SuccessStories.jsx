@@ -55,7 +55,7 @@ export default function SuccessStories() {
               <Link to="/success-stories"
                 className="font-body text-sm font-semibold transition-colors duration-200"
                 style={{ color: '#2338B0', borderBottom: '1px solid rgba(35,56,176,0.3)' }}
-                onMouseEnter={e => { e.target.style.color = '#F8B500'; e.target.style.borderColor = '#F8B500' }}
+                onMouseEnter={e => { e.target.style.color = '#E8836A'; e.target.style.borderColor = '#E8836A' }}
                 onMouseLeave={e => { e.target.style.color = '#2338B0'; e.target.style.borderColor = 'rgba(35,56,176,0.3)' }}
               >
                 Read Their Story →

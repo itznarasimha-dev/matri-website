@@ -47,15 +47,15 @@ export default function Hero() {
         <div className="absolute top-0 left-0 w-96 h-96 pointer-events-none"
           style={{ background: 'radial-gradient(ellipse at 0% 0%, rgba(35,56,176,0.18) 0%, transparent 70%)' }} />
         <div className="absolute bottom-0 left-20 w-64 h-64 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse at 50% 100%, rgba(248,181,0,0.08) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(ellipse at 50% 100%, rgba(232,131,106,0.1) 0%, transparent 70%)' }} />
 
         {/* Telugu script badge */}
         <div className="flex items-center gap-3 mb-10" style={{ animation: 'fadeIn 0.6s ease 0.1s both' }}>
-          <div className="h-px w-8" style={{ background: '#F8B500' }} />
-          <span style={{ fontFamily: '"Noto Serif Telugu", serif', fontSize: '13px', color: '#F8B500', letterSpacing: '0.08em' }}>
+          <div className="h-px w-8" style={{ background: '#E8836A' }} />
+          <span style={{ fontFamily: '"Noto Serif Telugu", serif', fontSize: '13px', color: '#E8836A', letterSpacing: '0.08em' }}>
             మంగళాయం
           </span>
-          <div className="h-px w-8" style={{ background: '#F8B500' }} />
+          <div className="h-px w-8" style={{ background: '#E8836A' }} />
         </div>
 
         {/* Main headline */}
@@ -65,12 +65,12 @@ export default function Hero() {
         >
           Where Telugu<br />
           Hearts Find<br />
-          <em className="not-italic" style={{ color: '#F8B500' }}>Their Forever</em>
+          <em className="not-italic" style={{ color: '#E8836A' }}>Their Forever</em>
         </h1>
 
         {/* Divider line */}
         <div className="flex items-center gap-4 mb-6" style={{ animation: 'fadeIn 0.6s ease 0.35s both' }}>
-          <div className="h-px flex-1 max-w-[60px]" style={{ background: 'rgba(248,181,0,0.5)' }} />
+          <div className="h-px flex-1 max-w-[60px]" style={{ background: 'rgba(232,131,106,0.5)' }} />
           <p className="font-body text-sm leading-relaxed max-w-sm" style={{ color: 'rgba(255,255,255,0.55)' }}>
             Connecting verified Telugu families across India & NRI communities with trust and tradition.
           </p>
@@ -131,7 +131,7 @@ export default function Hero() {
         <div className="flex items-center gap-4 mb-12" style={{ animation: 'fadeIn 0.6s ease 0.55s both' }}>
           <Link to="/register"
             className="inline-flex items-center gap-2 font-body font-semibold text-sm px-6 py-3 rounded-full transition-all duration-200"
-            style={{ background: '#F8B500', color: '#0E0B14', boxShadow: '0 4px 20px rgba(248,181,0,0.35)' }}
+            style={{ background: '#E8836A', color: '#ffffff', boxShadow: '0 4px 20px rgba(232,131,106,0.35)' }}
           >
             Register Free
           </Link>
@@ -149,7 +149,7 @@ export default function Hero() {
         <div className="flex gap-8" style={{ animation: 'fadeIn 0.6s ease 0.65s both' }}>
           {STATS.map((s, i) => (
             <div key={i}>
-              <div className="font-display font-bold text-2xl" style={{ color: '#F8B500', letterSpacing: '-0.02em' }}>{s.value}</div>
+              <div className="font-display font-bold text-2xl" style={{ color: '#E8836A', letterSpacing: '-0.02em' }}>{s.value}</div>
               <div className="font-body text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.4)' }}>{s.label}</div>
             </div>
           ))}
@@ -180,7 +180,7 @@ export default function Hero() {
                   style={{ background: 'linear-gradient(to top, rgba(14,11,20,0.6) 0%, transparent 50%)' }} />
                 {i % 3 === 0 && (
                   <div className="absolute bottom-3 left-3 flex items-center gap-1.5">
-                    <CheckCircle className="w-3 h-3" style={{ color: '#F8B500' }} />
+                    <CheckCircle className="w-3 h-3" style={{ color: '#E8836A' }} />
                     <span className="font-body text-[10px] font-semibold" style={{ color: 'rgba(255,255,255,0.85)' }}>Verified</span>
                   </div>
                 )}

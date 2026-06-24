@@ -38,7 +38,7 @@ export default function MembershipTeaser() {
             <ul className="space-y-3 mb-8">
               {bullets.map(b => (
                 <li key={b} className="flex items-center gap-3 font-body text-base text-white">
-                  <Check className="w-5 h-5 shrink-0" style={{ color: '#F8B500' }} />
+                  <Check className="w-5 h-5 shrink-0" style={{ color: '#E8836A' }} />
                   {b}
                 </li>
               ))}
@@ -56,7 +56,7 @@ export default function MembershipTeaser() {
                 className="flex items-center justify-between px-6 py-4 rounded-2xl transition-all duration-200"
                 style={
                   plan.active
-                    ? { background: 'white', border: '2px solid #F8B500', transform: 'scale(1.04)', boxShadow: '0 8px 32px rgba(0,0,0,0.2)' }
+                    ? { background: 'white', border: '2px solid #E8836A', transform: 'scale(1.04)', boxShadow: '0 8px 32px rgba(0,0,0,0.2)' }
                     : { background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }
                 }
               >

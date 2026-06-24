@@ -10,19 +10,19 @@ export default function CTASection() {
       {/* Dot pattern */}
       <div className="absolute inset-0 pointer-events-none"
         style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
-      {/* Amber glow */}
+      {/* Rose glow */}
       <div className="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(248,181,0,0.12) 0%, transparent 70%)', transform: 'translate(30%,-30%)' }} />
+        style={{ background: 'radial-gradient(circle, rgba(232,131,106,0.12) 0%, transparent 70%)', transform: 'translate(30%,-30%)' }} />
 
       <div ref={ref} className="reveal relative z-10 max-w-4xl mx-auto px-6 text-center">
-        <span className="section-tag mb-4 block" style={{ color: '#F8B500' }}>
+        <span className="section-tag mb-4 block" style={{ color: '#E8836A' }}>
           Your Journey Begins Here
         </span>
 
         <h2 className="font-display font-bold text-white mb-6 leading-tight"
           style={{ fontSize: 'clamp(2.5rem,6vw,4rem)' }}>
           Begin Your Search for the{' '}
-          <em className="not-italic" style={{ color: '#F8B500' }}>Right Match</em>{' '}
+          <em className="not-italic" style={{ color: '#E8836A' }}>Right Match</em>{' '}
           Today
         </h2>
 
@@ -38,9 +38,9 @@ export default function CTASection() {
           </Link>
           <Link to="/membership"
             className="inline-flex items-center justify-center gap-2 border-2 border-amber-400 font-body font-semibold text-base px-10 py-4 rounded-full tracking-[0.08em] transition-all duration-200 select-none hover:-translate-y-1"
-            style={{ color: '#F8B500', borderColor: '#F8B500' }}
-            onMouseEnter={e => { e.currentTarget.style.background = '#F8B500'; e.currentTarget.style.color = '#1A1F36' }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#F8B500' }}>
+            style={{ color: '#E8836A', borderColor: '#E8836A' }}
+            onMouseEnter={e => { e.currentTarget.style.background = '#E8836A'; e.currentTarget.style.color = 'white' }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#E8836A' }}>
             View Plans
           </Link>
         </div>

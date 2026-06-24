@@ -44,7 +44,7 @@ export default function Testimonials() {
         <div ref={headRef} className="reveal text-center mb-14">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-4"
             style={{ background: 'rgba(35,56,176,0.07)', border: '1px solid rgba(35,56,176,0.15)' }}>
-            <span className="font-body text-xs font-bold" style={{ color: '#F8B500' }}>★★★★★</span>
+            <span className="font-body text-xs font-bold" style={{ color: '#E8836A' }}>★★★★★</span>
             <span className="font-body text-xs font-medium" style={{ color: '#6B7280' }}>4.9 Average Rating · 12,000+ Reviews</span>
           </div>
           <h2 className="section-title">What Families Say</h2>
@@ -75,7 +75,7 @@ export default function Testimonials() {
 
             <div className="flex gap-1 mb-6">
               {[...Array(5)].map((_, i) => (
-                <span key={i} style={{ color: '#F8B500', fontSize: '1.1rem' }}>★</span>
+                <span key={i} style={{ color: '#E8836A', fontSize: '1.1rem' }}>★</span>
               ))}
             </div>
 

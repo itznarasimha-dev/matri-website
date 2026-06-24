@@ -10,10 +10,10 @@
   --color-primary-light: #3D52C8;
   --color-primary-glow:  rgba(35,56,176,0.22);
   --color-primary-tint:  rgba(35,56,176,0.06);
-  --color-amber:         #F8B500;
-  --color-amber-dark:    #E5A000;
-  --color-amber-light:   #FFCA28;
-  --color-amber-glow:    rgba(248,181,0,0.30);
+  --color-amber:         #E8836A;
+  --color-amber-dark:    #D4694F;
+  --color-amber-light:   #F0A08A;
+  --color-amber-glow:    rgba(232,131,106,0.30);
   /* backgrounds */
   --color-bg:            #F0F2F8;
   --color-bg-card:       #FFFFFF;
@@ -26,8 +26,8 @@
   --color-border:        #E2E5F0;
   --color-border-strong: #C7CCDF;
   /* legacy aliases kept for landing pages */
-  --color-gold:          #F8B500;
-  --color-gold-light:    #FFCA28;
+  --color-gold:          #E8836A;
+  --color-gold-light:    #F0A08A;
   --color-dark:          #1A1F36;
   --color-dark-mid:      #2338B0;
   --color-dark-glass:    rgba(26,31,54,0.92);
@@ -37,8 +37,8 @@
   /* shadows */
   --shadow-card:  0 2px 16px rgba(35,56,176,0.08);
   --shadow-hover: 0 12px 40px rgba(35,56,176,0.16);
-  --shadow-amber: 0 4px 20px rgba(248,181,0,0.35);
-  --shadow-gold:  0 4px 20px rgba(248,181,0,0.35);
+  --shadow-amber: 0 4px 20px rgba(232,131,106,0.35);
+  --shadow-gold:  0 4px 20px rgba(232,131,106,0.35);
   --ease-silk:    cubic-bezier(0.16, 1, 0.3, 1);
   --ease-bounce:  cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -325,7 +325,7 @@
 }
 .navbar__logo-telugu {
   font-family: 'Noto Serif Telugu', serif;
-  font-size: 9px; color: #F8B500;
+  font-size: 9px; color: #E8836A;
   letter-spacing: 0.06em; margin-top: 2px; display: block;
 }
 .navbar__links {
