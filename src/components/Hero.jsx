@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ChevronDown, Shield, Phone, Globe, Star } from 'lucide-react'
 import { profiles } from '../data/profiles'
-import heroBg from '../assets/hero-background.jpg'
+// Hero background served via URL — keeps the bundle small
+const heroBg = 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1600&q=85'
 
 const words = ['Where', 'Telugu', 'Hearts', 'Find', 'Their', 'Home']
 
