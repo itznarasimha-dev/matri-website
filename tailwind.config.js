@@ -20,11 +20,11 @@ export default {
         border:          '#E2E5F0',
       },
       fontFamily: {
-        display: ['"Bodoni Moda"', '"Cormorant Garamond"', 'Georgia', 'serif'],
-        heading: ['"Fraunces"', '"Cormorant Garamond"', 'Georgia', 'serif'],
-        brand:   ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        body:    ['"Outfit"', 'system-ui', 'sans-serif'],
-        mono:    ['"JetBrains Mono"', 'monospace'],
+        display: ['"Playfair Display"', 'Georgia', 'serif'],
+        heading: ['"Playfair Display"', 'Georgia', 'serif'],
+        brand:   ['"Playfair Display"', 'Georgia', 'serif'],
+        body:    ['"DM Sans"', 'system-ui', 'sans-serif'],
+        mono:    ['"DM Sans"', 'monospace'],
         telugu:  ['"Noto Serif Telugu"', 'serif'],
       },
       boxShadow: {

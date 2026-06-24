@@ -76,7 +76,7 @@ export default function Navbar() {
             </div>
             <div>
               <span className="navbar__logo-telugu">మంగళాయం</span>
-              <span className="navbar__logo-brand" style={{ fontFamily: '"Cormorant Garamond", serif', letterSpacing: '0.02em' }}>Mangalayam</span>
+              <span className="navbar__logo-brand" style={{ fontFamily: '"Playfair Display", serif', letterSpacing: '0.02em' }}>Mangalayam</span>
             </div>
           </Link>
 
@@ -200,7 +200,7 @@ export default function Navbar() {
                 <div className="navbar__logo-icon"><LotusIcon size={20} color="white" /></div>
                 <div>
                   <span className="navbar__logo-telugu">మంగళాయం</span>
-                  <span className="navbar__logo-brand" style={{ fontFamily: '"Cormorant Garamond", serif' }}>Mangalayam</span>
+                  <span className="navbar__logo-brand" style={{ fontFamily: '"Playfair Display", serif' }}>Mangalayam</span>
                 </div>
               </Link>
               <button onClick={() => setMobileOpen(false)} style={{ color: '#6B7280' }}>

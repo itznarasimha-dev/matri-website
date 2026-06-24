@@ -92,7 +92,7 @@ export default function Footer() {
               </div>
               <div>
                 <span className="block font-telugu text-[9px] text-gold tracking-wide">మంగళాయం</span>
-                <span className="font-brand text-xl text-primary font-bold" style={{ fontFamily: '"Cormorant Garamond", serif', letterSpacing: '0.02em' }}>Mangalayam</span>
+                <span className="font-brand text-xl text-primary font-bold" style={{ fontFamily: '"Playfair Display", serif', letterSpacing: '0.02em' }}>Mangalayam</span>
               </div>
             </Link>
             <p className="font-body text-sm text-white/50 leading-relaxed mb-6">

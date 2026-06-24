@@ -95,7 +95,7 @@ export default function Login() {
             </div>
             <div>
               <span className="block font-telugu text-[9px]" style={{ color: '#D4A017' }}>మంగళాయం</span>
-              <span style={{ fontFamily: '"Cormorant Garamond", serif', letterSpacing: '0.02em', fontSize: '1.25rem', fontWeight: 700, color: '#7B2FBE' }}>Mangalayam</span>
+              <span style={{ fontFamily: '"Playfair Display", serif', letterSpacing: '0.02em', fontSize: '1.25rem', fontWeight: 700, color: '#7B2FBE' }}>Mangalayam</span>
             </div>
           </Link>
 
