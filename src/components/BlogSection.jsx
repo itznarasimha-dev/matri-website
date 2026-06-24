@@ -39,8 +39,9 @@ export default function BlogSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
           {posts.map((p, i) => (
             <article key={p.title}
-              className="reveal bg-white rounded-2xl overflow-hidden group transition-all duration-300"
-              style={{ transitionDelay: `${i * 100}ms`, boxShadow: '0 2px 16px rgba(35,56,176,0.07)', border: '1px solid #E2E5F0' }}
+              className="bg-white rounded-2xl overflow-hidden group transition-all duration-300"
+              style={{ transitionDelay: `${i * 100}ms`, boxShadow: '0 2px 16px rgba(35,56,176,0.07)', border: '1px solid #E2E5F0',
+                opacity: 0, transform: 'translateY(24px)', animation: `fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) ${0.1 + i * 0.12}s forwards` }}
               onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 16px 40px rgba(35,56,176,0.14)'; e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#2338B0' }}
               onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 16px rgba(35,56,176,0.07)'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#E2E5F0' }}
             >

@@ -10,7 +10,7 @@ export function useReveal(direction = 'up') {
           observer.unobserve(entry.target)
         }
       },
-      { threshold: 0.12 }
+      { threshold: 0.05, rootMargin: '0px 0px -40px 0px' }
     )
     const el = ref.current
     if (el) observer.observe(el)
@@ -35,7 +35,7 @@ export function useRevealStagger(count = 6) {
           }
         })
       },
-      { threshold: 0.1 }
+      { threshold: 0.05, rootMargin: '0px 0px -40px 0px' }
     )
     refs.current.forEach(r => { if (r) observer.observe(r) })
     return () => refs.current.forEach(r => { if (r) observer.unobserve(r) })
