@@ -12,9 +12,9 @@ const plans = [
     features: ['Create profile', 'Browse 20 profiles/day', 'Send 5 interests/month', 'Basic search filters', null, null, null],
   },
   {
-    name: 'Premium', icon: <Zap size={22} color="#2338B0" />, iconBg: '#EEF1FF',
+    name: 'Premium', icon: <Zap size={22} color="#000080" />, iconBg: '#EEF1FF',
     monthly: '₹999', yearly: '₹799', period: 'per month',
-    color: '#2338B0', border: '#2338B0', bg: '#fff', highlight: true, badge: 'Most Popular',
+    color: '#000080', border: '#000080', bg: '#fff', highlight: true, badge: 'Most Popular',
     features: ['Everything in Free', 'Unlimited browsing', 'Send unlimited interests', 'Advanced filters', 'View contact details', 'Chat with matches', null],
   },
   {
@@ -38,16 +38,16 @@ function MembershipContent({ yearly, setYearly }) {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
 
       {/* Header */}
-      <div style={{ background: '#fff', borderRadius: 16, padding: '18px 22px', boxShadow: '0 1px 12px rgba(35,56,176,0.07)', border: '1px solid #E8EBF5', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
+      <div style={{ background: '#fff', borderRadius: 16, padding: '18px 22px', boxShadow: '0 1px 12px rgba(0,0,128,0.07)', border: '1px solid #E8EBF5', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
         <div>
-          <h1 style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 700, fontSize: 26, color: '#1A1F36', margin: 0 }}>Membership Plans</h1>
-          <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: 13, color: '#9CA3AF', margin: 0 }}>Upgrade to find your match faster. No hidden charges.</p>
+          <h1 style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 700, fontSize: 26, color: '#1A1F36', margin: 0 }}>Membership Plans</h1>
+          <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: 13, color: '#9CA3AF', margin: 0 }}>Upgrade to find your match faster. No hidden charges.</p>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 4, background: '#F0F2F8', borderRadius: 10, padding: 4 }}>
           {[['Monthly', false], ['Yearly', true]].map(([label, val]) => (
             <button key={label} onClick={() => setYearly(val)}
-              style={{ padding: '7px 16px', borderRadius: 8, fontFamily: 'Outfit, sans-serif', fontSize: 13, fontWeight: 600, border: 'none', cursor: 'pointer', transition: 'all 0.15s',
-                background: yearly === val ? '#2338B0' : 'transparent',
+              style={{ padding: '7px 16px', borderRadius: 8, fontFamily: '"DM Sans", sans-serif', fontSize: 13, fontWeight: 600, border: 'none', cursor: 'pointer', transition: 'all 0.15s',
+                background: yearly === val ? '#000080' : 'transparent',
                 color: yearly === val ? 'white' : '#6B7280' }}>
               {label} {val && <span style={{ fontSize: 10, marginLeft: 4, background: '#FEF3C7', color: '#B45309', padding: '1px 5px', borderRadius: 5, fontWeight: 700 }}>-20%</span>}
             </button>
@@ -61,35 +61,35 @@ function MembershipContent({ yearly, setYearly }) {
           <div key={plan.name}
             onMouseEnter={e => { if (!plan.highlight) e.currentTarget.style.transform = 'translateY(-4px)' }}
             onMouseLeave={e => { if (!plan.highlight) e.currentTarget.style.transform = 'translateY(0)' }}
-            style={{ background: plan.bg, borderRadius: 16, padding: 24, border: `2px solid ${plan.highlight ? plan.color : plan.border}`, position: 'relative', boxShadow: plan.highlight ? '0 8px 32px rgba(35,56,176,0.18)' : '0 1px 12px rgba(35,56,176,0.07)', transform: plan.highlight ? 'translateY(-6px)' : 'none', transition: 'transform 0.2s, box-shadow 0.2s' }}>
+            style={{ background: plan.bg, borderRadius: 16, padding: 24, border: `2px solid ${plan.highlight ? plan.color : plan.border}`, position: 'relative', boxShadow: plan.highlight ? '0 8px 32px rgba(0,0,128,0.18)' : '0 1px 12px rgba(0,0,128,0.07)', transform: plan.highlight ? 'translateY(-6px)' : 'none', transition: 'transform 0.2s, box-shadow 0.2s' }}>
             {plan.badge && (
-              <div style={{ position: 'absolute', top: -12, left: '50%', transform: 'translateX(-50%)', fontFamily: 'Outfit, sans-serif', fontSize: 11, fontWeight: 700, padding: '4px 14px', borderRadius: 20, background: plan.color, color: plan.name === 'Premium' ? 'white' : '#1F2937', whiteSpace: 'nowrap' }}>{plan.badge}</div>
+              <div style={{ position: 'absolute', top: -12, left: '50%', transform: 'translateX(-50%)', fontFamily: '"DM Sans", sans-serif', fontSize: 11, fontWeight: 700, padding: '4px 14px', borderRadius: 20, background: plan.color, color: plan.name === 'Premium' ? 'white' : '#1F2937', whiteSpace: 'nowrap' }}>{plan.badge}</div>
             )}
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
               <div style={{ width: 44, height: 44, borderRadius: 12, background: plan.iconBg, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{plan.icon}</div>
               <div>
-                <div style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 700, fontSize: 18, color: '#111827' }}>{plan.name}</div>
-                <div style={{ fontFamily: 'Outfit, sans-serif', fontSize: 11, color: '#9CA3AF' }}>{plan.period}</div>
+                <div style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 700, fontSize: 18, color: '#111827' }}>{plan.name}</div>
+                <div style={{ fontFamily: '"DM Sans", sans-serif', fontSize: 11, color: '#9CA3AF' }}>{plan.period}</div>
               </div>
             </div>
             <div style={{ marginBottom: 20 }}>
-              <span style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: 32, color: plan.color }}>{yearly ? plan.yearly : plan.monthly}</span>
-              <span style={{ fontFamily: 'Outfit, sans-serif', fontSize: 12, color: '#9CA3AF', marginLeft: 4 }}>/mo</span>
+              <span style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 800, fontSize: 32, color: plan.color }}>{yearly ? plan.yearly : plan.monthly}</span>
+              <span style={{ fontFamily: '"DM Sans", sans-serif', fontSize: 12, color: '#9CA3AF', marginLeft: 4 }}>/mo</span>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 20 }}>
               {plan.features.map((f, i) => (
                 <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                   {f ? <Check size={14} color={plan.color} /> : <X size={14} color="#D1D5DB" />}
-                  <span style={{ fontFamily: 'Outfit, sans-serif', fontSize: 12, color: f ? '#374151' : '#D1D5DB' }}>{f || features[i]}</span>
+                  <span style={{ fontFamily: '"DM Sans", sans-serif', fontSize: 12, color: f ? '#374151' : '#D1D5DB' }}>{f || features[i]}</span>
                 </div>
               ))}
             </div>
             <button
-              style={{ display: 'block', width: '100%', textAlign: 'center', padding: '10px', borderRadius: 10, fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: 13, cursor: 'pointer', transition: 'opacity 0.15s',
+              style={{ display: 'block', width: '100%', textAlign: 'center', padding: '10px', borderRadius: 10, fontFamily: '"DM Sans", sans-serif', fontWeight: 700, fontSize: 13, cursor: 'pointer', transition: 'opacity 0.15s',
                 background: plan.highlight ? plan.color : 'transparent',
                 color: plan.highlight ? 'white' : plan.color,
                 border: `2px solid ${plan.color}`,
-                boxShadow: plan.highlight ? '0 4px 16px rgba(35,56,176,0.25)' : 'none' }}>
+                boxShadow: plan.highlight ? '0 4px 16px rgba(0,0,128,0.25)' : 'none' }}>
               {plan.name === 'Free' ? 'Current Plan' : 'Upgrade Now'}
             </button>
           </div>
@@ -97,12 +97,12 @@ function MembershipContent({ yearly, setYearly }) {
       </div>
 
       {/* Comparison table */}
-      <div style={{ background: '#fff', borderRadius: 16, overflow: 'hidden', boxShadow: '0 1px 12px rgba(35,56,176,0.07)', border: '1px solid #E8EBF5' }}>
-        <div style={{ padding: '14px 22px', background: 'linear-gradient(135deg,#2338B0,#3D52C8)' }}>
-          <span style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 700, fontSize: 18, color: 'white' }}>Feature Comparison</span>
+      <div style={{ background: '#fff', borderRadius: 16, overflow: 'hidden', boxShadow: '0 1px 12px rgba(0,0,128,0.07)', border: '1px solid #E8EBF5' }}>
+        <div style={{ padding: '14px 22px', background: 'linear-gradient(135deg,#000080,#1a1aad)' }}>
+          <span style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 700, fontSize: 18, color: 'white' }}>Feature Comparison</span>
         </div>
         <div style={{ overflowX: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: 'Outfit, sans-serif', fontSize: 13 }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: '"DM Sans", sans-serif', fontSize: 13 }}>
             <thead>
               <tr style={{ background: '#F8F9FF' }}>
                 <th style={{ textAlign: 'left', padding: '12px 22px', color: '#6B7280', fontWeight: 600 }}>Feature</th>
@@ -128,9 +128,9 @@ function MembershipContent({ yearly, setYearly }) {
       {/* Testimonials */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16 }}>
         {testimonials.map(t => (
-          <div key={t.name} style={{ background: '#fff', borderRadius: 16, padding: 20, boxShadow: '0 1px 12px rgba(35,56,176,0.07)', border: '1px solid #E8EBF5', borderLeft: '4px solid #2338B0' }}>
-            <p style={{ fontFamily: '"Cormorant Garamond", serif', fontStyle: 'italic', fontSize: 16, fontWeight: 500, color: '#1A1F36', lineHeight: 1.65, marginBottom: 10, letterSpacing: '0.01em' }}>"{t.quote}"</p>
-            <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: 12, fontWeight: 700, color: '#2338B0', letterSpacing: '0.02em' }}>— {t.name}</p>
+          <div style={{ background: '#fff', borderRadius: 16, padding: 20, boxShadow: '0 1px 12px rgba(0,0,128,0.07)', border: '1px solid #E8EBF5', borderLeft: '4px solid #000080' }}>
+            <p style={{ fontFamily: '"DM Sans", sans-serif', fontStyle: 'italic', fontSize: 16, fontWeight: 500, color: '#1A1F36', lineHeight: 1.65, marginBottom: 10 }}>"{t.quote}"</p>
+            <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: 12, fontWeight: 700, color: '#000080', letterSpacing: '0.02em' }}>— {t.name}</p>
           </div>
         ))}
       </div>
@@ -169,10 +169,10 @@ export default function Membership() {
           style={{ background: 'radial-gradient(circle, rgba(232,131,106,0.15) 0%, transparent 70%)', transform: 'translate(20%,-20%)' }} />
         <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6">
           <span className="section-tag" style={{ color: '#E8836A' }}>Plans & Pricing</span>
-          <h1 style={{ fontFamily: '"Playfair Display", serif', fontWeight: 800, fontSize: 'clamp(2rem, 5vw, 3.8rem)', color: 'white', lineHeight: 1.1, letterSpacing: '-0.02em', margin: '8px 0 16px' }}>
+          <h1 style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 800, fontSize: 'clamp(2rem, 5vw, 3.8rem)', color: 'white', lineHeight: 1.1, letterSpacing: '-0.02em', margin: '8px 0 16px' }}>
             Find Your Match <em className="not-italic" style={{ color: '#E8836A' }}>Faster</em>
             <br />
-            <span style={{ fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 400, fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', color: 'rgba(255,255,255,0.75)', display: 'block', marginTop: 6 }}>with Premium &amp; Relationship Managers</span>
+            <span style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 400, fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', color: 'rgba(255,255,255,0.75)', display: 'block', marginTop: 6 }}>with Premium &amp; Relationship Managers</span>
           </h1>
           <p className="font-body text-sm sm:text-base max-w-md mx-auto" style={{ color: 'rgba(255,255,255,0.70)' }}>
             Simple, transparent pricing. Join 2 lakh+ Telugu families. No hidden charges.
@@ -191,7 +191,7 @@ export default function Membership() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-12">
         <MembershipContent yearly={yearly} setYearly={setYearly} />
         <div style={{ textAlign: 'center', marginTop: 32 }}>
-          <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: 14, color: '#6B7280', marginBottom: 12 }}>
+          <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: 14, color: '#6B7280', marginBottom: 12 }}>
             Ready to find your match?
           </p>
           <Link to="/register" className="btn-primary text-base px-10 py-4">Register Free →</Link>

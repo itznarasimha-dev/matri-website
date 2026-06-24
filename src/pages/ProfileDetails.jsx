@@ -27,21 +27,15 @@ function MatchRing({ score }) {
   return (
     <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
       <svg width={88} height={88} viewBox="0 0 88 88">
-        <defs>
-          <linearGradient id="matchGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#2338B0" />
-            <stop offset="100%" stopColor="#F8B500" />
-          </linearGradient>
-        </defs>
         <circle cx={44} cy={44} r={r} fill="none" stroke="#E8EBF5" strokeWidth={7} />
         <circle ref={circleRef} cx={44} cy={44} r={r} fill="none"
-          stroke="url(#matchGrad)" strokeWidth={7} strokeLinecap="round"
+          stroke="#000080" strokeWidth={7} strokeLinecap="round"
           style={{ strokeDasharray: circ, transform: 'rotate(-90deg)', transformOrigin: '50% 50%' }}
         />
       </svg>
       <div style={{ position: 'absolute', textAlign: 'center' }}>
-        <div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: 18, color: '#2338B0', lineHeight: 1 }}>{score}</div>
-        <div style={{ fontFamily: 'Outfit, sans-serif', fontSize: 9, color: '#9CA3AF', fontWeight: 600 }}>% Match</div>
+        <div style={{ fontFamily: 'inherit', fontWeight: 800, fontSize: 18, color: '#000080', lineHeight: 1 }}>{score}</div>
+        <div style={{ fontFamily: 'inherit', fontSize: 9, color: '#9CA3AF', fontWeight: 600 }}>% Match</div>
       </div>
     </div>
   )
@@ -60,21 +54,21 @@ function HoroscopeBar({ score }) {
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
-        <span style={{ fontFamily: 'Outfit, sans-serif', fontSize: 12, color: '#6B7280' }}>Horoscope Match</span>
-        <span style={{ fontFamily: 'Outfit, sans-serif', fontSize: 12, fontWeight: 700, color: '#F8B500' }}>{score}%</span>
+        <span style={{ fontFamily: 'inherit', fontSize: 12, color: '#6B7280' }}>Horoscope Match</span>
+        <span style={{ fontFamily: 'inherit', fontSize: 12, fontWeight: 700, color: '#F8B500' }}>{score}%</span>
       </div>
       <div style={{ height: 6, borderRadius: 6, background: '#E8EBF5', overflow: 'hidden' }}>
-        <div ref={barRef} style={{ height: '100%', width: 0, borderRadius: 6, background: 'linear-gradient(90deg, #2338B0, #F8B500)', transition: 'width 1.2s cubic-bezier(0.16,1,0.3,1)' }} />
+        <div ref={barRef} style={{ height: '100%', width: 0, borderRadius: 6, background: '#000080', transition: 'width 1.2s cubic-bezier(0.16,1,0.3,1)' }} />
       </div>
     </div>
   )
 }
 
 const S = {
-  card: { background: '#fff', borderRadius: 16, border: '1px solid #E8EBF5', boxShadow: '0 1px 12px rgba(35,56,176,0.07)' },
-  label: { fontFamily: 'Outfit, sans-serif', fontSize: 11, fontWeight: 600, color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.06em' },
-  value: { fontFamily: 'Outfit, sans-serif', fontSize: 13, fontWeight: 600, color: '#111827' },
-  sectionTitle: { fontFamily: 'Cormorant Garamond, serif', fontWeight: 700, fontSize: 17, color: '#1A1F36', marginBottom: 14 },
+  card: { background: '#fff', borderRadius: 16, border: '1px solid #E8EBF5', boxShadow: '0 1px 12px rgba(0,0,128,0.07)' },
+  label: { fontFamily: 'inherit', fontSize: 11, fontWeight: 600, color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.06em' },
+  value: { fontFamily: 'inherit', fontSize: 13, fontWeight: 600, color: '#111827' },
+  sectionTitle: { fontFamily: 'inherit', fontWeight: 700, fontSize: 17, color: '#1A1F36', marginBottom: 14 },
 }
 
 export default function ProfileDetails() {
@@ -105,8 +99,8 @@ export default function ProfileDetails() {
 
         {/* Back */}
         <Link to="/matches"
-          style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontFamily: 'Outfit, sans-serif', fontSize: 13, fontWeight: 600, color: '#6B7280', textDecoration: 'none', width: 'fit-content' }}
-          onMouseEnter={e => e.currentTarget.style.color = '#2338B0'}
+          style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontFamily: 'inherit', fontSize: 13, fontWeight: 600, color: '#6B7280', textDecoration: 'none', width: 'fit-content' }}
+          onMouseEnter={e => e.currentTarget.style.color = '#000080'}
           onMouseLeave={e => e.currentTarget.style.color = '#6B7280'}
         >
           <ChevronLeft size={16} /> Back to Matches
@@ -115,12 +109,12 @@ export default function ProfileDetails() {
         {/* ── Hero banner ── */}
         <div style={{ ...S.card, overflow: 'hidden' }}>
           {/* Cover strip */}
-          <div style={{ height: 130, background: 'linear-gradient(135deg, #2338B0, #3D52C8, #F8B500)', position: 'relative' }}>
+          <div style={{ height: 130, background: '#000080', position: 'relative' }}>
             <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
             {/* Match badge */}
             <div style={{ position: 'absolute', top: 14, right: 16, background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.3)', borderRadius: 20, padding: '4px 14px', display: 'flex', alignItems: 'center', gap: 6 }}>
               <Star size={12} color="#F8B500" fill="#F8B500" />
-              <span style={{ fontFamily: 'Outfit, sans-serif', fontSize: 12, fontWeight: 700, color: 'white' }}>{profile.score}% Match</span>
+              <span style={{ fontFamily: 'inherit', fontSize: 12, fontWeight: 700, color: 'white' }}>{profile.score}% Match</span>
             </div>
           </div>
 
@@ -128,21 +122,21 @@ export default function ProfileDetails() {
           <div className="px-4 md:px-7" style={{ paddingBottom: 24, display: 'flex', alignItems: 'flex-end', gap: 16, flexWrap: 'wrap' }}>
             <div style={{ marginTop: -52, position: 'relative', flexShrink: 0 }}>
               <img src={profile.photo} alt={profile.name}
-                style={{ width: 104, height: 104, borderRadius: '50%', objectFit: 'cover', objectPosition: 'top center', border: '4px solid white', boxShadow: '0 4px 20px rgba(35,56,176,0.2)' }} />
+                style={{ width: 104, height: 104, borderRadius: '50%', objectFit: 'cover', objectPosition: 'top center', border: '4px solid white', boxShadow: '0 4px 20px rgba(0,0,128,0.2)' }} />
               <span style={{ position: 'absolute', bottom: 6, right: 6, width: 14, height: 14, borderRadius: '50%', background: '#22C55E', border: '2px solid white', boxShadow: '0 0 6px #22C55E' }} />
             </div>
 
             <div style={{ paddingTop: 10, flex: 1, minWidth: 0 }}>
-              <div style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 700, fontSize: 26, color: '#111827' }}>{profile.name}</div>
+              <div style={{ fontFamily: 'inherit', fontWeight: 700, fontSize: 26, color: '#111827' }}>{profile.name}</div>
               <div style={{ display: 'flex', gap: 16, marginTop: 5, flexWrap: 'wrap' }}>
-                <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontFamily: 'Outfit, sans-serif', fontSize: 13, color: '#6B7280' }}>
-                  <MapPin size={13} color="#2338B0" /> {profile.location}
+                <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontFamily: 'inherit', fontSize: 13, color: '#6B7280' }}>
+                  <MapPin size={13} color="#000080" /> {profile.location}
                 </span>
-                <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontFamily: 'Outfit, sans-serif', fontSize: 13, color: '#6B7280' }}>
-                  <Briefcase size={13} color="#2338B0" /> {profile.profession}
+                <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontFamily: 'inherit', fontSize: 13, color: '#6B7280' }}>
+                  <Briefcase size={13} color="#000080" /> {profile.profession}
                 </span>
-                <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontFamily: 'Outfit, sans-serif', fontSize: 13, color: '#6B7280' }}>
-                  <GraduationCap size={13} color="#2338B0" /> {profile.education}
+                <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontFamily: 'inherit', fontSize: 13, color: '#6B7280' }}>
+                  <GraduationCap size={13} color="#000080" /> {profile.education}
                 </span>
               </div>
             </div>
@@ -150,22 +144,22 @@ export default function ProfileDetails() {
             {/* Action buttons */}
             <div className="w-full md:w-auto" style={{ display: 'flex', gap: 8, paddingTop: 12, flexWrap: 'wrap' }}>
               <button onClick={() => setInterested(s => !s)}
-                style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '9px 16px', borderRadius: 10, fontFamily: 'Outfit, sans-serif', fontSize: 13, fontWeight: 700, cursor: 'pointer', transition: 'all 0.15s', border: 'none', flex: 1,
-                  background: interested ? '#FEE2E2' : 'linear-gradient(135deg,#2338B0,#3D52C8)',
+                style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '9px 16px', borderRadius: 10, fontFamily: 'inherit', fontSize: 13, fontWeight: 700, cursor: 'pointer', transition: 'all 0.15s', border: 'none', flex: 1,
+                  background: interested ? '#FEE2E2' : '#000080',
                   color: interested ? '#EF4444' : 'white',
-                  boxShadow: interested ? 'none' : '0 4px 14px rgba(35,56,176,0.3)' }}>
+                  boxShadow: interested ? 'none' : '0 4px 14px rgba(0,0,128,0.3)' }}>
                 <Heart size={14} fill={interested ? '#EF4444' : 'none'} />
                 {interested ? 'Interest Sent' : 'Send Interest'}
               </button>
               <button onClick={() => setSaved(s => !s)}
-                style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '9px 16px', borderRadius: 10, fontFamily: 'Outfit, sans-serif', fontSize: 13, fontWeight: 700, cursor: 'pointer', transition: 'all 0.15s', flex: 1,
+                style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '9px 16px', borderRadius: 10, fontFamily: 'inherit', fontSize: 13, fontWeight: 700, cursor: 'pointer', transition: 'all 0.15s', flex: 1,
                   background: saved ? '#EEF1FF' : 'white',
-                  color: saved ? '#2338B0' : '#374151',
-                  border: `1px solid ${saved ? '#2338B0' : '#E8EBF5'}` }}>
-                <Bookmark size={14} fill={saved ? '#2338B0' : 'none'} color={saved ? '#2338B0' : '#374151'} />
+                  color: saved ? '#000080' : '#374151',
+                  border: `1px solid ${saved ? '#000080' : '#E8EBF5'}` }}>
+                <Bookmark size={14} fill={saved ? '#000080' : 'none'} color={saved ? '#000080' : '#374151'} />
                 {saved ? 'Saved' : 'Save'}
               </button>
-              <button style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '9px 16px', borderRadius: 10, fontFamily: 'Outfit, sans-serif', fontSize: 13, fontWeight: 700, cursor: 'pointer', background: '#DCFCE7', color: '#16A34A', border: 'none', flex: 1, justifyContent: 'center' }}>
+              <button style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '9px 16px', borderRadius: 10, fontFamily: 'inherit', fontSize: 13, fontWeight: 700, cursor: 'pointer', background: '#DCFCE7', color: '#16A34A', border: 'none', flex: 1, justifyContent: 'center' }}>
                 <MessageCircle size={14} /> Chat
               </button>
             </div>
@@ -195,18 +189,18 @@ export default function ProfileDetails() {
             <div style={{ ...S.card, padding: 20 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
                 <div style={{ width: 30, height: 30, borderRadius: 8, background: '#EEF1FF', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <User size={14} color="#2338B0" />
+                  <User size={14} color="#000080" />
                 </div>
                 <div style={S.sectionTitle}>About Me</div>
               </div>
-              <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: 13, color: '#6B7280', lineHeight: 1.8 }}>{details.about}</p>
+              <p style={{ fontFamily: 'inherit', fontSize: 13, color: '#6B7280', lineHeight: 1.8 }}>{details.about}</p>
             </div>
 
             {/* Family */}
             <div style={{ ...S.card, padding: 20 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>
                 <div style={{ width: 30, height: 30, borderRadius: 8, background: '#EEF1FF', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <Home size={14} color="#2338B0" />
+                  <Home size={14} color="#000080" />
                 </div>
                 <div style={S.sectionTitle}>Family Details</div>
               </div>
@@ -226,7 +220,7 @@ export default function ProfileDetails() {
               <div className="grid grid-cols-3" style={{ gap: 10, marginBottom: 16 }}>
                 {lifestyle.map(({ icon: Icon, label, value }) => (
                   <div key={label} style={{ background: '#F8F9FF', borderRadius: 10, padding: '12px 14px', border: '1px solid #E8EBF5', textAlign: 'center' }}>
-                    <Icon size={16} color="#2338B0" style={{ margin: '0 auto 6px' }} />
+                    <Icon size={16} color="#000080" style={{ margin: '0 auto 6px' }} />
                     <div style={S.label}>{label}</div>
                     <div style={{ ...S.value, marginTop: 3 }}>{value}</div>
                   </div>
@@ -236,7 +230,7 @@ export default function ProfileDetails() {
               <div style={{ ...S.label, marginBottom: 8 }}>Hobbies & Interests</div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7 }}>
                 {details.hobbies.split(', ').map(h => (
-                  <span key={h} style={{ padding: '4px 12px', borderRadius: 20, background: '#EEF1FF', color: '#2338B0', fontFamily: 'Outfit, sans-serif', fontSize: 12, fontWeight: 500 }}>{h}</span>
+                  <span key={h} style={{ padding: '4px 12px', borderRadius: 20, background: '#EEF1FF', color: '#000080', fontFamily: 'inherit', fontSize: 12, fontWeight: 500 }}>{h}</span>
                 ))}
               </div>
             </div>
@@ -249,7 +243,7 @@ export default function ProfileDetails() {
                 </div>
                 <div style={S.sectionTitle}>Partner Expectations</div>
               </div>
-              <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: 13, color: '#6B7280', lineHeight: 1.8, background: '#F8F9FF', borderRadius: 10, padding: '12px 16px', border: '1px solid #E8EBF5' }}>
+              <p style={{ fontFamily: 'inherit', fontSize: 13, color: '#6B7280', lineHeight: 1.8, background: '#F8F9FF', borderRadius: 10, padding: '12px 16px', border: '1px solid #E8EBF5' }}>
                 {details.expectations}
               </p>
             </div>
@@ -262,7 +256,7 @@ export default function ProfileDetails() {
 
             {/* Match score card */}
             <div style={{ ...S.card, padding: 20, textAlign: 'center' }}>
-              <div style={{ fontFamily: 'Outfit, sans-serif', fontSize: 11, fontWeight: 600, color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 12 }}>Compatibility</div>
+              <div style={{ fontFamily: 'inherit', fontSize: 11, fontWeight: 600, color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 12 }}>Compatibility</div>
               <MatchRing score={profile.score} />
               <div style={{ marginTop: 16 }}>
                 <HoroscopeBar score={profile.score} />
@@ -271,21 +265,21 @@ export default function ProfileDetails() {
 
             {/* Contact card */}
             <div style={{ ...S.card, padding: 20 }}>
-              <div style={{ fontFamily: 'Outfit, sans-serif', fontSize: 11, fontWeight: 600, color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 14 }}>Connect</div>
+              <div style={{ fontFamily: 'inherit', fontSize: 11, fontWeight: 600, color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 14 }}>Connect</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 <button onClick={() => setInterested(s => !s)}
-                  style={{ width: '100%', padding: '11px', borderRadius: 10, border: 'none', cursor: 'pointer', fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, transition: 'all 0.15s',
-                    background: interested ? '#FEE2E2' : 'linear-gradient(135deg,#2338B0,#3D52C8)',
+                  style={{ width: '100%', padding: '11px', borderRadius: 10, border: 'none', cursor: 'pointer', fontFamily: 'inherit', fontWeight: 700, fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, transition: 'all 0.15s',
+                    background: interested ? '#FEE2E2' : '#000080',
                     color: interested ? '#EF4444' : 'white',
-                    boxShadow: interested ? 'none' : '0 4px 14px rgba(35,56,176,0.25)' }}>
+                    boxShadow: interested ? 'none' : '0 4px 14px rgba(0,0,128,0.25)' }}>
                   <Heart size={14} fill={interested ? '#EF4444' : 'none'} />
                   {interested ? 'Interest Sent ✓' : 'Send Interest'}
                 </button>
-                <button style={{ width: '100%', padding: '11px', borderRadius: 10, border: 'none', cursor: 'pointer', fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, background: '#DCFCE7', color: '#16A34A' }}>
+                <button style={{ width: '100%', padding: '11px', borderRadius: 10, border: 'none', cursor: 'pointer', fontFamily: 'inherit', fontWeight: 700, fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, background: '#DCFCE7', color: '#16A34A' }}>
                   <MessageCircle size={14} /> Send Message
                 </button>
-                <button style={{ width: '100%', padding: '11px', borderRadius: 10, cursor: 'pointer', fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, background: 'white', color: '#374151', border: '1px solid #E8EBF5' }}>
-                  <Phone size={14} color="#2338B0" /> Request Contact
+                <button style={{ width: '100%', padding: '11px', borderRadius: 10, cursor: 'pointer', fontFamily: 'inherit', fontWeight: 700, fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, background: 'white', color: '#374151', border: '1px solid #E8EBF5' }}>
+                  <Phone size={14} color="#000080" /> Request Contact
                 </button>
               </div>
             </div>
@@ -293,8 +287,8 @@ export default function ProfileDetails() {
 
             {/* Profile ID tag */}
             <div style={{ ...S.card, padding: 16, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ fontFamily: 'Outfit, sans-serif', fontSize: 12, color: '#9CA3AF' }}>Profile ID</span>
-              <span style={{ fontFamily: 'Outfit, sans-serif', fontSize: 12, fontWeight: 700, color: '#2338B0', background: '#EEF1FF', padding: '3px 10px', borderRadius: 20 }}>MGL{String(profile.id).padStart(5, '0')}</span>
+              <span style={{ fontFamily: 'inherit', fontSize: 12, color: '#9CA3AF' }}>Profile ID</span>
+              <span style={{ fontFamily: 'inherit', fontSize: 12, fontWeight: 700, color: '#000080', background: '#EEF1FF', padding: '3px 10px', borderRadius: 20 }}>MGL{String(profile.id).padStart(5, '0')}</span>
             </div>
           </div>
         </div>

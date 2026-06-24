@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { ArrowRight, ChevronDown, ShieldCheck, Heart, Users, MapPin, Calendar, Search } from 'lucide-react'
-import heroBg from '../assets/hero-background.jpg'
+
+const heroBg = '/hero-background.jpg'
 
 const STATS = [
   { icon: Users,       value: '2,00,000+', label: 'Verified Profiles' },
@@ -38,11 +39,7 @@ export default function Hero() {
         backgroundSize: 'cover', backgroundPosition: 'center top',
       }} />
 
-      {/* Overlay — enough to read text, not pitch black */}
-      <div style={{
-        position: 'absolute', inset: 0,
-        background: 'linear-gradient(160deg, rgba(10,14,40,0.78) 0%, rgba(10,14,40,0.60) 50%, rgba(10,14,40,0.82) 100%)',
-      }} />
+      {/* No overlay */}
 
       {/* Content */}
       <div style={{
@@ -102,7 +99,7 @@ export default function Hero() {
                 padding: '9px 32px', borderRadius: 100,
                 border: gender === val ? '2px solid #fff' : '2px solid rgba(255,255,255,0.25)',
                 background: gender === val ? '#fff' : 'transparent',
-                color: gender === val ? '#2338B0' : 'rgba(255,255,255,0.65)',
+                color: gender === val ? '#000080' : 'rgba(255,255,255,0.65)',
                 fontFamily: 'inherit', fontWeight: 700, fontSize: '0.85rem',
                 cursor: 'pointer', transition: 'all 0.2s ease',
                 letterSpacing: '0.02em',
@@ -160,7 +157,7 @@ export default function Hero() {
             {/* Button */}
             <button type="submit" style={{
               flexShrink: 0, padding: '0 32px',
-              background: 'linear-gradient(135deg, #2338B0 0%, #3D52C8 100%)',
+              background: 'linear-gradient(135deg, #000080 0%, #1a1aad 100%)',
               color: '#fff', border: 'none', cursor: 'pointer',
               fontFamily: 'inherit', fontWeight: 700, fontSize: '0.875rem',
               display: 'flex', alignItems: 'center', gap: 8,

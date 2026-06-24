@@ -125,7 +125,7 @@ export default function Navbar() {
 
                   {dropOpen && (
                     <div className="absolute right-0 top-12 w-52 rounded-2xl overflow-hidden z-50"
-                      style={{ background: 'white', border: '1px solid #E2E5F0', boxShadow: '0 16px 48px rgba(35,56,176,0.16)' }}>
+                      style={{ background: 'white', border: '1px solid #E2E5F0', boxShadow: '0 16px 48px rgba(0,0,128,0.16)' }}>
                       <div className="px-4 py-3 border-b" style={{ borderColor: '#E2E5F0' }}>
                         <p className="font-heading text-sm font-semibold" style={{ color: '#1A1F36' }}>{user.name}</p>
                         <p className="font-body text-xs" style={{ color: '#E8836A' }}>
@@ -141,7 +141,7 @@ export default function Navbar() {
                         <Link key={label} to={to} onClick={() => setDropOpen(false)}
                           className="flex items-center gap-3 px-4 py-2.5 font-body text-sm transition-colors duration-150"
                           style={{ color: '#4B5563' }}
-                          onMouseEnter={e => { e.currentTarget.style.background = '#F0F4FF'; e.currentTarget.style.color = '#2338B0' }}
+                          onMouseEnter={e => { e.currentTarget.style.background = '#F0F4FF'; e.currentTarget.style.color = '#000080' }}
                           onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#4B5563' }}
                         >
                           <Icon className="w-4 h-4" /> {label}
@@ -171,9 +171,9 @@ export default function Navbar() {
                 </Link>
                 <Link to="/register"
                   className="font-body text-xs font-semibold px-5 py-2 rounded-full transition-all duration-200"
-                  style={{ background: '#2338B0', color: 'white', boxShadow: '0 4px 14px rgba(35,56,176,0.4)' }}
-                  onMouseEnter={e => { e.currentTarget.style.background = '#3D52C8'; e.currentTarget.style.transform = 'translateY(-1px)' }}
-                  onMouseLeave={e => { e.currentTarget.style.background = '#2338B0'; e.currentTarget.style.transform = 'translateY(0)' }}
+                  style={{ background: '#000080', color: 'white', boxShadow: '0 4px 14px rgba(0,0,128,0.4)' }}
+                  onMouseEnter={e => { e.currentTarget.style.background = '#1a1aad'; e.currentTarget.style.transform = 'translateY(-1px)' }}
+                  onMouseLeave={e => { e.currentTarget.style.background = '#000080'; e.currentTarget.style.transform = 'translateY(0)' }}
                 >
                   Register Free
                 </Link>
@@ -192,8 +192,8 @@ export default function Navbar() {
         <div className="search-overlay" onClick={() => setSearchOpen(false)}>
           <form className="w-full max-w-xl px-6" onClick={e => e.stopPropagation()} onSubmit={handleSearch}>
             <div className="flex items-center gap-3 bg-white border rounded-2xl px-5 py-4"
-              style={{ borderColor: 'rgba(35,56,176,0.2)', boxShadow: '0 8px 32px rgba(35,56,176,0.12)' }}>
-              <Search className="w-5 h-5 shrink-0" style={{ color: '#2338B0' }} />
+              style={{ borderColor: 'rgba(0,0,128,0.2)', boxShadow: '0 8px 32px rgba(0,0,128,0.12)' }}>
+              <Search className="w-5 h-5 shrink-0" style={{ color: '#000080' }} />
               <input autoFocus value={query} onChange={e => setQuery(e.target.value)}
                 placeholder="Search by name, profession, location…"
                 className="flex-1 bg-transparent font-body text-dark placeholder-muted/60 text-base outline-none"
@@ -218,7 +218,7 @@ export default function Navbar() {
                 <div className="navbar__logo-icon"><LotusIcon size={20} color="white" /></div>
                 <div>
                   <span className="navbar__logo-telugu">మంగళాయం</span>
-                  <span className="navbar__logo-brand" style={{ color: '#2338B0' }}>
+                  <span className="navbar__logo-brand" style={{ color: '#000080' }}>
                     Mangalayam
                   </span>
                 </div>
@@ -231,7 +231,7 @@ export default function Navbar() {
             {user && (
               <div className="px-5 py-4 border-b flex items-center gap-3" style={{ borderColor: '#E2E5F0' }}>
                 <img src={user.photo} alt={user.name} className="w-10 h-10 rounded-full object-cover"
-                  style={{ border: '2px solid rgba(35,56,176,0.2)' }} />
+                  style={{ border: '2px solid rgba(0,0,128,0.2)' }} />
                 <div>
                   <p className="font-heading text-sm font-semibold" style={{ color: '#1A1F36' }}>{user.name}</p>
                   <p className="font-body text-xs" style={{ color: '#E8836A' }}>

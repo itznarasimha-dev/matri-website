@@ -43,7 +43,7 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto px-6">
         <div ref={headRef} className="reveal text-center mb-8">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-3"
-            style={{ background: 'rgba(35,56,176,0.07)', border: '1px solid rgba(35,56,176,0.15)' }}>
+            style={{ background: 'rgba(0,0,128,0.07)', border: '1px solid rgba(0,0,128,0.15)' }}>
             <span className="font-body text-xs font-bold" style={{ color: '#E8836A' }}>★★★★★</span>
             <span className="font-body text-xs font-medium" style={{ color: '#6B7280' }}>4.9 Average Rating · 12,000+ Reviews</span>
           </div>
@@ -53,15 +53,15 @@ export default function Testimonials() {
         <div className="relative max-w-3xl mx-auto">
           {/* Side cards — desktop */}
           <div className="hidden lg:block absolute -left-40 top-12 w-56 opacity-30 scale-90 pointer-events-none select-none">
-            <div className="bg-white rounded-2xl p-6" style={{ border: '1px solid #E2E5F0', boxShadow: '0 2px 16px rgba(35,56,176,0.08)' }}>
-              <p style={{ fontFamily: '"Cormorant Garamond", serif', fontStyle: 'italic', fontSize: '0.85rem', lineHeight: 1.6, color: '#6B7280', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+            <div className="bg-white rounded-2xl p-6" style={{ border: '1px solid #E2E5F0', boxShadow: '0 2px 16px rgba(0,0,128,0.08)' }}>
+              <p style={{ fontFamily: '"inherit', fontStyle: 'italic', fontSize: '0.85rem', lineHeight: 1.6, color: '#6B7280', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                 "{testimonials[(active - 1 + testimonials.length) % testimonials.length].quote}"
               </p>
             </div>
           </div>
           <div className="hidden lg:block absolute -right-40 top-12 w-56 opacity-30 scale-90 pointer-events-none select-none">
-            <div className="bg-white rounded-2xl p-6" style={{ border: '1px solid #E2E5F0', boxShadow: '0 2px 16px rgba(35,56,176,0.08)' }}>
-              <p style={{ fontFamily: '"Cormorant Garamond", serif', fontStyle: 'italic', fontSize: '0.85rem', lineHeight: 1.6, color: '#6B7280', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+            <div className="bg-white rounded-2xl p-6" style={{ border: '1px solid #E2E5F0', boxShadow: '0 2px 16px rgba(0,0,128,0.08)' }}>
+              <p style={{ fontFamily: '"inherit', fontStyle: 'italic', fontSize: '0.85rem', lineHeight: 1.6, color: '#6B7280', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                 "{testimonials[(active + 1) % testimonials.length].quote}"
               </p>
             </div>
@@ -69,9 +69,9 @@ export default function Testimonials() {
 
           {/* Active card */}
           <div key={active} className="bg-white rounded-2xl p-7 relative"
-            style={{ boxShadow: '0 16px 48px rgba(35,56,176,0.12)', border: '1px solid rgba(35,56,176,0.12)', animation: 'fadeInScale 0.4s ease forwards' }}>
+            style={{ boxShadow: '0 16px 48px rgba(0,0,128,0.12)', border: '1px solid rgba(0,0,128,0.12)', animation: 'fadeInScale 0.4s ease forwards' }}>
             <span className="absolute -top-4 left-8 font-display font-bold leading-none select-none pointer-events-none"
-              style={{ fontSize: '6rem', color: 'rgba(35,56,176,0.05)', lineHeight: 1 }}>"</span>
+              style={{ fontSize: '6rem', color: 'rgba(0,0,128,0.05)', lineHeight: 1 }}>"</span>
 
             <div className="flex gap-1 mb-4">
               {[...Array(5)].map((_, i) => (
@@ -79,13 +79,13 @@ export default function Testimonials() {
               ))}
             </div>
 
-            <p style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: '1rem', lineHeight: 1.6, color: '#1A1F36' }} className="mb-6 relative z-10">
+            <p style={{ fontFamily: 'inherit', fontSize: '1rem', lineHeight: 1.6, color: '#1A1F36' }} className="mb-6 relative z-10">
               "{t.quote}"
             </p>
 
             <div className="flex items-center gap-4">
               <img src={t.photo} alt={t.name} className="w-12 h-12 rounded-full object-cover object-top"
-                style={{ border: '2px solid rgba(35,56,176,0.25)' }} />
+                style={{ border: '2px solid rgba(0,0,128,0.25)' }} />
               <div>
                 <p className="font-heading font-semibold" style={{ color: '#1A1F36' }}>{t.name}</p>
                 <p className="font-body text-sm" style={{ color: '#6B7280' }}>{t.age} · {t.city}</p>
@@ -97,9 +97,9 @@ export default function Testimonials() {
           <div className="flex items-center justify-center gap-4 mt-8">
             <button onClick={prev}
               className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200"
-              style={{ border: '1px solid rgba(35,56,176,0.25)', color: '#2338B0' }}
-              onMouseEnter={e => { e.currentTarget.style.background = '#2338B0'; e.currentTarget.style.color = 'white' }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#2338B0' }}>
+              style={{ border: '1px solid rgba(0,0,128,0.25)', color: '#000080' }}
+              onMouseEnter={e => { e.currentTarget.style.background = '#000080'; e.currentTarget.style.color = 'white' }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#000080' }}>
               <ChevronLeft className="w-4 h-4" />
             </button>
 
@@ -107,15 +107,15 @@ export default function Testimonials() {
               {testimonials.map((_, i) => (
                 <button key={i} onClick={() => setActive(i)}
                   className="rounded-full transition-all duration-300"
-                  style={{ width: i === active ? '24px' : '8px', height: '8px', background: i === active ? '#2338B0' : 'rgba(35,56,176,0.2)' }} />
+                  style={{ width: i === active ? '24px' : '8px', height: '8px', background: i === active ? '#000080' : 'rgba(0,0,128,0.2)' }} />
               ))}
             </div>
 
             <button onClick={next}
               className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200"
-              style={{ border: '1px solid rgba(35,56,176,0.25)', color: '#2338B0' }}
-              onMouseEnter={e => { e.currentTarget.style.background = '#2338B0'; e.currentTarget.style.color = 'white' }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#2338B0' }}>
+              style={{ border: '1px solid rgba(0,0,128,0.25)', color: '#000080' }}
+              onMouseEnter={e => { e.currentTarget.style.background = '#000080'; e.currentTarget.style.color = 'white' }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#000080' }}>
               <ChevronRight className="w-4 h-4" />
             </button>
           </div>

@@ -16,8 +16,9 @@ import Dashboard from './pages/Dashboard'
 import MyProfile from './pages/MyProfile'
 import Interests from './pages/Interests'
 import SavedProfiles from './pages/SavedProfiles'
+import { useAuth } from './context/AuthContext'
 
-const dashboardRoutes = ['/dashboard', '/my-profile', '/interests', '/saved', '/matches']
+const dashboardRoutes = ['/dashboard', '/my-profile', '/interests', '/saved', '/matches', '/profile', '/membership']
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -27,8 +28,8 @@ function ScrollToTop() {
 
 function Layout() {
   const { pathname } = useLocation()
-  const isDash = dashboardRoutes.some(r => pathname.startsWith(r))
-  // Pages with a full-screen hero that sits behind the transparent navbar
+  const { user } = useAuth()
+  const isDash = !!user && dashboardRoutes.some(r => pathname.startsWith(r))
   const heroRoutes = ['/', '/about', '/contact', '/success-stories', '/membership']
   const isHero = heroRoutes.includes(pathname)
   return (

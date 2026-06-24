@@ -4,14 +4,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary:         '#2338B0',
-        'primary-dark':  '#1A2A8F',
-        'primary-light': '#3D52C8',
+        primary:         '#000080',
+        'primary-dark':  '#00006b',
+        'primary-light': '#1a1aad',
         amber:           '#E8836A',
         'amber-dark':    '#D4694F',
         'amber-light':   '#F0A08A',
         dark:            '#1A1F36',
-        'dark-mid':      '#2338B0',
+        'dark-mid':      '#000080',
         gold:            '#E8836A',
         'gold-light':    '#F0A08A',
         cream:           '#F0F2F8',
@@ -32,8 +32,8 @@ export default {
         cormorant: ['"DM Sans"', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        card:  '0 2px 16px rgba(35,56,176,0.08)',
-        hover: '0 12px 40px rgba(35,56,176,0.16)',
+        card:  '0 2px 16px rgba(0,0,128,0.08)',
+        hover: '0 12px 40px rgba(0,0,128,0.16)',
         gold:  '0 4px 20px rgba(232,131,106,0.35)',
         amber: '0 4px 20px rgba(232,131,106,0.35)',
       },

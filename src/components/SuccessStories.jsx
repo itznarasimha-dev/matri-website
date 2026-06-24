@@ -5,7 +5,7 @@ import { useReveal, useRevealStagger } from '../useReveal'
 const couples = [
   {
     names: 'Kiran & Swathi', date: 'March 2023', location: 'Hyderabad',
-    photo1: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80',
+    photo1: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&q=80',
     photo2: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80',
     quote: '"Found our perfect match within a week on Mangalayam."',
   },
@@ -17,24 +17,33 @@ const couples = [
   },
   {
     names: 'Arjun & Kavya', date: 'June 2023', location: 'Vijayawada',
-    photo1: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=200&q=80',
+    photo1: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80',
     photo2: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80',
     quote: '"95% compatibility score — it was absolutely accurate!"',
   },
 ]
 
 export default function SuccessStories() {
-  const headRef = useReveal()
+  const headRef  = useReveal()
   const cardRefs = useRevealStagger(couples.length)
 
   return (
-    <section className="py-10 sm:py-14 lg:py-16" style={{ background: '#F0F4FF' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="py-10 sm:py-14 lg:py-16 relative overflow-hidden">
+      {/* Background */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        backgroundImage: 'url(https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1600&q=80)',
+        backgroundSize: 'cover', backgroundPosition: 'center',
+        opacity: 0.06,
+      }} />
+      <div style={{ position: 'absolute', inset: 0, background: '#F0F4FF', opacity: 0.94 }} />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div ref={headRef} className="reveal text-center mb-8 sm:mb-10">
-          <span className="section-tag" style={{ color: '#2338B0' }}>Marriages Made on Mangalayam</span>
-          <h2 style={{ fontFamily: '"Playfair Display", serif', fontWeight: 700, fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', color: '#1A1F36', lineHeight: 1.2, letterSpacing: '-0.02em', marginTop: 4 }}>
+          <span className="section-tag" style={{ color: '#000080' }}>Marriages Made on Mangalayam</span>
+          <h2 style={{ fontWeight: 700, fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', color: '#1A1F36', lineHeight: 1.2, letterSpacing: '-0.02em', marginTop: 4 }}>
             Over 4,800 couples.
-            <span style={{ fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 400, fontSize: 'clamp(0.9rem, 1.4vw, 1rem)', color: '#6B7280', display: 'block', marginTop: 4 }}>Countless blessings.</span>
+            <span style={{ fontWeight: 400, fontSize: 'clamp(0.9rem, 1.4vw, 1rem)', color: '#6B7280', display: 'block', marginTop: 4 }}>Countless blessings.</span>
           </h2>
         </div>
 
@@ -44,25 +53,25 @@ export default function SuccessStories() {
               ref={el => cardRefs.current[i] = el}
               data-idx={i}
               className="reveal rounded-xl p-5 text-center bg-white transition-all duration-300"
-              style={{ border: '1px solid #E2E5F0', boxShadow: '0 2px 16px rgba(35,56,176,0.06)' }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = '#2338B0'; e.currentTarget.style.transform = 'translateY(-8px)'; e.currentTarget.style.boxShadow = '0 16px 40px rgba(35,56,176,0.14)' }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = '#E2E5F0'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 2px 16px rgba(35,56,176,0.06)' }}
+              style={{ border: '1px solid #E2E5F0', boxShadow: '0 2px 16px rgba(0,0,128,0.06)' }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = '#000080'; e.currentTarget.style.transform = 'translateY(-8px)'; e.currentTarget.style.boxShadow = '0 16px 40px rgba(0,0,128,0.14)' }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = '#E2E5F0'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 2px 16px rgba(0,0,128,0.06)' }}
             >
               <div className="flex items-center justify-center gap-3 mb-4">
                 <img src={c.photo1} alt="" className="w-12 h-12 rounded-full object-cover object-top"
-                  style={{ border: '2px solid rgba(35,56,176,0.25)' }} />
-                <Heart className="w-4 h-4 shrink-0" style={{ color: '#2338B0', fill: '#2338B0', animation: 'heartBeat 3s ease-in-out infinite' }} />
+                  style={{ border: '2px solid rgba(0,0,128,0.2)' }} />
+                <Heart className="w-4 h-4 shrink-0" style={{ color: '#000080', fill: '#000080', animation: 'heartBeat 3s ease-in-out infinite' }} />
                 <img src={c.photo2} alt="" className="w-12 h-12 rounded-full object-cover object-top"
-                  style={{ border: '2px solid rgba(35,56,176,0.25)' }} />
+                  style={{ border: '2px solid rgba(0,0,128,0.2)' }} />
               </div>
-              <h3 style={{ fontFamily: '"Playfair Display", serif', fontWeight: 600, fontSize: '1.1rem', color: '#1A1F36', letterSpacing: '-0.01em', marginBottom: 3 }}>{c.names}</h3>
-              <p style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: '0.8rem', fontWeight: 500, color: '#2338B0', marginBottom: 8 }}>{c.date} · {c.location}</p>
-              <p style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: '0.875rem', color: '#6B7280', lineHeight: 1.6, marginBottom: 14 }}>{c.quote}</p>
+              <h3 style={{ fontWeight: 600, fontSize: '1.1rem', color: '#1A1F36', letterSpacing: '-0.01em', marginBottom: 3 }}>{c.names}</h3>
+              <p style={{ fontSize: '0.8rem', fontWeight: 500, color: '#000080', marginBottom: 8 }}>{c.date} · {c.location}</p>
+              <p style={{ fontSize: '0.875rem', color: '#6B7280', lineHeight: 1.6, marginBottom: 14 }}>{c.quote}</p>
               <Link to="/success-stories"
                 className="font-body text-sm font-semibold transition-colors duration-200"
-                style={{ color: '#2338B0', borderBottom: '1px solid rgba(35,56,176,0.3)' }}
+                style={{ color: '#000080', borderBottom: '1px solid rgba(0,0,128,0.3)' }}
                 onMouseEnter={e => { e.target.style.color = '#E8836A'; e.target.style.borderColor = '#E8836A' }}
-                onMouseLeave={e => { e.target.style.color = '#2338B0'; e.target.style.borderColor = 'rgba(35,56,176,0.3)' }}
+                onMouseLeave={e => { e.target.style.color = '#000080'; e.target.style.borderColor = 'rgba(0,0,128,0.3)' }}
               >
                 Read Their Story →
               </Link>

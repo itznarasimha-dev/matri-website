@@ -66,7 +66,7 @@ function StoryCard({ s, i }) {
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(44,22,84,0.7) 0%, transparent 50%)' }} />
           <div className="absolute bottom-5 left-5">
             <div className="flex items-center gap-2 mb-1">
-              <Heart className="w-4 h-4 fill-primary" style={{ color: '#7B2FBE', animation: 'heartBeat 3s ease-in-out infinite' }} />
+              <Heart className="w-4 h-4 fill-primary" style={{ color: '#000080', animation: 'heartBeat 3s ease-in-out infinite' }} />
               <span className="font-display text-white text-xl font-bold">{s.names}</span>
             </div>
             <div className="flex gap-4 text-xs text-white/70">
@@ -82,7 +82,7 @@ function StoryCard({ s, i }) {
         <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '0.95rem', lineHeight: 1.75, color: 'rgba(255,255,255,0.65)', marginBottom: 20 }}>
           "{s.story}"
         </p>
-        <p style={{ fontFamily: '"Cormorant Garamond", serif', fontStyle: 'italic', fontSize: 'clamp(1.1rem, 2vw, 1.35rem)', fontWeight: 500, lineHeight: 1.6, color: '#7B2FBE', marginBottom: 24, letterSpacing: '0.01em' }}>{s.pull}</p>
+        <p style={{ fontFamily: '"DM Sans", sans-serif', fontStyle: 'italic', fontSize: 'clamp(1.1rem, 2vw, 1.35rem)', fontWeight: 500, lineHeight: 1.6, color: '#000080', marginBottom: 24 }}>{s.pull}</p>
 
         {/* Timeline */}
         <div className="relative pl-6 space-y-3" style={{ borderLeft: '2px solid rgba(212,160,23,0.2)' }}>
@@ -90,7 +90,7 @@ function StoryCard({ s, i }) {
             <div key={j} className="relative">
               <div
                 className="absolute -left-[29px] top-1 w-3.5 h-3.5 rounded-full"
-                style={{ background: '#7B2FBE', border: '2px solid #2C1654' }}
+                style={{ background: '#000080', border: '2px solid #e8e8f0' }}
               />
               <p className="font-body text-sm font-medium" style={{ color: 'rgba(255,255,255,0.7)' }}>{t}</p>
             </div>
@@ -147,7 +147,7 @@ export default function SuccessStoriesPage() {
             </span>
           </div>
           <h1
-            style={{ fontFamily: '"Playfair Display", serif', fontWeight: 800, fontSize: 'clamp(3rem, 7vw, 5rem)', color: 'white', letterSpacing: '-0.025em', lineHeight: 1.1, marginBottom: 16 }}
+            style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 800, fontSize: 'clamp(3rem, 7vw, 5rem)', color: 'white', letterSpacing: '-0.025em', lineHeight: 1.1, marginBottom: 16 }}
           >
             Love Stories That Inspire
           </h1>
@@ -175,7 +175,7 @@ export default function SuccessStoriesPage() {
 
       {/* CTA */}
       <div className="max-w-3xl mx-auto px-6 pb-16 text-center">
-        <h2 style={{ fontFamily: '"Playfair Display", serif', fontWeight: 800, fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: 'white', letterSpacing: '-0.025em', lineHeight: 1.15, marginTop: 6 }}>Be Our Next Success Story</h2>
+        <h2 style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 800, fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: 'white', letterSpacing: '-0.025em', lineHeight: 1.15, marginTop: 6 }}>Be Our Next Success Story</h2>
         <Link to="/register" className="btn-primary text-base px-10 py-4">
           Register Free →
         </Link>
