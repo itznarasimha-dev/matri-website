@@ -5,24 +5,24 @@ export default function CTASection() {
   const ref = useReveal()
 
   return (
-    <section className="relative py-16 sm:py-20 lg:py-28 overflow-hidden"
+    <section className="relative py-12 sm:py-16 overflow-hidden"
       style={{ background: 'linear-gradient(135deg, #1A2A8F 0%, #2338B0 50%, #3D52C8 100%)' }}>
       <div className="absolute inset-0 pointer-events-none"
         style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
       <div className="absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(232,131,106,0.12) 0%, transparent 70%)', transform: 'translate(30%,-30%)' }} />
 
-      <div ref={ref} className="reveal relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <span className="section-tag mb-4 block" style={{ color: '#E8836A' }}>
+      <div ref={ref} className="reveal relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <span className="section-tag mb-3 block" style={{ color: '#E8836A' }}>
           Your Journey Begins Here
         </span>
-        <h2 className="font-display font-bold text-white mb-5 sm:mb-6 leading-tight"
-          style={{ fontSize: 'clamp(1.8rem,5vw,4rem)' }}>
+        <h2 className="font-display font-bold text-white mb-4 leading-tight"
+          style={{ fontSize: 'clamp(1.5rem,3.5vw,2.4rem)' }}>
           Begin Your Search for the{' '}
           <em className="not-italic" style={{ color: '#E8836A' }}>Right Match</em>{' '}
           Today
         </h2>
-        <p className="font-body text-base sm:text-lg mb-8 sm:mb-10 max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.75)' }}>
+        <p className="font-body text-sm mb-6 max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.75)' }}>
           Join 2 lakh Telugu families who trust Mangalayam to find their life partner.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">

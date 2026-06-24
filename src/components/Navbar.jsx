@@ -70,7 +70,7 @@ export default function Navbar() {
             </div>
             <div>
               <span className="navbar__logo-telugu">మంగళాయం</span>
-              <span className="navbar__logo-brand" style={{ fontFamily: '"Playfair Display", serif', letterSpacing: '0.02em' }}>
+              <span className="navbar__logo-brand" style={{ letterSpacing: '0.02em' }}>
                 Mangalayam
               </span>
             </div>
@@ -218,7 +218,7 @@ export default function Navbar() {
                 <div className="navbar__logo-icon"><LotusIcon size={20} color="white" /></div>
                 <div>
                   <span className="navbar__logo-telugu">మంగళాయం</span>
-                  <span className="navbar__logo-brand" style={{ fontFamily: '"Playfair Display", serif', color: '#2338B0' }}>
+                  <span className="navbar__logo-brand" style={{ color: '#2338B0' }}>
                     Mangalayam
                   </span>
                 </div>

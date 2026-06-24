@@ -129,8 +129,8 @@ function MembershipContent({ yearly, setYearly }) {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16 }}>
         {testimonials.map(t => (
           <div key={t.name} style={{ background: '#fff', borderRadius: 16, padding: 20, boxShadow: '0 1px 12px rgba(35,56,176,0.07)', border: '1px solid #E8EBF5', borderLeft: '4px solid #2338B0' }}>
-            <p style={{ fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', fontSize: 15, color: '#374151', lineHeight: 1.6, marginBottom: 10 }}>"{t.quote}"</p>
-            <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: 12, fontWeight: 600, color: '#2338B0' }}>— {t.name}</p>
+            <p style={{ fontFamily: '"Cormorant Garamond", serif', fontStyle: 'italic', fontSize: 16, fontWeight: 500, color: '#1A1F36', lineHeight: 1.65, marginBottom: 10, letterSpacing: '0.01em' }}>"{t.quote}"</p>
+            <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: 12, fontWeight: 700, color: '#2338B0', letterSpacing: '0.02em' }}>— {t.name}</p>
           </div>
         ))}
       </div>
@@ -169,8 +169,10 @@ export default function Membership() {
           style={{ background: 'radial-gradient(circle, rgba(232,131,106,0.15) 0%, transparent 70%)', transform: 'translate(20%,-20%)' }} />
         <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6">
           <span className="section-tag" style={{ color: '#E8836A' }}>Plans & Pricing</span>
-          <h1 className="font-display font-bold text-white mt-2 mb-4" style={{ fontSize: 'clamp(2rem, 5vw, 3.8rem)' }}>
+          <h1 style={{ fontFamily: '"Playfair Display", serif', fontWeight: 800, fontSize: 'clamp(2rem, 5vw, 3.8rem)', color: 'white', lineHeight: 1.1, letterSpacing: '-0.02em', margin: '8px 0 16px' }}>
             Find Your Match <em className="not-italic" style={{ color: '#E8836A' }}>Faster</em>
+            <br />
+            <span style={{ fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 400, fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', color: 'rgba(255,255,255,0.75)', display: 'block', marginTop: 6 }}>with Premium &amp; Relationship Managers</span>
           </h1>
           <p className="font-body text-sm sm:text-base max-w-md mx-auto" style={{ color: 'rgba(255,255,255,0.70)' }}>
             Simple, transparent pricing. Join 2 lakh+ Telugu families. No hidden charges.

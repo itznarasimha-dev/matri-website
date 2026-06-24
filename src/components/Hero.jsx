@@ -1,186 +1,258 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import { ChevronDown, ArrowRight, CheckCircle } from 'lucide-react'
-
-const PHOTOS = [
-  'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=85',
-  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=85',
-  'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600&q=85',
-  'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=85',
-  'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&q=85',
-  'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=85',
-]
+import { ArrowRight, ChevronDown, ShieldCheck, Heart, Users, MapPin, Calendar, Search } from 'lucide-react'
+import heroBg from '../assets/hero-background.jpg'
 
 const STATS = [
-  { value: '2L+', label: 'Verified Profiles' },
-  { value: '4800+', label: 'Marriages' },
-  { value: '98%', label: 'Satisfaction' },
+  { icon: Users,       value: '2,00,000+', label: 'Verified Profiles' },
+  { icon: Heart,       value: '4,800+',    label: 'Happy Marriages'   },
+  { icon: ShieldCheck, value: '98%',       label: 'Satisfaction Rate' },
 ]
 
 export default function Hero() {
-  const [gender, setGender] = useState('bride')
-  const [ageMin, setAgeMin] = useState('22')
-  const [ageMax, setAgeMax] = useState('30')
+  const [gender,   setGender]   = useState('bride')
+  const [ageRange, setAgeRange] = useState('22-30')
   const [location, setLocation] = useState('Any')
   const [scrolled, setScrolled] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    const fn = () => setScrolled(window.scrollY > 60)
+    window.addEventListener('scroll', fn, { passive: true })
+    return () => window.removeEventListener('scroll', fn)
   }, [])
 
   const handleSearch = (e) => {
     e.preventDefault()
+    const [ageMin, ageMax] = ageRange.split('-')
     navigate(`/matches?gender=${gender}&ageMin=${ageMin}&ageMax=${ageMax}&location=${location}`)
   }
 
   return (
-    <section className="relative min-h-screen flex overflow-hidden" style={{ background: '#0E0B14' }}>
+    <section style={{ position: 'relative', minHeight: '100vh', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
 
-      {/* Mobile bg tint */}
-      <div className="lg:hidden absolute inset-0 pointer-events-none"
-        style={{ backgroundImage: `url(${PHOTOS[0]})`, backgroundSize: 'cover', backgroundPosition: 'center top', opacity: 0.12 }} />
+      {/* Background */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        backgroundImage: `url(${heroBg})`,
+        backgroundSize: 'cover', backgroundPosition: 'center top',
+      }} />
 
-      {/* Ambient glows */}
-      <div className="absolute top-0 left-0 w-72 sm:w-96 h-72 sm:h-96 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 0% 0%, rgba(35,56,176,0.22) 0%, transparent 70%)' }} />
-      <div className="absolute bottom-0 left-10 sm:left-20 w-48 sm:w-64 h-48 sm:h-64 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 100%, rgba(232,131,106,0.12) 0%, transparent 70%)' }} />
+      {/* Overlay — enough to read text, not pitch black */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        background: 'linear-gradient(160deg, rgba(10,14,40,0.78) 0%, rgba(10,14,40,0.60) 50%, rgba(10,14,40,0.82) 100%)',
+      }} />
 
-      {/* ── LEFT PANEL ── */}
-      <div className="relative z-10 flex flex-col justify-center w-full lg:w-[52%] px-5 sm:px-8 md:px-14 lg:px-20 pt-28 pb-14 lg:py-24">
+      {/* Content */}
+      <div style={{
+        position: 'relative', zIndex: 10,
+        flex: 1, display: 'flex', flexDirection: 'column',
+        alignItems: 'center', justifyContent: 'center',
+        textAlign: 'center',
+        padding: 'clamp(110px, 15vh, 150px) 1.5rem clamp(60px, 8vh, 100px)',
+      }}>
 
-        {/* Telugu badge */}
-        <div className="flex items-center gap-3 mb-6 sm:mb-10" style={{ animation: 'slideUp 0.6s ease 0.1s both' }}>
-          <div className="h-px w-6 sm:w-8" style={{ background: '#E8836A' }} />
-          <span style={{ fontFamily: '"Noto Serif Telugu", serif', fontSize: '12px', color: '#E8836A', letterSpacing: '0.08em' }}>
-            మంగళాయం
+        {/* Badge */}
+        <div style={{ marginBottom: 28, animation: 'hup 0.5s ease both' }}>
+          <span style={{
+            display: 'inline-flex', alignItems: 'center', gap: 10,
+            background: 'rgba(232,131,106,0.12)',
+            border: '1px solid rgba(232,131,106,0.35)',
+            borderRadius: 100, padding: '7px 20px',
+          }}>
+            <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#E8836A', flexShrink: 0 }} />
+            <span style={{ fontFamily: '"Noto Serif Telugu", serif', fontSize: 12, color: '#E8836A', letterSpacing: '0.06em' }}>మంగళాయం</span>
+            <span style={{ width: 1, height: 14, background: 'rgba(232,131,106,0.3)', flexShrink: 0 }} />
+            <span style={{ fontSize: 11, color: 'rgba(232,131,106,0.85)', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Telugu Matrimony</span>
           </span>
-          <div className="h-px w-6 sm:w-8" style={{ background: '#E8836A' }} />
         </div>
 
         {/* Headline */}
-        <h1
-          className="font-display font-bold mb-5 sm:mb-6 leading-[1.08]"
-          style={{ fontSize: 'clamp(2.2rem, 6vw, 5rem)', color: '#FFFFFF', letterSpacing: '-0.02em', animation: 'slideUp 0.7s ease 0.2s both' }}
-        >
-          Where Telugu<br />
-          Hearts Find<br />
-          <em className="not-italic" style={{ color: '#E8836A' }}>Their Forever</em>
+        <h1 style={{
+          fontSize: 'clamp(2.4rem, 5.5vw, 4.5rem)',
+          fontWeight: 800, lineHeight: 1.08, letterSpacing: '-0.03em',
+          color: '#fff', maxWidth: 760, marginBottom: 16,
+          animation: 'hup 0.6s ease 0.1s both',
+        }}>
+          Find Your Perfect<br />
+          <span style={{
+            background: 'linear-gradient(90deg, #E8836A 0%, #F5B49A 100%)',
+            WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+          }}>Telugu Life Partner</span>
         </h1>
 
         {/* Subtext */}
-        <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-6" style={{ animation: 'slideUp 0.6s ease 0.35s both' }}>
-          <div className="h-px w-10 shrink-0" style={{ background: 'rgba(232,131,106,0.5)' }} />
-          <p className="font-body text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)', maxWidth: 340 }}>
-            Connecting verified Telugu families across India & NRI communities with trust and tradition.
-          </p>
-        </div>
+        <p style={{
+          fontSize: '1rem', color: 'rgba(255,255,255,0.52)',
+          maxWidth: 460, lineHeight: 1.8, marginBottom: 40,
+          animation: 'hup 0.6s ease 0.18s both',
+        }}>
+          Trusted by lakhs of Telugu families across India &amp; abroad.
+          Verified profiles, horoscope matching &amp; dedicated support.
+        </p>
 
-        {/* Search form */}
-        <form onSubmit={handleSearch} className="mb-6 sm:mb-8" style={{ animation: 'slideUp 0.7s ease 0.45s both' }}>
-          <div className="rounded-2xl p-1.5 mb-3"
-            style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(12px)' }}>
-            <div className="grid grid-cols-3 gap-1 mb-1.5">
-              {[
-                { val: gender, onChange: e => setGender(e.target.value), opts: [['bride','Bride'],['groom','Groom']] },
-                { val: `${ageMin}-${ageMax}`, onChange: e => { const [mn,mx]=e.target.value.split('-'); setAgeMin(mn); setAgeMax(mx) }, opts: [['18-25','18–25'],['22-30','22–30'],['25-35','25–35'],['30-40','30–40']] },
-                { val: location, onChange: e => setLocation(e.target.value), opts: ['Any','Hyderabad','Vijayawada','Visakhapatnam','Bangalore','Chennai','USA','UK'].map(l=>[l,l]) },
-              ].map((s, idx) => (
-                <select key={idx} value={s.val} onChange={s.onChange}
-                  className="font-body text-xs sm:text-sm px-2 sm:px-3 py-2.5 sm:py-3 rounded-xl outline-none"
-                  style={{ background: 'rgba(255,255,255,0.08)', color: 'white', border: 'none' }}>
-                  {s.opts.map(([v,l]) => <option key={v} value={v} style={{ background: '#1A1F36' }}>{l}</option>)}
-                </select>
-              ))}
+        {/* Search card */}
+        <form onSubmit={handleSearch} style={{ width: '100%', maxWidth: 720, marginBottom: 14, animation: 'hup 0.6s ease 0.26s both' }}>
+
+          {/* Gender pills */}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 10, marginBottom: 16 }}>
+            {[['bride', 'Bride'], ['groom', 'Groom']].map(([val, lbl]) => (
+              <button key={val} type="button" onClick={() => setGender(val)} style={{
+                padding: '9px 32px', borderRadius: 100,
+                border: gender === val ? '2px solid #fff' : '2px solid rgba(255,255,255,0.25)',
+                background: gender === val ? '#fff' : 'transparent',
+                color: gender === val ? '#2338B0' : 'rgba(255,255,255,0.65)',
+                fontFamily: 'inherit', fontWeight: 700, fontSize: '0.85rem',
+                cursor: 'pointer', transition: 'all 0.2s ease',
+                letterSpacing: '0.02em',
+              }}>
+                {lbl}
+              </button>
+            ))}
+          </div>
+
+          {/* Search bar */}
+          <div style={{
+            display: 'flex', alignItems: 'stretch',
+            background: '#fff',
+            borderRadius: 14,
+            overflow: 'hidden',
+            boxShadow: '0 24px 64px rgba(0,0,0,0.3)',
+          }}>
+
+            {/* Age */}
+            <div style={{ flex: 1, padding: '15px 22px', borderRight: '1.5px solid #F0F0F0', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+                <Calendar size={11} color="#9CA3AF" strokeWidth={2.5} />
+                <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9CA3AF' }}>Age Range</span>
+              </div>
+              <select value={ageRange} onChange={e => setAgeRange(e.target.value)} style={{
+                background: 'transparent', border: 'none', outline: 'none',
+                color: '#111827', fontSize: '0.92rem', fontWeight: 700,
+                cursor: 'pointer', appearance: 'none', WebkitAppearance: 'none', fontFamily: 'inherit',
+                padding: 0,
+              }}>
+                {[['18-25','18 – 25 yrs'],['22-30','22 – 30 yrs'],['25-35','25 – 35 yrs'],['30-40','30 – 40 yrs']].map(([v,l]) => (
+                  <option key={v} value={v}>{l}</option>
+                ))}
+              </select>
             </div>
-            <button type="submit"
-              className="w-full py-3 sm:py-3.5 rounded-xl font-body font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-200 hover:-translate-y-0.5"
-              style={{ background: 'linear-gradient(135deg, #2338B0, #3D52C8)', color: 'white', boxShadow: '0 4px 20px rgba(35,56,176,0.4)' }}>
-              Find My Match <ArrowRight className="w-4 h-4" />
+
+            {/* Location */}
+            <div style={{ flex: 1, padding: '15px 22px', borderRight: '1.5px solid #F0F0F0', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+                <MapPin size={11} color="#9CA3AF" strokeWidth={2.5} />
+                <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9CA3AF' }}>Location</span>
+              </div>
+              <select value={location} onChange={e => setLocation(e.target.value)} style={{
+                background: 'transparent', border: 'none', outline: 'none',
+                color: '#111827', fontSize: '0.92rem', fontWeight: 700,
+                cursor: 'pointer', appearance: 'none', WebkitAppearance: 'none', fontFamily: 'inherit',
+                padding: 0,
+              }}>
+                {['Any','Hyderabad','Vijayawada','Visakhapatnam','Bangalore','Chennai','USA','UK'].map(v => (
+                  <option key={v} value={v}>{v === 'Any' ? 'Anywhere' : v}</option>
+                ))}
+              </select>
+            </div>
+
+            {/* Button */}
+            <button type="submit" style={{
+              flexShrink: 0, padding: '0 32px',
+              background: 'linear-gradient(135deg, #2338B0 0%, #3D52C8 100%)',
+              color: '#fff', border: 'none', cursor: 'pointer',
+              fontFamily: 'inherit', fontWeight: 700, fontSize: '0.875rem',
+              display: 'flex', alignItems: 'center', gap: 8,
+              transition: 'filter 0.2s',
+            }}
+              onMouseEnter={e => e.currentTarget.style.filter = 'brightness(1.15)'}
+              onMouseLeave={e => e.currentTarget.style.filter = 'brightness(1)'}
+            >
+              <Search size={15} strokeWidth={2.5} />
+              Find Match
             </button>
           </div>
-          <p className="font-body text-xs text-center" style={{ color: 'rgba(255,255,255,0.3)' }}>
-            Free to join · 2,00,000+ verified profiles
-          </p>
         </form>
 
+        {/* Trust text */}
+        <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)', marginBottom: 36, animation: 'hup 0.5s ease 0.32s both', letterSpacing: '0.03em' }}>
+          Free to join &nbsp;&middot;&nbsp; No hidden charges &nbsp;&middot;&nbsp; 100% verified profiles
+        </p>
+
         {/* CTA buttons */}
-        <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8 sm:mb-12" style={{ animation: 'slideUp 0.6s ease 0.55s both' }}>
-          <Link to="/register"
-            className="inline-flex items-center gap-2 font-body font-semibold text-sm px-5 sm:px-6 py-3 rounded-full transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110"
-            style={{ background: '#E8836A', color: '#ffffff', boxShadow: '0 4px 20px rgba(232,131,106,0.35)' }}>
-            Register Free
+        <div style={{
+          display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 12,
+          marginBottom: 56, animation: 'hup 0.6s ease 0.38s both',
+        }}>
+          <Link to="/register" style={{
+            display: 'inline-flex', alignItems: 'center', gap: 8,
+            padding: '13px 30px', borderRadius: 100,
+            background: '#E8836A', color: '#fff',
+            fontWeight: 700, fontSize: '0.875rem',
+            boxShadow: '0 8px 28px rgba(232,131,106,0.45)',
+            transition: 'all 0.2s', textDecoration: 'none',
+          }}
+            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 16px 40px rgba(232,131,106,0.55)' }}
+            onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(232,131,106,0.45)' }}
+          >
+            Create Free Profile <ArrowRight size={15} strokeWidth={2.5} />
           </Link>
-          <Link to="/success-stories"
-            className="inline-flex items-center gap-2 font-body text-sm transition-colors duration-200"
-            style={{ color: 'rgba(255,255,255,0.5)' }}
-            onMouseEnter={e => e.currentTarget.style.color = 'white'}
-            onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.5)'}>
-            View Success Stories →
+          <Link to="/success-stories" style={{
+            display: 'inline-flex', alignItems: 'center', gap: 8,
+            padding: '13px 30px', borderRadius: 100,
+            border: '1.5px solid rgba(255,255,255,0.25)',
+            color: 'rgba(255,255,255,0.8)',
+            fontWeight: 600, fontSize: '0.875rem',
+            transition: 'all 0.2s', textDecoration: 'none',
+          }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.7)'; e.currentTarget.style.color = '#fff' }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)'; e.currentTarget.style.color = 'rgba(255,255,255,0.8)' }}
+          >
+            View Success Stories
           </Link>
         </div>
 
         {/* Stats */}
-        <div className="flex flex-wrap gap-5 sm:gap-8" style={{ animation: 'slideUp 0.6s ease 0.65s both' }}>
-          {STATS.map((s, i) => (
-            <div key={i}>
-              <div className="font-display font-bold text-xl sm:text-2xl" style={{ color: '#E8836A', letterSpacing: '-0.02em' }}>{s.value}</div>
-              <div className="font-body text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.4)' }}>{s.label}</div>
+        <div style={{
+          display: 'flex', flexWrap: 'wrap', justifyContent: 'center',
+          animation: 'hup 0.6s ease 0.44s both',
+          gap: 0,
+          background: 'rgba(255,255,255,0.07)',
+          backdropFilter: 'blur(20px)',
+          border: '1px solid rgba(255,255,255,0.12)',
+          borderRadius: 16,
+          overflow: 'hidden',
+          maxWidth: 520, width: '100%',
+        }}>
+          {STATS.map(({ icon: Icon, value, label }, i) => (
+            <div key={i} style={{
+              flex: '1 1 120px',
+              padding: '22px 20px',
+              borderRight: i < 2 ? '1px solid rgba(255,255,255,0.1)' : 'none',
+              display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 7,
+            }}>
+              <Icon size={17} color="#E8836A" strokeWidth={2} />
+              <div style={{ fontSize: '1.35rem', fontWeight: 800, color: '#fff', letterSpacing: '-0.02em', lineHeight: 1 }}>{value}</div>
+              <div style={{ fontSize: 10.5, fontWeight: 600, color: 'rgba(255,255,255,0.38)', textTransform: 'uppercase', letterSpacing: '0.09em' }}>{label}</div>
             </div>
           ))}
         </div>
+
       </div>
 
-      {/* ── RIGHT PANEL — portrait grid (desktop only) ── */}
-      <div className="hidden lg:block absolute right-0 top-0 w-[50%] h-full overflow-hidden">
-        <div className="absolute inset-y-0 left-0 w-40 z-10 pointer-events-none"
-          style={{ background: 'linear-gradient(to right, #0E0B14 0%, transparent 100%)' }} />
-        <div className="absolute bottom-0 left-0 right-0 h-40 z-10 pointer-events-none"
-          style={{ background: 'linear-gradient(to top, #0E0B14 0%, transparent 100%)' }} />
-
-        <div className="flex gap-3 h-full px-3 pt-8" style={{ marginLeft: '40px' }}>
-          <div className="flex flex-col gap-3 w-1/2" style={{ animation: 'scrollUp 25s linear infinite' }}>
-            {[...PHOTOS, ...PHOTOS].map((src, i) => (
-              <div key={i} className="relative rounded-2xl overflow-hidden shrink-0"
-                style={{ height: '220px', boxShadow: '0 8px 32px rgba(0,0,0,0.4)' }}>
-                <img src={src} alt="" className="w-full h-full object-cover object-top" />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(14,11,20,0.6) 0%, transparent 50%)' }} />
-                {i % 3 === 0 && (
-                  <div className="absolute bottom-3 left-3 flex items-center gap-1.5">
-                    <CheckCircle className="w-3 h-3" style={{ color: '#E8836A' }} />
-                    <span className="font-body text-[10px] font-semibold" style={{ color: 'rgba(255,255,255,0.85)' }}>Verified</span>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-          <div className="flex flex-col gap-3 w-1/2" style={{ animation: 'scrollDown 30s linear infinite', marginTop: '-80px' }}>
-            {[...PHOTOS.slice(3), ...PHOTOS, ...PHOTOS.slice(0, 3)].map((src, i) => (
-              <div key={i} className="relative rounded-2xl overflow-hidden shrink-0"
-                style={{ height: '200px', boxShadow: '0 8px 32px rgba(0,0,0,0.4)' }}>
-                <img src={src} alt="" className="w-full h-full object-cover object-top" />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(14,11,20,0.6) 0%, transparent 50%)' }} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
+      {/* Scroll hint */}
       {!scrolled && (
-        <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 pointer-events-none flex flex-col items-center gap-1">
-          <span className="font-body text-[10px] uppercase tracking-[0.2em]" style={{ color: 'rgba(255,255,255,0.3)' }}>Scroll</span>
-          <ChevronDown className="w-4 h-4 animate-bounce" style={{ color: 'rgba(255,255,255,0.3)' }} />
+        <div style={{ position: 'absolute', bottom: 26, left: '50%', transform: 'translateX(-50%)', zIndex: 10 }}>
+          <ChevronDown size={18} className="animate-bounce" style={{ color: 'rgba(255,255,255,0.3)' }} />
         </div>
       )}
 
       <style>{`
-        @keyframes scrollUp { 0% { transform:translateY(0); } 100% { transform:translateY(-50%); } }
-        @keyframes scrollDown { 0% { transform:translateY(-20%); } 100% { transform:translateY(30%); } }
-        @keyframes slideUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes hup {
+          from { opacity: 0; transform: translateY(20px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
       `}</style>
     </section>
   )

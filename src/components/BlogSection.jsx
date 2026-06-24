@@ -30,9 +30,9 @@ export default function BlogSection() {
   const cardRefs = useRevealStagger(posts.length)
 
   return (
-    <section className="py-14 sm:py-20 lg:py-28" style={{ background: '#F0F4FF' }}>
+    <section className="py-10 sm:py-14" style={{ background: '#F0F4FF' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div ref={headRef} className="reveal text-center mb-8 sm:mb-12">
+        <div ref={headRef} className="reveal text-center mb-6 sm:mb-8">
           <span className="section-tag" style={{ color: '#2338B0' }}>Latest Articles</span>
           <h2 className="section-title">From the Mangalayam Blog</h2>
         </div>

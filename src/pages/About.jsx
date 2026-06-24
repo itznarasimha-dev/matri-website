@@ -39,10 +39,10 @@ export default function About() {
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: 'rgba(10,14,26,0.52)' }} />
         <div className="relative z-10 max-w-2xl mx-auto px-6">
-          <LotusIcon size={40} color="#F8B500" className="mx-auto mb-4 opacity-70" />
-          <span className="section-tag" style={{ color: '#F8B500' }}>Our Story</span>
+          <LotusIcon size={40} color="#E8836A" className="mx-auto mb-4 opacity-70" />
+          <span className="section-tag" style={{ color: '#E8836A' }}>Our Story</span>
           <h1 className="font-display font-bold text-white mt-2 mb-4" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)' }}>
-            About <em className="not-italic" style={{ color: '#F8B500' }}>Mangalayam</em>
+            About <em className="not-italic" style={{ color: '#E8836A' }}>Mangalayam</em>
           </h1>
           <p className="font-body leading-relaxed" style={{ color: 'rgba(255,255,255,0.70)' }}>
             Born from a deep respect for Telugu culture and a passion for modern technology,

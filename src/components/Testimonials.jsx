@@ -39,10 +39,10 @@ export default function Testimonials() {
   const t = testimonials[active]
 
   return (
-    <section className="py-16 md:py-28 overflow-hidden" style={{ background: '#ffffff' }}>
+    <section className="py-10 sm:py-14 overflow-hidden" style={{ background: '#ffffff' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <div ref={headRef} className="reveal text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-4"
+        <div ref={headRef} className="reveal text-center mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-3"
             style={{ background: 'rgba(35,56,176,0.07)', border: '1px solid rgba(35,56,176,0.15)' }}>
             <span className="font-body text-xs font-bold" style={{ color: '#E8836A' }}>★★★★★</span>
             <span className="font-body text-xs font-medium" style={{ color: '#6B7280' }}>4.9 Average Rating · 12,000+ Reviews</span>
@@ -54,32 +54,32 @@ export default function Testimonials() {
           {/* Side cards — desktop */}
           <div className="hidden lg:block absolute -left-40 top-12 w-56 opacity-30 scale-90 pointer-events-none select-none">
             <div className="bg-white rounded-2xl p-6" style={{ border: '1px solid #E2E5F0', boxShadow: '0 2px 16px rgba(35,56,176,0.08)' }}>
-              <p className="font-display italic text-sm leading-relaxed line-clamp-3" style={{ color: '#6B7280' }}>
+              <p style={{ fontFamily: '"Cormorant Garamond", serif', fontStyle: 'italic', fontSize: '0.85rem', lineHeight: 1.6, color: '#6B7280', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                 "{testimonials[(active - 1 + testimonials.length) % testimonials.length].quote}"
               </p>
             </div>
           </div>
           <div className="hidden lg:block absolute -right-40 top-12 w-56 opacity-30 scale-90 pointer-events-none select-none">
             <div className="bg-white rounded-2xl p-6" style={{ border: '1px solid #E2E5F0', boxShadow: '0 2px 16px rgba(35,56,176,0.08)' }}>
-              <p className="font-display italic text-sm leading-relaxed line-clamp-3" style={{ color: '#6B7280' }}>
+              <p style={{ fontFamily: '"Cormorant Garamond", serif', fontStyle: 'italic', fontSize: '0.85rem', lineHeight: 1.6, color: '#6B7280', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                 "{testimonials[(active + 1) % testimonials.length].quote}"
               </p>
             </div>
           </div>
 
           {/* Active card */}
-          <div key={active} className="bg-white rounded-2xl p-10 relative"
+          <div key={active} className="bg-white rounded-2xl p-7 relative"
             style={{ boxShadow: '0 16px 48px rgba(35,56,176,0.12)', border: '1px solid rgba(35,56,176,0.12)', animation: 'fadeInScale 0.4s ease forwards' }}>
             <span className="absolute -top-4 left-8 font-display font-bold leading-none select-none pointer-events-none"
-              style={{ fontSize: '8rem', color: 'rgba(35,56,176,0.05)', lineHeight: 1 }}>"</span>
+              style={{ fontSize: '6rem', color: 'rgba(35,56,176,0.05)', lineHeight: 1 }}>"</span>
 
-            <div className="flex gap-1 mb-6">
+            <div className="flex gap-1 mb-4">
               {[...Array(5)].map((_, i) => (
-                <span key={i} style={{ color: '#E8836A', fontSize: '1.1rem' }}>★</span>
+                <span key={i} style={{ color: '#E8836A', fontSize: '0.9rem' }}>★</span>
               ))}
             </div>
 
-            <p className="font-display italic text-2xl md:text-3xl leading-relaxed mb-8 relative z-10" style={{ color: '#1A1F36' }}>
+            <p style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: '1rem', lineHeight: 1.6, color: '#1A1F36' }} className="mb-6 relative z-10">
               "{t.quote}"
             </p>
 

@@ -79,10 +79,10 @@ function StoryCard({ s, i }) {
 
       {/* Text */}
       <div style={{ order: isEven ? 1 : 0 }}>
-        <p className="font-body text-base leading-relaxed mb-5" style={{ color: 'rgba(255,255,255,0.65)' }}>
+        <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '0.95rem', lineHeight: 1.75, color: 'rgba(255,255,255,0.65)', marginBottom: 20 }}>
           "{s.story}"
         </p>
-        <p className="font-display italic text-2xl mb-6" style={{ color: '#7B2FBE' }}>{s.pull}</p>
+        <p style={{ fontFamily: '"Cormorant Garamond", serif', fontStyle: 'italic', fontSize: 'clamp(1.1rem, 2vw, 1.35rem)', fontWeight: 500, lineHeight: 1.6, color: '#7B2FBE', marginBottom: 24, letterSpacing: '0.01em' }}>{s.pull}</p>
 
         {/* Timeline */}
         <div className="relative pl-6 space-y-3" style={{ borderLeft: '2px solid rgba(212,160,23,0.2)' }}>
@@ -147,8 +147,7 @@ export default function SuccessStoriesPage() {
             </span>
           </div>
           <h1
-            className="font-display font-bold text-white italic mb-4"
-            style={{ fontSize: 'clamp(3rem, 7vw, 5rem)' }}
+            style={{ fontFamily: '"Playfair Display", serif', fontWeight: 800, fontSize: 'clamp(3rem, 7vw, 5rem)', color: 'white', letterSpacing: '-0.025em', lineHeight: 1.1, marginBottom: 16 }}
           >
             Love Stories That Inspire
           </h1>
@@ -176,7 +175,7 @@ export default function SuccessStoriesPage() {
 
       {/* CTA */}
       <div className="max-w-3xl mx-auto px-6 pb-16 text-center">
-        <h2 className="section-title-light mb-6">Be Our Next Success Story</h2>
+        <h2 style={{ fontFamily: '"Playfair Display", serif', fontWeight: 800, fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: 'white', letterSpacing: '-0.025em', lineHeight: 1.15, marginTop: 6 }}>Be Our Next Success Story</h2>
         <Link to="/register" className="btn-primary text-base px-10 py-4">
           Register Free →
         </Link>

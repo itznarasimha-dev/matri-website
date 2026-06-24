@@ -29,8 +29,8 @@ export default function DashLayout({ children }) {
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <img src={user?.photo} alt="" style={{ width: 34, height: 34, borderRadius: '50%', objectFit: 'cover', objectPosition: 'top center', border: '2px solid #E8EBF5' }} />
           <div>
-            <div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: 13, color: '#111827' }}>{user?.name}</div>
-            <div style={{ fontFamily: 'Outfit, sans-serif', fontSize: 10, color: '#9CA3AF', textTransform: 'capitalize' }}>{user?.membershipPlan} plan</div>
+            <div style={{ fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 700, fontSize: 13, color: '#111827' }}>{user?.name}</div>
+            <div style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 10, color: '#9CA3AF', textTransform: 'capitalize' }}>{user?.membershipPlan} plan</div>
           </div>
         </div>
         <button onClick={() => setSidebarOpen(true)} style={{ width: 36, height: 36, borderRadius: 10, background: '#F0F2F8', border: '1px solid #E8EBF5', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
@@ -45,7 +45,7 @@ export default function DashLayout({ children }) {
           <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 270, background: 'white', boxShadow: '4px 0 32px rgba(0,0,0,0.15)', overflowY: 'auto', animation: 'dashSlideIn 0.3s cubic-bezier(0.16,1,0.3,1) both' }}>
             <div style={{ height: 4, background: 'linear-gradient(90deg,#2338B0,#3D52C8,#F8B500)' }} />
             <div style={{ padding: '16px 16px 8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: 14, color: '#111827' }}>{user?.name}</div>
+              <div style={{ fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 800, fontSize: 14, color: '#111827' }}>{user?.name}</div>
               <button onClick={() => setSidebarOpen(false)} style={{ width: 30, height: 30, borderRadius: 8, background: '#F3F4F6', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <X size={15} color="#6B7280" />
               </button>
@@ -54,7 +54,7 @@ export default function DashLayout({ children }) {
               {navLinks.map(({ to, icon: Icon, label, badge, color }) => (
                 <NavLink key={label} to={to} end={to === '/dashboard'}
                   onClick={() => setSidebarOpen(false)}
-                  style={({ isActive }) => ({ display: 'flex', alignItems: 'center', gap: 11, padding: '10px 13px', borderRadius: 12, fontFamily: 'Outfit, sans-serif', fontSize: 13.5, fontWeight: isActive ? 700 : 500, textDecoration: 'none', background: isActive ? `${color}15` : 'transparent', color: isActive ? color : '#6B7280' })}>
+                  style={({ isActive }) => ({ display: 'flex', alignItems: 'center', gap: 11, padding: '10px 13px', borderRadius: 12, fontFamily: 'Inter, system-ui, sans-serif', fontSize: 13.5, fontWeight: isActive ? 700 : 500, textDecoration: 'none', background: isActive ? `${color}15` : 'transparent', color: isActive ? color : '#6B7280' })}>
                   {({ isActive }) => (
                     <>
                       <span style={{ width: 32, height: 32, borderRadius: 9, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: isActive ? `${color}18` : '#F9FAFB' }}>
@@ -68,7 +68,7 @@ export default function DashLayout({ children }) {
               ))}
               <div style={{ height: 1, background: '#F3F4F6', margin: '6px 0' }} />
               <button onClick={() => { handleLogout(); setSidebarOpen(false) }}
-                style={{ display: 'flex', alignItems: 'center', gap: 11, padding: '10px 13px', borderRadius: 12, fontFamily: 'Outfit, sans-serif', fontSize: 13.5, fontWeight: 500, background: 'transparent', color: '#9CA3AF', border: 'none', cursor: 'pointer', width: '100%' }}>
+                style={{ display: 'flex', alignItems: 'center', gap: 11, padding: '10px 13px', borderRadius: 12, fontFamily: 'Inter, system-ui, sans-serif', fontSize: 13.5, fontWeight: 500, background: 'transparent', color: '#9CA3AF', border: 'none', cursor: 'pointer', width: '100%' }}>
                 <span style={{ width: 32, height: 32, borderRadius: 9, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#F9FAFB' }}><LogOut size={15} color="#9CA3AF" /></span>
                 Log out
               </button>
@@ -103,7 +103,7 @@ export default function DashLayout({ children }) {
               {/* Online badge */}
               <span style={{ position: 'absolute', bottom: 8, left: 8, display: 'flex', alignItems: 'center', gap: 4, padding: '3px 8px', borderRadius: 20, background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(8px)', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
                 <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#22C55E', animation: 'pulseDot 2s infinite' }} />
-                <span style={{ fontFamily: 'Outfit, sans-serif', fontSize: 10, fontWeight: 700, color: '#15803D' }}>Online</span>
+                <span style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 10, fontWeight: 700, color: '#15803D' }}>Online</span>
               </span>
               {/* Bell */}
               <button style={{ position: 'absolute', top: 8, right: 8, width: 30, height: 30, borderRadius: '50%', background: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(8px)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', transition: 'transform 0.2s cubic-bezier(0.34,1.56,0.64,1)' }}
@@ -116,19 +116,19 @@ export default function DashLayout({ children }) {
             </div>
 
             {/* Name & plan */}
-            <div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: 15.5, color: '#111827', letterSpacing: '-0.02em' }}>{user?.name}</div>
+            <div style={{ fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 800, fontSize: 15.5, color: '#111827', letterSpacing: '-0.02em' }}>{user?.name}</div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 5 }}>
-              <span style={{ fontFamily: 'Outfit, sans-serif', fontSize: 10, fontWeight: 700, padding: '3px 9px', borderRadius: 20, background: 'linear-gradient(135deg,#2338B0,#3D52C8)', color: 'white', textTransform: 'capitalize', letterSpacing: '0.03em' }}>
+              <span style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 10, fontWeight: 700, padding: '3px 9px', borderRadius: 20, background: 'linear-gradient(135deg,#2338B0,#3D52C8)', color: 'white', textTransform: 'capitalize', letterSpacing: '0.03em' }}>
                 {user?.membershipPlan}
               </span>
-              <span style={{ fontFamily: 'Outfit, sans-serif', fontSize: 11, color: '#9CA3AF' }}>· {user?.location}</span>
+              <span style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 11, color: '#9CA3AF' }}>· {user?.location}</span>
             </div>
 
             {/* Completion bar */}
             <div style={{ marginTop: 13 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 5 }}>
-                <span style={{ fontFamily: 'Outfit, sans-serif', fontSize: 11, color: '#6B7280' }}>Profile strength</span>
-                <span style={{ fontFamily: 'Outfit, sans-serif', fontSize: 11, fontWeight: 800, color: '#2338B0' }}>{user?.profileComplete || 72}%</span>
+                <span style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 11, color: '#6B7280' }}>Profile strength</span>
+                <span style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 11, fontWeight: 800, color: '#2338B0' }}>{user?.profileComplete || 72}%</span>
               </div>
               <div style={{ height: 6, borderRadius: 6, background: '#F3F4F6', overflow: 'hidden' }}>
                 <div style={{ height: '100%', borderRadius: 6, background: 'linear-gradient(90deg,#2338B0,#3D52C8,#F8B500)', width: `${user?.profileComplete || 72}%`, animation: 'barGrow 1.4s cubic-bezier(0.16,1,0.3,1) 0.2s both' }} />
@@ -148,7 +148,7 @@ export default function DashLayout({ children }) {
                 style={({ isActive }) => ({
                   display: 'flex', alignItems: 'center', gap: 11,
                   padding: '10px 13px', borderRadius: 12,
-                  fontFamily: 'Outfit, sans-serif', fontSize: 13.5, fontWeight: isActive ? 700 : 500,
+                  fontFamily: 'Inter, system-ui, sans-serif', fontSize: 13.5, fontWeight: isActive ? 700 : 500,
                   textDecoration: 'none',
                   transition: 'all 0.22s cubic-bezier(0.16,1,0.3,1)',
                   background: isActive ? `${color}15` : hovered === label ? '#F0F2F8' : 'transparent',
@@ -189,7 +189,7 @@ export default function DashLayout({ children }) {
             <button onClick={handleLogout}
               onMouseEnter={() => setHovered('logout')}
               onMouseLeave={() => setHovered(null)}
-              style={{ display: 'flex', alignItems: 'center', gap: 11, padding: '10px 13px', borderRadius: 12, fontFamily: 'Outfit, sans-serif', fontSize: 13.5, fontWeight: 500, background: hovered === 'logout' ? '#FFF8E6' : 'transparent', color: hovered === 'logout' ? '#B45309' : '#9CA3AF', border: 'none', cursor: 'pointer', textAlign: 'left', width: '100%', transition: 'all 0.2s ease', transform: hovered === 'logout' ? 'translateX(3px)' : 'translateX(0)' }}>
+              style={{ display: 'flex', alignItems: 'center', gap: 11, padding: '10px 13px', borderRadius: 12, fontFamily: 'Inter, system-ui, sans-serif', fontSize: 13.5, fontWeight: 500, background: hovered === 'logout' ? '#FFF8E6' : 'transparent', color: hovered === 'logout' ? '#B45309' : '#9CA3AF', border: 'none', cursor: 'pointer', textAlign: 'left', width: '100%', transition: 'all 0.2s ease', transform: hovered === 'logout' ? 'translateX(3px)' : 'translateX(0)' }}>
               <span style={{ width: 34, height: 34, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', background: hovered === 'logout' ? '#FEF3C7' : '#F9FAFB', transition: 'all 0.2s' }}>
                 <LogOut size={15} color={hovered === 'logout' ? '#B45309' : '#9CA3AF'} />
               </span>
@@ -202,10 +202,10 @@ export default function DashLayout({ children }) {
             <div style={{ position: 'absolute', top: -10, right: -10, width: 60, height: 60, borderRadius: '50%', background: 'linear-gradient(135deg,#2338B0,#3D52C8)', opacity: 0.08 }} />
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 6 }}>
               <Sparkles size={13} color="#2338B0" />
-              <span style={{ fontFamily: 'Outfit, sans-serif', fontSize: 12, fontWeight: 700, color: '#1A2A8F' }}>Upgrade to Premium</span>
+              <span style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 12, fontWeight: 700, color: '#1A2A8F' }}>Upgrade to Premium</span>
             </div>
-            <p style={{ fontFamily: 'Outfit, sans-serif', fontSize: 11, color: '#6B7280', lineHeight: 1.5, marginBottom: 10 }}>Get unlimited matches & direct contact</p>
-            <button className="dash-btn" style={{ width: '100%', padding: '8px 0', borderRadius: 10, background: 'linear-gradient(135deg,#F8B500,#E5A000)', color: '#1A1F36', border: 'none', cursor: 'pointer', fontFamily: 'Outfit, sans-serif', fontSize: 12, fontWeight: 800, boxShadow: '0 4px 14px rgba(248,181,0,0.4)' }}>
+            <p style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 11, color: '#6B7280', lineHeight: 1.5, marginBottom: 10 }}>Get unlimited matches & direct contact</p>
+            <button className="dash-btn" style={{ width: '100%', padding: '8px 0', borderRadius: 10, background: 'linear-gradient(135deg,#F8B500,#E5A000)', color: '#1A1F36', border: 'none', cursor: 'pointer', fontFamily: 'Inter, system-ui, sans-serif', fontSize: 12, fontWeight: 800, boxShadow: '0 4px 14px rgba(248,181,0,0.4)' }}>
               Upgrade Now ✨
             </button>
           </div>
@@ -232,10 +232,11 @@ export default function DashLayout({ children }) {
           <NavLink key={to} to={to} end={to === '/dashboard'}
             style={({ isActive }) => ({ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '10px 4px 8px', textDecoration: 'none', color: isActive ? '#2338B0' : '#9CA3AF', borderTop: isActive ? '2px solid #2338B0' : '2px solid transparent', transition: 'all 0.15s' })}>
             <Icon size={20} />
-            <span style={{ fontFamily: 'Outfit, sans-serif', fontSize: 10, fontWeight: 600, marginTop: 3 }}>{label}</span>
+            <span style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 10, fontWeight: 600, marginTop: 3 }}>{label}</span>
           </NavLink>
         ))}
       </nav>
     </div>
   )
 }
+

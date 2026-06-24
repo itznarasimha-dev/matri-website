@@ -17,9 +17,9 @@ export default function WhyChooseUs() {
   const featureRefs = useRevealStagger(features.length)
 
   return (
-    <section className="py-14 sm:py-20 lg:py-28" style={{ background: '#F0F4FF' }}>
+    <section className="py-10 sm:py-14 lg:py-16" style={{ background: '#F0F4FF' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid lg:grid-cols-[40%_60%] gap-10 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-[38%_62%] gap-8 lg:gap-12 items-center">
 
           {/* Left illustration — hidden on mobile */}
           <div ref={leftRef} className="reveal-left hidden sm:block">
@@ -57,29 +57,30 @@ export default function WhyChooseUs() {
           {/* Right features */}
           <div ref={rightRef} className="reveal-right">
             <span className="section-tag" style={{ color: '#2338B0' }}>Why Mangalayam</span>
-            <h2 className="section-title mb-3">
-              Built for Telugu Families,<br className="hidden sm:block" />By Telugu Families
+            <h2 style={{ fontFamily: '"Playfair Display", serif', fontWeight: 700, fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', color: '#1A1F36', lineHeight: 1.2, letterSpacing: '-0.02em', marginTop: 4, marginBottom: 8 }}>
+              Built for Telugu Families,
+              <span style={{ fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: 'clamp(0.9rem, 1.4vw, 1rem)', color: '#6B7280', letterSpacing: '0', display: 'block', marginTop: 4 }}>By Telugu Families</span>
             </h2>
-            <p className="font-body text-sm mb-8 max-w-lg" style={{ color: '#6B7280' }}>
+            <p style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: '1rem', color: '#6B7280', lineHeight: 1.7, marginBottom: 24, maxWidth: 480 }}>
               Two decades of trust. Thousands of happy unions. One platform built with the heart of Telugu culture.
             </p>
 
-            <div className="space-y-4 sm:space-y-6 mb-8 sm:mb-10">
+            <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
               {features.map((f, i) => {
                 const Icon = f.icon
                 return (
                   <div key={f.title}
                     ref={el => featureRefs.current[i] = el}
                     data-idx={i}
-                    className="flex items-start gap-3 sm:gap-4 reveal"
+                    className="flex items-start gap-3 reveal"
                     style={{ transitionDelay: `${i * 80}ms` }}>
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center shrink-0"
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
                       style={{ background: 'rgba(35,56,176,0.1)' }}>
-                      <Icon className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: '#2338B0' }} />
+                      <Icon className="w-4 h-4" style={{ color: '#2338B0' }} />
                     </div>
                     <div>
-                      <h4 className="font-heading font-semibold text-sm sm:text-base mb-0.5" style={{ color: '#1A1F36' }}>{f.title}</h4>
-                      <p className="font-body text-xs sm:text-sm" style={{ color: '#6B7280' }}>{f.desc}</p>
+                      <h4 style={{ fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 600, fontSize: '0.95rem', color: '#1A1F36', marginBottom: 2 }}>{f.title}</h4>
+                      <p style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: '0.875rem', color: '#6B7280', lineHeight: 1.6 }}>{f.desc}</p>
                     </div>
                   </div>
                 )
