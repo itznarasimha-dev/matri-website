@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useReveal } from '../useReveal'
 import { useCountUp } from '../useReveal'
 import CTASection from '../components/CTASection'
+import rosesBg from '../assets/roses background.jpg'
 
 const stories = [
   {
@@ -63,17 +64,11 @@ function StoryCard({ s, i }) {
       <div style={{ order: isEven ? 0 : 1 }}>
         <div className="relative rounded-3xl overflow-hidden aspect-[4/3]">
           <img src={s.photo} alt={s.names} className="w-full h-full object-cover" />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(44,22,84,0.7) 0%, transparent 50%)' }} />
-          <div className="absolute bottom-5 left-5">
-            <div className="flex items-center gap-2 mb-1">
-              <Heart className="w-4 h-4 fill-primary" style={{ color: '#000080', animation: 'heartBeat 3s ease-in-out infinite' }} />
-              <span className="font-display text-white text-xl font-bold">{s.names}</span>
-            </div>
-            <div className="flex gap-4 text-xs text-white/70">
-              <span className="flex items-center gap-1"><Calendar className="w-3 h-3" />{s.married}</span>
-              <span className="flex items-center gap-1"><MapPin className="w-3 h-3" />{s.location}</span>
-            </div>
-          </div>
+        </div>
+        <div className="flex items-center gap-2 mt-3">
+          <Heart className="w-4 h-4" style={{ color: '#000080', fill: '#000080', animation: 'heartBeat 3s ease-in-out infinite' }} />
+          <span className="font-display text-white text-lg font-bold">{s.names}</span>
+          <span className="text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>· {s.married} · {s.location}</span>
         </div>
       </div>
 
@@ -108,7 +103,7 @@ function TimelineYear({ y }) {
       className="flex-shrink-0 text-center px-6 py-5 rounded-2xl transition-all duration-200 hover:-translate-y-1 cursor-default"
       style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(212,160,23,0.1)', minWidth: '120px' }}
     >
-      <div className="font-body text-xs font-bold mb-1" style={{ color: '#D4A017' }}>{y.year}</div>
+      <div className="font-body text-xs font-bold mb-1" style={{ color: '#E8836A' }}>{y.year}</div>
       <div className="font-mono font-bold text-white text-xl">
         <span ref={countRef}>0</span>+
       </div>
@@ -122,34 +117,30 @@ export default function SuccessStoriesPage() {
   const headRef = useReveal()
 
   return (
-    <main className="min-h-screen" style={{ background: '#2C1654' }}>
+    <main className="min-h-screen" style={{ background: '#0a0a2e' }}>
       {/* Hero */}
       <div
         className="relative pt-32 sm:pt-36 pb-16 sm:pb-24 text-center overflow-hidden"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1722952934708-749c22eb2e58?w=1920&q=90')",
+          backgroundImage: `url(${rosesBg})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center center',
-          backgroundAttachment: 'fixed',
+          backgroundPosition: 'center top',
+        minHeight: '70vh',
         }}
       >
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(to right, rgba(44,22,84,0.55) 0%, rgba(44,22,84,0.30) 50%, rgba(44,22,84,0.50) 100%)' }}
-        />
         <div className="relative z-10 max-w-3xl mx-auto px-6">
           <div
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6"
-            style={{ background: 'rgba(255,255,255,0.12)' }}
+            style={{ background: 'rgba(255,255,255,0.75)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.9)' }}
           >
-            <span className="font-body text-xs text-white font-semibold uppercase tracking-[0.15em]">
+            <span className="font-body text-xs font-semibold uppercase tracking-[0.15em]" style={{ color: '#000080' }}>
               <span ref={heroCountRef}>0</span>+ Families United
             </span>
           </div>
           <h1
             style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 800, fontSize: 'clamp(3rem, 7vw, 5rem)', color: 'white', letterSpacing: '-0.025em', lineHeight: 1.1, marginBottom: 16 }}
           >
-            Love Stories That Inspire
+            <span style={{ color: '#059669', textShadow: '0 2px 20px rgba(5,150,105,0.5), 1px 1px 0 rgba(255,255,255,0.3)' }}>Love</span> Stories That Inspire
           </h1>
           <p className="font-body text-base max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.75)' }}>
             Every match is a story of trust, tradition, and love

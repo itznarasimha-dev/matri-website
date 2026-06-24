@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Shield, Globe, Lock, Star, Users, Phone } from 'lucide-react'
 import { useReveal, useRevealStagger } from '../useReveal'
+import weddingCarImg from '../assets/wedding car background.jpg'
 
 const features = [
   { icon: Shield, title: '100% Verified',        desc: 'Every profile manually reviewed by our dedicated trust & safety team.' },
@@ -17,23 +18,36 @@ export default function WhyChooseUs() {
   const featureRefs = useRevealStagger(features.length)
 
   return (
-    <section className="py-10 sm:py-14 lg:py-16" style={{ background: '#F0F4FF' }}>
+    <section
+      className="py-10 sm:py-14 lg:py-16"
+      style={{
+        backgroundImage: `url(${weddingCarImg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-[38%_62%] gap-8 lg:gap-12 items-center">
 
-          {/* Left — real photo */}
-          <div ref={leftRef} className="reveal-left hidden sm:block">
-            <div className="rounded-3xl overflow-hidden" style={{ aspectRatio: '4/5' }}>
-              <img
-                src="https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=700&q=85"
-                alt="Telugu wedding couple"
-                className="w-full h-full object-cover object-center"
-              />
+          {/* Left — plain text, no card */}
+          <div ref={leftRef} className="reveal-left hidden sm:flex flex-col justify-center gap-6" style={{ minHeight: 420 }}>
+            <div>
+              <div className="text-4xl mb-3">🪷</div>
+              <h3 style={{ fontWeight: 700, fontSize: '1.5rem', color: '#fff', marginBottom: 8, textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>20+ Years of Trust</h3>
+              <p style={{ fontSize: '0.9rem', color: '#f0f0f0', lineHeight: 1.7, textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}>Since 2003, Mangalayam has united thousands of Telugu families across India and abroad with care, culture, and commitment.</p>
+            </div>
+            <div>
+              <h3 style={{ fontWeight: 700, fontSize: '1.5rem', color: '#fff', marginBottom: 8, textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>Rooted in Telugu Culture</h3>
+              <p style={{ fontSize: '0.9rem', color: '#f0f0f0', lineHeight: 1.7, textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}>We honour traditions — from gotra matching to native district preferences — while embracing modern values of consent and privacy.</p>
+            </div>
+            <div>
+              <h3 style={{ fontWeight: 700, fontSize: '1.5rem', color: '#fff', marginBottom: 8, textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>50,000+ Happy Unions</h3>
+              <p style={{ fontSize: '0.9rem', color: '#f0f0f0', lineHeight: 1.7, textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}>Real couples. Real stories. Every success fuels our mission to bring more Telugu hearts together.</p>
             </div>
           </div>
 
           {/* Right features */}
-          <div ref={rightRef} className="reveal-right">
+          <div ref={rightRef} className="reveal-right rounded-2xl p-4 sm:p-6" style={{ background: 'rgba(255,255,255,0.35)', backdropFilter: 'blur(2px)', border: '1px solid rgba(255,255,255,0.5)' }}>
             <span className="section-tag" style={{ color: '#000080' }}>Why Mangalayam</span>
             <h2 style={{ fontWeight: 700, fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', color: '#1A1F36', lineHeight: 1.2, letterSpacing: '-0.02em', marginTop: 4, marginBottom: 8 }}>
               Built for Telugu Families,
@@ -43,22 +57,22 @@ export default function WhyChooseUs() {
               Two decades of trust. Thousands of happy unions. One platform built with the heart of Telugu culture.
             </p>
 
-            <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+            <div className="grid grid-cols-2 gap-2 mb-6 sm:mb-8">
               {features.map((f, i) => {
                 const Icon = f.icon
                 return (
                   <div key={f.title}
                     ref={el => featureRefs.current[i] = el}
                     data-idx={i}
-                    className="flex items-start gap-3 reveal"
-                    style={{ transitionDelay: `${i * 80}ms` }}>
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
-                      style={{ background: 'rgba(0,0,128,0.1)' }}>
-                      <Icon className="w-4 h-4" style={{ color: '#000080' }} />
+                    className="flex items-start gap-2 reveal"
+                    style={{ transitionDelay: `${i * 80}ms`, background: 'rgba(255,255,255,0.7)', borderRadius: 10, padding: '10px 12px', border: '1px solid rgba(0,0,128,0.12)' }}>
+                    <div className="w-7 h-7 rounded-md flex items-center justify-center shrink-0 mt-0.5"
+                      style={{ background: 'rgba(0,0,128,0.12)' }}>
+                      <Icon className="w-3.5 h-3.5" style={{ color: '#000080' }} />
                     </div>
                     <div>
-                      <h4 style={{ fontWeight: 600, fontSize: '0.95rem', color: '#1A1F36', marginBottom: 2 }}>{f.title}</h4>
-                      <p style={{ fontSize: '0.875rem', color: '#6B7280', lineHeight: 1.6 }}>{f.desc}</p>
+                      <h4 style={{ fontWeight: 700, fontSize: '0.8rem', color: '#1A1F36', marginBottom: 2 }}>{f.title}</h4>
+                      <p style={{ fontSize: '0.72rem', color: '#374151', lineHeight: 1.5 }}>{f.desc}</p>
                     </div>
                   </div>
                 )

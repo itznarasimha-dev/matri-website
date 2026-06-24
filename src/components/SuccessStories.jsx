@@ -28,15 +28,7 @@ export default function SuccessStories() {
   const cardRefs = useRevealStagger(couples.length)
 
   return (
-    <section className="py-10 sm:py-14 lg:py-16 relative overflow-hidden">
-      {/* Background */}
-      <div style={{
-        position: 'absolute', inset: 0,
-        backgroundImage: 'url(https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1600&q=80)',
-        backgroundSize: 'cover', backgroundPosition: 'center',
-        opacity: 0.06,
-      }} />
-      <div style={{ position: 'absolute', inset: 0, background: '#F0F4FF', opacity: 0.94 }} />
+    <section className="py-10 sm:py-14 lg:py-16" style={{ background: '#F0F4FF' }}>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div ref={headRef} className="reveal text-center mb-8 sm:mb-10">

@@ -10,7 +10,7 @@ export default function Toast({ message, type = 'success', onClose }) {
   const isSuccess = type === 'success'
 
   return (
-    <div className="toast" style={{ background: isSuccess ? '#1A2A8F' : '#DC2626' }}>
+    <div className="toast" style={{ background: isSuccess ? '#00006b' : '#DC2626' }}>
       <div className="flex items-center gap-3 px-5 py-4">
         {isSuccess
           ? <CheckCircle className="w-5 h-5 text-gold shrink-0" />

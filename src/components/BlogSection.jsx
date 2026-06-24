@@ -33,7 +33,7 @@ export default function BlogSection() {
     <section className="py-10 sm:py-14" style={{ background: '#F0F4FF' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div ref={headRef} className="reveal text-center mb-6 sm:mb-8">
-          <span className="section-tag" style={{ color: '#2338B0' }}>Latest Articles</span>
+          <span className="section-tag" style={{ color: '#000080' }}>Latest Articles</span>
           <h2 className="section-title">From the Mangalayam Blog</h2>
         </div>
 
@@ -43,9 +43,9 @@ export default function BlogSection() {
               ref={el => cardRefs.current[i] = el}
               data-idx={i}
               className="reveal bg-white rounded-2xl overflow-hidden group transition-all duration-300"
-              style={{ boxShadow: '0 2px 16px rgba(35,56,176,0.07)', border: '1px solid #E2E5F0' }}
-              onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 16px 40px rgba(35,56,176,0.14)'; e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#2338B0' }}
-              onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 16px rgba(35,56,176,0.07)'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#E2E5F0' }}
+              style={{ boxShadow: '0 2px 16px rgba(0,0,128,0.07)', border: '1px solid #E2E5F0' }}
+              onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 16px 40px rgba(0,0,128,0.14)'; e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.borderColor = '#000080' }}
+              onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 16px rgba(0,0,128,0.07)'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#E2E5F0' }}
             >
               <div className="h-40 sm:h-48 overflow-hidden">
                 <img src={p.photo} alt={p.title}
@@ -54,7 +54,7 @@ export default function BlogSection() {
               <div className="p-5 sm:p-6">
                 <div className="flex items-center gap-3 mb-3">
                   <span className="font-body text-xs font-semibold px-3 py-1 rounded-full text-white"
-                    style={{ background: '#2338B0' }}>{p.category}</span>
+                    style={{ background: '#000080' }}>{p.category}</span>
                   <span className="font-body text-xs" style={{ color: '#9CA3AF' }}>{p.date}</span>
                 </div>
                 <h3 className="font-heading font-semibold text-base sm:text-lg leading-snug mb-2 transition-colors duration-200 group-hover:text-primary"
@@ -66,7 +66,7 @@ export default function BlogSection() {
                   {p.excerpt}
                 </p>
                 <Link to="#" className="font-body text-sm font-semibold transition-colors duration-200"
-                  style={{ color: '#2338B0', borderBottom: '1px solid rgba(35,56,176,0.3)' }}>
+                  style={{ color: '#000080', borderBottom: '1px solid rgba(0,0,128,0.3)' }}>
                   Read More →
                 </Link>
               </div>

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { FileText, Search, MessageCircle, Sparkles } from 'lucide-react'
 import { useReveal } from '../useReveal'
+import weddingHandsBg from '../assets/wedding hands background.jpg'
 
 const steps = [
   { icon: FileText,      title: 'Create Your Profile',  desc: 'Share your preferences, family background, and expectations to get started.' },
@@ -31,11 +32,10 @@ export default function HowItWorks() {
       {/* Background image */}
       <div style={{
         position: 'absolute', inset: 0,
-        backgroundImage: 'url(https://images.unsplash.com/photo-1510076857177-7470076d4098?w=1600&q=80)',
+        backgroundImage: `url(${weddingHandsBg})`,
         backgroundSize: 'cover', backgroundPosition: 'center',
-        opacity: 0.07,
       }} />
-      <div style={{ position: 'absolute', inset: 0, background: '#ffffff' , opacity: 0.93 }} />
+
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div ref={headRef} className="reveal text-center mb-8 sm:mb-10">

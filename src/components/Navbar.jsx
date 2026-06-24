@@ -65,15 +65,10 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link to={user ? '/dashboard' : '/'} className="navbar__logo">
-            <div className="navbar__logo-icon">
-              <LotusIcon size={22} color="white" />
-            </div>
-            <div>
-              <span className="navbar__logo-telugu">మంగళాయం</span>
-              <span className="navbar__logo-brand" style={{ letterSpacing: '0.02em' }}>
-                Mangalayam
-              </span>
-            </div>
+            <LotusIcon size={36} color="#E8836A" />
+            <span className="navbar__logo-brand" style={{ letterSpacing: '0.02em' }}>
+              Mangalayam
+            </span>
           </Link>
 
           {/* Desktop links */}
@@ -163,9 +158,9 @@ export default function Navbar() {
               <div className="hidden lg:flex items-center gap-2">
                 <Link to="/login"
                   className="font-body text-xs font-semibold px-5 py-2 rounded-full transition-all duration-200"
-                  style={{ color: 'white', border: '1px solid rgba(255,255,255,0.35)' }}
-                  onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.7)' }}
-                  onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.35)' }}
+                  style={{ color: scrolled ? '#000080' : 'white', border: `1px solid ${scrolled ? 'rgba(0,0,128,0.35)' : 'rgba(255,255,255,0.35)'}` }}
+                  onMouseEnter={e => { e.currentTarget.style.background = scrolled ? 'rgba(0,0,128,0.08)' : 'rgba(255,255,255,0.12)'; e.currentTarget.style.borderColor = scrolled ? 'rgba(0,0,128,0.7)' : 'rgba(255,255,255,0.7)' }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = scrolled ? 'rgba(0,0,128,0.35)' : 'rgba(255,255,255,0.35)' }}
                 >
                   Sign In
                 </Link>
@@ -215,13 +210,10 @@ export default function Navbar() {
           <div className="mobile-panel" onClick={e => e.stopPropagation()}>
             <div className="flex items-center justify-between p-5 border-b" style={{ borderColor: '#E2E5F0' }}>
               <Link to={user ? '/dashboard' : '/'} className="navbar__logo" onClick={() => setMobileOpen(false)}>
-                <div className="navbar__logo-icon"><LotusIcon size={20} color="white" /></div>
-                <div>
-                  <span className="navbar__logo-telugu">మంగళాయం</span>
-                  <span className="navbar__logo-brand" style={{ color: '#000080' }}>
-                    Mangalayam
-                  </span>
-                </div>
+                <LotusIcon size={32} color="#E8836A" />
+                <span className="navbar__logo-brand" style={{ color: '#000080' }}>
+                  Mangalayam
+                </span>
               </Link>
               <button onClick={() => setMobileOpen(false)} style={{ color: '#6B7280' }}>
                 <X className="w-5 h-5" />

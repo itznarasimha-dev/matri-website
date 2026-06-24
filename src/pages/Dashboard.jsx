@@ -1,5 +1,12 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import girlProfile1 from '../assets/girl profile 1.jpg'
+import girlProfile2 from '../assets/girl profile 2.jpg'
+import girlProfile3 from '../assets/girl profile 3.jpg'
+import girlProfile4 from '../assets/girl profile 4.jpg'
+import boyProfile1 from '../assets/boy profile.jpg'
+import boyProfile2 from '../assets/boy profile 2.jpg'
+import boyProfile3 from '../assets/boy profile 3.jpg'
 import {
   Heart, Eye, Star, MousePointerClick, CheckCircle, XCircle, MoreHorizontal,
 } from "lucide-react";
@@ -7,20 +14,20 @@ import { useAuth } from "../context/AuthContext";
 import DashLayout from "../components/DashLayout";
 
 const MATCH_CARDS = [
-  { photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80", name: "Priya Sharma",   age: 24, city: "Hyderabad",     online: false },
-  { photo: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&q=80", name: "Divya Lakshmi",  age: 26, city: "Vijayawada",    online: false },
-  { photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80", name: "Harika Sharma",  age: 23, city: "Visakhapatnam", online: true  },
-  { photo: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&q=80", name: "Ramya Sri",      age: 25, city: "Chennai",       online: true  },
-  { photo: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&q=80", name: "Lalitha Devi",  age: 27, city: "Bangalore",     online: true  },
-  { photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80", name: "Sravani R.",    age: 22, city: "Hyderabad",     online: false },
-  { photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80", name: "Meena Rao",     age: 28, city: "Pune",          online: true  },
+  { photo: girlProfile1, name: "Priya Sharma",   age: 24, city: "Hyderabad",     online: false },
+  { photo: girlProfile2, name: "Divya Lakshmi",  age: 26, city: "Vijayawada",    online: false },
+  { photo: girlProfile3, name: "Harika Sharma",  age: 23, city: "Visakhapatnam", online: true  },
+  { photo: girlProfile4, name: "Ramya Sri",      age: 25, city: "Chennai",       online: true  },
+  { photo: boyProfile1,  name: "Sai Kiran",      age: 27, city: "Bangalore",     online: true  },
+  { photo: boyProfile2,  name: "Naveen Kumar",   age: 29, city: "Hyderabad",     online: false },
+  { photo: boyProfile3,  name: "Karthik Varma",  age: 30, city: "Pune",          online: true  },
 ];
 
 const CHAT_LIST = [
-  { name: "Priya Sharma",  city: "Hyderabad",     msg: "Thank you for connecting!", photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" },
-  { name: "Divya Lakshmi", city: "Vijayawada",    msg: "Looking forward to chatting", photo: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=100&q=80" },
-  { name: "Harika Sharma", city: "Visakhapatnam", msg: "Hi! Saw your profile 😊",     photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" },
-  { name: "Ramya Sri",     city: "Chennai",       msg: "Would love to know more",    photo: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&q=80" },
+  { name: "Priya Sharma",  city: "Hyderabad",     msg: "Thank you for connecting!",  photo: girlProfile1 },
+  { name: "Divya Lakshmi", city: "Vijayawada",    msg: "Looking forward to chatting", photo: girlProfile2 },
+  { name: "Harika Sharma", city: "Visakhapatnam", msg: "Hi! Saw your profile 😊",     photo: girlProfile3 },
+  { name: "Ramya Sri",     city: "Chennai",       msg: "Would love to know more",     photo: girlProfile4 },
 ];
 
 const INTERESTS = [

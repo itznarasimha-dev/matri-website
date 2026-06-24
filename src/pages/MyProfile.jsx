@@ -4,6 +4,10 @@ import { Edit, MapPin, Briefcase, Heart, Eye, Star, MousePointerClick, Camera, P
 import { useAuth } from '../context/AuthContext'
 import { profileDetails } from '../data/profiles'
 import DashLayout from '../components/DashLayout'
+import girlProfile1 from '../assets/girl profile 1.jpg'
+import girlProfile2 from '../assets/girl profile 2.jpg'
+import girlProfile3 from '../assets/girl profile 3.jpg'
+import girlProfile4 from '../assets/girl profile 4.jpg'
 
 export default function MyProfile() {
   const { user } = useAuth()
@@ -11,7 +15,7 @@ export default function MyProfile() {
   const completion = user?.profileComplete || 72
   const [activeTab, setActiveTab] = useState('about')
   const tabs = ['about', 'family', 'preferences', 'photos']
-  const photos = [user?.photo, ...Array(5).fill('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=300&q=80')]
+  const photos = [girlProfile1, girlProfile2, girlProfile3, girlProfile4]
 
   return (
     <DashLayout>
@@ -32,7 +36,7 @@ export default function MyProfile() {
 
           <div style={{ padding: '0 24px 24px', display: 'flex', alignItems: 'flex-end', gap: 20, flexWrap: 'wrap' }}>
             <div style={{ position: 'relative', marginTop: -48 }}>
-              <img src={user?.photo} alt={user?.name} style={{ width: 96, height: 96, borderRadius: '50%', objectFit: 'cover', objectPosition: 'top center', border: '4px solid white', boxShadow: '0 4px 16px rgba(0,0,128,0.2)' }} />
+              <img src={girlProfile1} alt={user?.name} style={{ width: 96, height: 96, borderRadius: '50%', objectFit: 'cover', objectPosition: 'top center', border: '4px solid white', boxShadow: '0 4px 16px rgba(0,0,128,0.2)' }} />
               <button style={{ position: 'absolute', bottom: 4, right: 4, width: 26, height: 26, borderRadius: '50%', background: '#000080', border: '2px solid white', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
                 <Camera size={11} color="white" />
               </button>

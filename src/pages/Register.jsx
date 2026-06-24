@@ -4,12 +4,13 @@ import { Eye, EyeOff, Check } from 'lucide-react'
 import Toast from '../components/Toast'
 import LotusIcon from '../components/LotusIcon'
 import { useAuth } from '../context/AuthContext'
+import registerBg from '../assets/register page background.jpg'
 
 const steps = ['Basic Info', 'Personal Details', 'Preferences']
 
 const inputClass = "w-full px-4 py-3.5 rounded-xl font-body text-sm text-dark focus:outline-none transition-colors duration-200"
 const inputStyle = { border: '1px solid #E8D5B0', background: 'white' }
-const focusStyle = { borderColor: '#7B2FBE' }
+const focusStyle = { borderColor: '#000080' }
 
 function SelectInput({ k, form, update, label, opts }) {
   return (
@@ -67,14 +68,19 @@ export default function Register() {
   if (user) return <Navigate to="/dashboard" replace />
 
   return (
-    <main className="min-h-screen flex items-center justify-center py-12 sm:py-16 px-4" style={{ background: '#F5ECD7' }}>
+    <main className="min-h-screen flex items-center justify-center py-12 sm:py-16 px-4" style={{
+      position: 'relative',
+      backgroundImage: `url(${registerBg})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }}>
       {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
 
       {/* Success overlay */}
       {success && (
         <div className="success-overlay">
           <div style={{ animation: 'float 2s ease-in-out infinite' }}>
-            <LotusIcon size={80} color="#D4A017" animate />
+            <LotusIcon size={80} color="#E8836A" animate />
           </div>
           <h2 className="font-display text-white text-4xl font-bold mt-6 mb-3">Your journey has begun!</h2>
           <p className="font-body text-white/60 text-lg mb-8">🪷 Welcome to Mangalayam</p>
@@ -90,13 +96,8 @@ export default function Register() {
       <div className="w-full max-w-xl">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 justify-center mb-8">
-          <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: '#7B2FBE' }}>
-            <LotusIcon size={18} color="white" />
-          </div>
-          <div>
-            <span className="block font-telugu text-[9px]" style={{ color: '#D4A017' }}>మంగళాయం</span>
-            <span style={{ fontFamily: '"Playfair Display", serif', letterSpacing: '0.02em', fontSize: '1.25rem', fontWeight: 700, color: '#7B2FBE' }}>Mangalayam</span>
-          </div>
+          <LotusIcon size={34} color="#E8836A" />
+          <span style={{ letterSpacing: '0.02em', fontSize: '1.25rem', fontWeight: 700, color: '#000080' }}>Mangalayam</span>
         </Link>
 
         {/* Card */}
@@ -104,7 +105,7 @@ export default function Register() {
           <h1 className="font-heading text-dark text-3xl font-bold mb-1">Create Profile</h1>
           <p className="font-body text-sm text-muted mb-6">
             Already registered?{' '}
-            <Link to="/login" style={{ color: '#7B2FBE' }} className="font-semibold hover:underline">Sign in</Link>
+            <Link to="/login" style={{ color: '#000080' }} className="font-semibold hover:underline">Sign in</Link>
           </p>
 
           {/* Progress */}
@@ -116,9 +117,9 @@ export default function Register() {
                     className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300"
                     style={
                       i < step
-                        ? { background: '#D4A017', color: '#2C1654' }
+                        ? { background: '#E8836A', color: '#0a0a2e' }
                         : i === step
-                        ? { background: '#7B2FBE', color: 'white' }
+                        ? { background: '#000080', color: 'white' }
                         : { background: '#E8D5B0', color: '#8B7355' }
                     }
                   >
@@ -127,9 +128,9 @@ export default function Register() {
                 </div>
                 <div
                   className="h-1.5 rounded-full transition-all duration-300"
-                  style={{ background: i <= step ? '#7B2FBE' : '#E8D5B0' }}
+                  style={{ background: i <= step ? '#000080' : '#E8D5B0' }}
                 />
-                <div className="font-body text-[10px] mt-1" style={{ color: i === step ? '#7B2FBE' : '#8B7355', fontWeight: i === step ? 600 : 400 }}>
+                <div className="font-body text-[10px] mt-1" style={{ color: i === step ? '#000080' : '#8B7355', fontWeight: i === step ? 600 : 400 }}>
                   {s}
                 </div>
               </div>
@@ -154,7 +155,7 @@ export default function Register() {
                       className="py-3 px-2 rounded-xl font-body text-xs font-medium text-center transition-all duration-200 flex flex-col items-center gap-1"
                       style={
                         form.profileFor === val
-                          ? { background: 'rgba(123,47,190,0.08)', border: '2px solid #7B2FBE', color: '#7B2FBE' }
+                          ? { background: 'rgba(0,0,128,0.08)', border: '2px solid #000080', color: '#000080' }
                           : { border: '1px solid #E8D5B0', color: '#8B7355' }
                       }
                     >
@@ -223,7 +224,7 @@ export default function Register() {
                       className="py-3 rounded-xl font-body text-sm font-semibold transition-all duration-200"
                       style={
                         form.lookingFor === v
-                          ? { background: '#7B2FBE', color: 'white' }
+                          ? { background: '#000080', color: 'white' }
                           : { border: '1px solid #E8D5B0', color: '#8B7355' }
                       }
                     >
@@ -249,7 +250,7 @@ export default function Register() {
               </div>
               <div
                 className="rounded-2xl p-4 font-body text-sm"
-                style={{ background: 'rgba(123,47,190,0.04)', border: '1px solid rgba(123,47,190,0.12)', color: '#8B7355' }}
+                style={{ background: 'rgba(0,0,128,0.04)', border: '1px solid rgba(0,0,128,0.12)', color: '#8B7355' }}
               >
                 <div className="font-semibold text-dark mb-1">🎉 Almost done!</div>
                 Complete your profile after registration to get the best matches.

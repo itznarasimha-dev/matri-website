@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useReveal } from '../useReveal'
+import loveBg from '../assets/love background.jpg'
 
 export default function CTASection() {
   const ref = useReveal()
@@ -9,22 +10,22 @@ export default function CTASection() {
       {/* Background image */}
       <div style={{
         position: 'absolute', inset: 0,
-        backgroundImage: 'url(https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=1600&q=85)',
+        backgroundImage: `url(${loveBg})`,
         backgroundSize: 'cover', backgroundPosition: 'center',
       }} />
-      <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,128,0.82)' }} />
+
 
       <div ref={ref} className="reveal relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center">
-        <span className="section-tag mb-3 block" style={{ color: '#E8836A' }}>
+        <span className="section-tag mb-3 block" style={{ color: '#1A1F36', textShadow: '0 1px 3px rgba(255,255,255,0.8)' }}>
           Your Journey Begins Here
         </span>
-        <h2 className="font-display font-bold text-white mb-4 leading-tight"
-          style={{ fontSize: 'clamp(1.5rem,3.5vw,2.4rem)' }}>
+        <h2 className="font-display font-bold mb-4 leading-tight"
+          style={{ fontSize: 'clamp(1.5rem,3.5vw,2.4rem)', color: '#1A1F36', textShadow: '0 2px 8px rgba(255,255,255,0.6)' }}>
           Begin Your Search for the{' '}
-          <em className="not-italic" style={{ color: '#E8836A' }}>Right Match</em>{' '}
+          <em className="not-italic" style={{ color: '#000080' }}>Right Match</em>{' '}
           Today
         </h2>
-        <p className="font-body text-sm mb-6 max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.75)' }}>
+        <p className="font-body text-sm mb-6 max-w-xl mx-auto" style={{ color: '#1A1F36', fontWeight: 500, textShadow: '0 1px 4px rgba(255,255,255,0.7)' }}>
           Join 2 lakh Telugu families who trust Mangalayam to find their life partner.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
@@ -35,9 +36,9 @@ export default function CTASection() {
           </Link>
           <Link to="/membership"
             className="inline-flex items-center justify-center gap-2 font-body font-semibold text-sm sm:text-base px-8 sm:px-10 py-3.5 sm:py-4 rounded-full tracking-[0.08em] transition-all duration-200 select-none hover:-translate-y-1"
-            style={{ color: '#E8836A', border: '2px solid #E8836A' }}
-            onMouseEnter={e => { e.currentTarget.style.background = '#E8836A'; e.currentTarget.style.color = 'white' }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#E8836A' }}>
+            style={{ color: '#1A1F36', border: '2px solid #1A1F36' }}
+            onMouseEnter={e => { e.currentTarget.style.background = '#1A1F36'; e.currentTarget.style.color = 'white' }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#1A1F36' }}>
             View Plans
           </Link>
         </div>

@@ -4,6 +4,8 @@ import { Eye, EyeOff } from 'lucide-react'
 import Toast from '../components/Toast'
 import LotusIcon from '../components/LotusIcon'
 import { useAuth } from '../context/AuthContext'
+import loginBg from '../assets/login page background.jpg'
+import girlProfile1 from '../assets/girl profile 1.jpg'
 
 const mockUser = {
   id: 1,
@@ -12,7 +14,7 @@ const mockUser = {
   gender: 'female',
   location: 'Hyderabad',
   profession: 'Software Engineer',
-  photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200',
+  photo: girlProfile1,
   membershipPlan: 'free',
   profileComplete: 72,
   matchesCount: 47,
@@ -48,59 +50,48 @@ export default function Login() {
   }
 
   return (
-    <main className="min-h-screen flex" style={{ background: '#2C1654' }}>
+    <main className="min-h-screen flex" style={{ background: '#F5F0EB' }}>
       {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
 
       {/* Left visual */}
       <div
         className="hidden lg:flex lg:w-1/2 relative overflow-hidden flex-col items-center justify-center px-12 text-center"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1621801306185-8c0ccf9c8eb8?w=1200&q=90')",
+          backgroundImage: `url(${loginBg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(44,22,84,0.50) 0%, rgba(61,31,107,0.42) 100%)' }} />
-        {/* Floating lotus background */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-5">
-          <LotusIcon size={400} color="#D4A017" />
-        </div>
-
         <div className="relative z-10">
-          <span className="font-display text-8xl leading-none" style={{ color: 'rgba(212,160,23,0.4)' }}>"</span>
-          <p className="font-display italic text-white text-3xl leading-relaxed -mt-6 mb-8">
+          <span className="font-display text-8xl leading-none" style={{ color: 'rgba(255,255,255,0.6)', textShadow: '0 2px 12px rgba(0,0,0,0.8)' }}>"</span>
+          <p className="font-display italic text-white text-3xl leading-relaxed -mt-6 mb-8" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.9)' }}>
             A thousand blessings begin<br />with one step
           </p>
           <div className="flex flex-col items-center gap-4">
             <div className="flex items-center gap-3">
               {successAvatars.map(a => (
                 <div key={a.name} className="flex flex-col items-center gap-1">
-                  <img src={a.photo} alt={a.name} className="w-12 h-12 rounded-full object-cover" style={{ border: '2px solid rgba(212,160,23,0.4)' }} />
-                  <span className="font-body text-[10px]" style={{ color: '#D4A017' }}>{a.name}</span>
+                  <img src={a.photo} alt={a.name} className="w-12 h-12 rounded-full object-cover" style={{ border: '2px solid rgba(255,255,255,0.6)' }} />
+                  <span className="font-body text-[11px] font-semibold" style={{ color: '#fff', textShadow: '0 1px 6px rgba(0,0,0,0.9)' }}>{a.name}</span>
                 </div>
               ))}
             </div>
-            <p className="font-body text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>Join them today — 2 lakh+ happy members</p>
+            <p className="font-body text-sm font-semibold" style={{ color: '#fff', textShadow: '0 1px 6px rgba(0,0,0,0.9)' }}>Join them today — 2 lakh+ happy members</p>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, #D4A017, transparent)' }} />
+        <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, #E8836A, transparent)' }} />
       </div>
 
       {/* Right form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16">
+      <div className="w-full lg:w-1/2 flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16" style={{ background: '#F5F0EB' }}>
         <div className="w-full max-w-md mx-auto">
           <Link to="/" className="flex items-center gap-2 mb-10">
-            <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: '#2338B0', boxShadow: '0 4px 12px rgba(35,56,176,0.4)' }}>
-              <LotusIcon size={18} color="white" />
-            </div>
-            <div>
-              <span className="block font-telugu text-[9px]" style={{ color: '#D4A017' }}>మంగళాయం</span>
-              <span style={{ fontFamily: '"Playfair Display", serif', letterSpacing: '0.02em', fontSize: '1.25rem', fontWeight: 700, color: '#2338B0' }}>Mangalayam</span>
-            </div>
+            <LotusIcon size={34} color="#E8836A" />
+            <span style={{ letterSpacing: '0.02em', fontSize: '1.25rem', fontWeight: 700, color: '#000080' }}>Mangalayam</span>
           </Link>
 
-          <h1 className="font-heading text-white text-3xl font-bold mb-1">Welcome Back</h1>
-          <p className="font-body text-sm mb-8" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <h1 className="font-heading text-3xl font-bold mb-1" style={{ color: '#1A1F36' }}>Welcome Back</h1>
+          <p className="font-body text-sm mb-8" style={{ color: '#6B7280' }}>
             Sign in to continue your journey.{' '}
             <Link to="/register" className="transition-colors duration-200" style={{ color: '#E8836A' }}
               onMouseEnter={e => { e.target.style.color = 'white' }}
@@ -112,18 +103,18 @@ export default function Login() {
 
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
-              <label className="font-body text-xs font-medium block mb-1.5" style={{ color: 'rgba(255,255,255,0.5)' }}>Email Address</label>
+              <label className="font-body text-xs font-medium block mb-1.5" style={{ color: '#6B7280' }}>Email Address</label>
               <input
                 type="email"
                 value={form.email}
                 onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
                 placeholder="you@email.com"
                 className="input-box w-full"
-                style={{ background: 'rgba(255,255,255,0.05)', borderColor: 'rgba(212,160,23,0.2)', color: 'white' }}
+                style={{ background: 'white', borderColor: '#E2E5F0', color: '#1A1F36' }}
               />
             </div>
             <div>
-              <label className="font-body text-xs font-medium block mb-1.5" style={{ color: 'rgba(255,255,255,0.5)' }}>Password</label>
+              <label className="font-body text-xs font-medium block mb-1.5" style={{ color: '#6B7280' }}>Password</label>
               <div className="relative">
                 <input
                   type={showPass ? 'text' : 'password'}
@@ -131,13 +122,13 @@ export default function Login() {
                   onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
                   placeholder="Enter your password"
                   className="input-box w-full pr-12"
-                  style={{ background: 'rgba(255,255,255,0.05)', borderColor: 'rgba(212,160,23,0.2)', color: 'white' }}
+                  style={{ background: 'white', borderColor: '#E2E5F0', color: '#1A1F36' }}
                 />
                 <button type="button" onClick={() => setShowPass(s => !s)}
                   className="absolute right-4 top-1/2 -translate-y-1/2 transition-colors duration-200"
-                  style={{ color: 'rgba(255,255,255,0.4)' }}
-                  onMouseEnter={e => { e.currentTarget.style.color = '#D4A017' }}
-                  onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.4)' }}
+                  style={{ color: '#9CA3AF' }}
+                  onMouseEnter={e => { e.currentTarget.style.color = '#E8836A' }}
+                  onMouseLeave={e => { e.currentTarget.style.color = '#9CA3AF' }}
                 >
                   {showPass ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -145,8 +136,8 @@ export default function Login() {
             </div>
 
             <div className="flex items-center justify-between text-xs">
-              <label className="flex items-center gap-2 cursor-pointer font-body" style={{ color: 'rgba(255,255,255,0.5)' }}>
-                <input type="checkbox" style={{ accentColor: '#7B2FBE' }} className="w-3.5 h-3.5" />
+              <label className="flex items-center gap-2 cursor-pointer font-body" style={{ color: '#6B7280' }}>
+                <input type="checkbox" style={{ accentColor: '#000080' }} className="w-3.5 h-3.5" />
                 Remember me
               </label>
               <a href="#" className="font-body transition-colors duration-200" style={{ color: '#E8836A' }}>Forgot Password?</a>
@@ -156,18 +147,18 @@ export default function Login() {
           </form>
 
           <div className="my-6 flex items-center gap-3">
-            <div className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.08)' }} />
-            <span className="font-body text-xs" style={{ color: 'rgba(255,255,255,0.3)' }}>or continue with</span>
-            <div className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.08)' }} />
+            <div className="flex-1 h-px" style={{ background: '#E2E5F0' }} />
+            <span className="font-body text-xs" style={{ color: '#9CA3AF' }}>or continue with</span>
+            <div className="flex-1 h-px" style={{ background: '#E2E5F0' }} />
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             {[{ label: 'Google', color: '#DB4437' }, { label: 'Facebook', color: '#4267B2' }].map(({ label, color }) => (
               <button key={label}
                 className="flex items-center justify-center gap-2 py-3 rounded-xl font-body text-sm transition-all duration-200"
-                style={{ border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.6)' }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = color; e.currentTarget.style.color = 'white' }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = 'rgba(255,255,255,0.6)' }}
+                style={{ border: '1px solid #E2E5F0', color: '#6B7280', background: 'white' }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = color; e.currentTarget.style.color = '#1A1F36' }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = '#E2E5F0'; e.currentTarget.style.color = '#6B7280' }}
               >
                 {label}
               </button>

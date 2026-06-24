@@ -18,7 +18,7 @@ export default function MembershipTeaser() {
   const ref = useReveal()
 
   return (
-    <section className="py-12 md:py-16 relative overflow-hidden" style={{ background: '#2338B0' }}>
+    <section className="py-12 md:py-16 relative overflow-hidden" style={{ background: '#000080' }}>
       <div className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: 'linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)',
@@ -58,7 +58,7 @@ export default function MembershipTeaser() {
                 }
               >
                 <span className="font-heading font-semibold text-base"
-                  style={{ color: plan.active ? '#2338B0' : 'rgba(255,255,255,0.8)' }}>
+                  style={{ color: plan.active ? '#000080' : 'rgba(255,255,255,0.8)' }}>
                   {plan.name}
                 </span>
                 <span className="font-mono font-bold text-lg"

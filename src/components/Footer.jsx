@@ -46,11 +46,11 @@ export default function Footer() {
     <footer className="relative overflow-hidden" style={{ background: '#0A0E1A' }}>
 
       {/* Accent top border */}
-      <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, transparent 0%, #E8836A 30%, #2338B0 70%, transparent 100%)' }} />
+      <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, transparent 0%, #E8836A 30%, #000080 70%, transparent 100%)' }} />
 
       {/* Subtle background glow blobs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-20 -left-20 w-72 h-72 rounded-full" style={{ background: 'radial-gradient(circle, rgba(35,56,176,0.08) 0%, transparent 70%)' }} />
+        <div className="absolute -top-20 -left-20 w-72 h-72 rounded-full" style={{ background: 'radial-gradient(circle, rgba(0,0,128,0.08) 0%, transparent 70%)' }} />
         <div className="absolute -bottom-10 right-10 w-64 h-64 rounded-full" style={{ background: 'radial-gradient(circle, rgba(232,131,106,0.06) 0%, transparent 70%)' }} />
       </div>
 
@@ -62,14 +62,8 @@ export default function Footer() {
           {/* Brand — 4 cols */}
           <div className="col-span-12 md:col-span-4">
             <Link to="/" className="inline-flex items-center gap-2.5 mb-3 group">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
-                style={{ background: 'linear-gradient(135deg, #2338B0, #E8836A)' }}>
-                <LotusIcon size={16} color="white" />
-              </div>
-              <div>
-                <span className="block font-telugu" style={{ fontSize: '8px', color: '#E8836A', letterSpacing: '0.08em' }}>మంగళాయం</span>
-                <span className="font-heading font-bold text-white" style={{ fontSize: '1.1rem', fontFamily: '"Playfair Display", serif', letterSpacing: '0.02em' }}>Mangalayam</span>
-              </div>
+              <LotusIcon size={28} color="#E8836A" />
+              <span className="font-heading font-bold text-white" style={{ fontSize: '1.1rem', letterSpacing: '0.02em' }}>Mangalayam</span>
             </Link>
 
             <p className="font-body text-xs leading-relaxed mb-4" style={{ color: 'rgba(255,255,255,0.38)', maxWidth: 260 }}>
@@ -155,7 +149,7 @@ export default function Footer() {
               />
               <button
                 className="px-3 py-2 font-body text-xs font-semibold transition-all duration-200 shrink-0"
-                style={{ background: 'linear-gradient(135deg, #2338B0, #E8836A)', color: 'white' }}
+                style={{ background: 'linear-gradient(135deg, #000080, #E8836A)', color: 'white' }}
                 onMouseEnter={e => e.currentTarget.style.opacity = '0.85'}
                 onMouseLeave={e => e.currentTarget.style.opacity = '1'}
               >

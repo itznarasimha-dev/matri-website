@@ -3,6 +3,7 @@ import { Check, X, Zap, Shield, Crown } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import DashLayout from '../components/DashLayout'
+import coupleBg from '../assets/couple background.jpg'
 
 const plans = [
   {
@@ -156,25 +157,19 @@ export default function Membership() {
       {/* Hero */}
       <div className="pt-32 sm:pt-36 pb-12 sm:pb-16 text-center relative overflow-hidden"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1920&q=90')",
+          backgroundImage: `url(${coupleBg})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center center',
+          backgroundPosition: 'center top',
+          minHeight: '100vh',
         }}>
-        {/* Dark overlay */}
-        <div className="absolute inset-0" style={{ background: 'rgba(10,14,26,0.55)' }} />
-        {/* Dot pattern */}
-        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
-        {/* Amber glow */}
-        <div className="absolute top-0 right-0 w-96 h-96 pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(232,131,106,0.15) 0%, transparent 70%)', transform: 'translate(20%,-20%)' }} />
-        <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6">
-          <span className="section-tag" style={{ color: '#E8836A' }}>Plans & Pricing</span>
-          <h1 style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 800, fontSize: 'clamp(2rem, 5vw, 3.8rem)', color: 'white', lineHeight: 1.1, letterSpacing: '-0.02em', margin: '8px 0 16px' }}>
+        <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 flex flex-col items-center justify-center" style={{ minHeight: '100vh', paddingTop: '8rem', paddingBottom: '4rem' }}>
+          <span className="section-tag" style={{ color: '#fff', background: 'rgba(0,0,128,0.75)', padding: '4px 16px', borderRadius: 100 }}>Plans &amp; Pricing</span>
+          <h1 style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 800, fontSize: 'clamp(2rem, 5vw, 3.8rem)', color: '#fff', lineHeight: 1.1, letterSpacing: '-0.02em', margin: '12px 0 16px', textAlign: 'center', textShadow: '0 2px 12px rgba(0,0,0,0.6)' }}>
             Find Your Match <em className="not-italic" style={{ color: '#E8836A' }}>Faster</em>
             <br />
-            <span style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 400, fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', color: 'rgba(255,255,255,0.75)', display: 'block', marginTop: 6 }}>with Premium &amp; Relationship Managers</span>
+            <span style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 400, fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', color: 'rgba(255,255,255,0.9)', display: 'block', marginTop: 6, textShadow: '0 1px 6px rgba(0,0,0,0.5)' }}>with Premium &amp; Relationship Managers</span>
           </h1>
-          <p className="font-body text-sm sm:text-base max-w-md mx-auto" style={{ color: 'rgba(255,255,255,0.70)' }}>
+          <p className="font-body text-sm sm:text-base max-w-md mx-auto text-center" style={{ color: 'rgba(255,255,255,0.95)', fontWeight: 500, textShadow: '0 1px 6px rgba(0,0,0,0.5)' }}>
             Simple, transparent pricing. Join 2 lakh+ Telugu families. No hidden charges.
           </p>
           {/* Stats row */}
@@ -182,7 +177,7 @@ export default function Membership() {
             {[['2L+','Verified Profiles'],['4800+','Happy Marriages'],['98%','Satisfaction']].map(([val,label]) => (
               <div key={label} className="text-center">
                 <div className="font-display font-bold text-2xl sm:text-3xl" style={{ color: '#E8836A' }}>{val}</div>
-                <div className="font-body text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.5)' }}>{label}</div>
+                <div className="font-body text-xs mt-0.5 font-semibold" style={{ color: 'rgba(255,255,255,0.85)' }}>{label}</div>
               </div>
             ))}
           </div>

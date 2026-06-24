@@ -29,8 +29,8 @@ function ScrollToTop() {
 function Layout() {
   const { pathname } = useLocation()
   const { user } = useAuth()
-  const isDash = !!user && dashboardRoutes.some(r => pathname.startsWith(r))
-  const heroRoutes = ['/', '/about', '/contact', '/success-stories', '/membership']
+  const isDash = (!!user && dashboardRoutes.some(r => pathname.startsWith(r))) || pathname === '/login' || pathname === '/register'
+  const heroRoutes = ['/', '/about', '/contact', '/success-stories', '/membership', '/login', '/register']
   const isHero = heroRoutes.includes(pathname)
   return (
     <>

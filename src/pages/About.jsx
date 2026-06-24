@@ -3,6 +3,9 @@ import { useReveal, useRevealStagger } from '../useReveal'
 import CTASection from '../components/CTASection'
 import LotusIcon from '../components/LotusIcon'
 
+import weddingBg from '../assets/wedding background.jpg'
+import weddingAestheticsImg from '../assets/wedding aesthitics.jpg'
+
 const values = [
   { icon: Heart,  title: 'Love & Respect',  desc: 'We believe every person deserves to find a loving, respectful partner.' },
   { icon: Target, title: 'Trust First',      desc: 'Every profile is manually verified. We take trust seriously.' },
@@ -31,20 +34,18 @@ export default function About() {
       <div
         className="relative pt-32 sm:pt-36 pb-20 sm:pb-28 text-center overflow-hidden"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1920&q=90')",
+          backgroundImage: `url(${weddingBg})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center center',
+          backgroundPosition: 'center top',
         }}
       >
-        <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'rgba(10,14,26,0.52)' }} />
-        <div className="relative z-10 max-w-2xl mx-auto px-6">
+        <div className="absolute inset-0 pointer-events-none" />        <div className="relative z-10 max-w-2xl mx-auto px-6">
           <LotusIcon size={40} color="#E8836A" className="mx-auto mb-4 opacity-70" />
-          <span className="section-tag" style={{ color: '#E8836A' }}>Our Story</span>
-          <h1 className="font-display font-bold text-white mt-2 mb-4" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)' }}>
+          <span className="section-tag" style={{ color: '#E8836A', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>Our Story</span>
+          <h1 className="font-display font-bold text-white mt-2 mb-4" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', textShadow: '0 2px 12px rgba(0,0,0,0.6)' }}>
             About <em className="not-italic" style={{ color: '#E8836A' }}>Mangalayam</em>
           </h1>
-          <p className="font-body leading-relaxed" style={{ color: 'rgba(255,255,255,0.70)' }}>
+          <p className="font-body leading-relaxed" style={{ color: '#fff', fontWeight: 600, textShadow: '0 2px 12px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.8)', fontSize: '1.05rem' }}>
             Born from a deep respect for Telugu culture and a passion for modern technology,
             Mangalayam bridges tradition with innovation.
           </p>
@@ -62,13 +63,13 @@ export default function About() {
             <div
               key={title}
               className="rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2"
-              style={{ background: '#FFFFFF', border: '1px solid #E2E5F0', boxShadow: '0 4px 24px rgba(35,56,176,0.08)' }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = '#2338B0'; e.currentTarget.style.boxShadow = '0 12px 40px rgba(35,56,176,0.14)' }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = '#E2E5F0'; e.currentTarget.style.boxShadow = '0 4px 24px rgba(35,56,176,0.08)' }}
+              style={{ background: '#FFFFFF', border: '1px solid #E2E5F0', boxShadow: '0 4px 24px rgba(0,0,128,0.08)' }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = '#000080'; e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,128,0.14)' }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = '#E2E5F0'; e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,0,128,0.08)' }}
             >
               <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-                style={{ background: 'rgba(35,56,176,0.08)' }}>
-                <Icon className="w-6 h-6" style={{ color: '#2338B0' }} />
+                style={{ background: 'rgba(0,0,128,0.08)' }}>
+                <Icon className="w-6 h-6" style={{ color: '#000080' }} />
               </div>
               <h2 className="font-heading text-2xl font-bold mb-3" style={{ color: '#1A1F36' }}>{title}</h2>
               <p className="font-body text-sm leading-relaxed" style={{ color: '#6B7280' }}>{text}</p>
@@ -77,10 +78,10 @@ export default function About() {
         </div>
 
         {/* Values */}
-        <div ref={ref2} className="reveal mb-20">
+        <div ref={ref2} className="reveal mb-20" style={{ backgroundImage: `url(${weddingAestheticsImg})`, backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: 24, padding: '40px 24px' }}>
           <div className="text-center mb-10">
-            <span className="section-tag">Core Values</span>
-            <h2 className="section-title">What We Stand For</h2>
+            <span className="section-tag" style={{ color: '#fff', background: 'rgba(0,0,128,0.7)', padding: '4px 16px', borderRadius: 100 }}>Core Values</span>
+            <h2 className="section-title" style={{ color: '#fff', textShadow: '0 2px 10px rgba(0,0,0,0.5)', marginTop: 8 }}>What We Stand For</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {values.map((v, i) => {
@@ -91,16 +92,16 @@ export default function About() {
                   ref={el => valueRefs.current[i] = el}
                   data-idx={i}
                   className="reveal rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-2"
-                  style={{ background: '#FFFFFF', border: '1px solid #E2E5F0', boxShadow: '0 2px 16px rgba(35,56,176,0.06)' }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = '#2338B0'; e.currentTarget.style.boxShadow = '0 16px 48px rgba(35,56,176,0.12)' }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = '#E2E5F0'; e.currentTarget.style.boxShadow = '0 2px 16px rgba(35,56,176,0.06)' }}
+                  style={{ background: 'rgba(255,255,255,0.18)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,0.4)', boxShadow: '0 4px 24px rgba(0,0,0,0.15)' }}
+                  onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.28)'; e.currentTarget.style.boxShadow = '0 16px 48px rgba(0,0,0,0.2)' }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.18)'; e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,0,0,0.15)' }}
                 >
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3"
-                    style={{ background: 'rgba(35,56,176,0.08)' }}>
-                    <Icon className="w-6 h-6" style={{ color: '#2338B0' }} />
+                    style={{ background: 'rgba(255,255,255,0.3)' }}>
+                    <Icon className="w-6 h-6" style={{ color: '#000080' }} />
                   </div>
-                  <h3 className="font-heading font-bold mb-2" style={{ color: '#1A1F36' }}>{v.title}</h3>
-                  <p className="font-body text-xs leading-relaxed" style={{ color: '#6B7280' }}>{v.desc}</p>
+                  <h3 className="font-heading font-bold mb-2" style={{ color: '#fff', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>{v.title}</h3>
+                  <p className="font-body text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.9)' }}>{v.desc}</p>
                 </div>
               )
             })}
@@ -114,12 +115,12 @@ export default function About() {
             <h2 className="section-title">How We Grew</h2>
           </div>
           <div className="relative pl-8 space-y-8 max-w-2xl mx-auto"
-            style={{ borderLeft: '2px solid rgba(35,56,176,0.15)' }}>
+            style={{ borderLeft: '2px solid rgba(0,0,128,0.15)' }}>
             {milestones.map((m, i) => (
               <div key={i} className="relative">
                 <div
                   className="absolute -left-[41px] top-0 w-5 h-5 rounded-full"
-                  style={{ background: '#2338B0', border: '3px solid #F0F2F8', boxShadow: '0 0 0 2px #2338B0' }}
+                  style={{ background: '#000080', border: '3px solid #F0F2F8', boxShadow: '0 0 0 2px #000080' }}
                 />
                 <span className="font-body text-xs font-bold" style={{ color: '#E8836A' }}>{m.year}</span>
                 <h3 className="font-heading font-bold mt-1 mb-1" style={{ color: '#1A1F36' }}>{m.title}</h3>

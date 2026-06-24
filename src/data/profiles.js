@@ -1,13 +1,22 @@
+import boyProfile1 from '../assets/boy profile.jpg'
+import boyProfile2 from '../assets/boy profile 2.jpg'
+import boyProfile3 from '../assets/boy profile 3.jpg'
+import boyProfile4 from '../assets/boy profile 4.jpg'
+import girlProfile1 from '../assets/girl profile 1.jpg'
+import girlProfile2 from '../assets/girl profile 2.jpg'
+import girlProfile3 from '../assets/girl profile 3.jpg'
+import girlProfile4 from '../assets/girl profile 4.jpg'
+
 export const profiles = [
-  { id: 1, name: 'Sravani Reddy', age: 26, location: 'Hyderabad', profession: 'Software Engineer', education: 'B.Tech', religion: 'Hindu', caste: 'Reddy', height: "5'4\"", score: 92, photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80', gender: 'bride' },
-  { id: 2, name: 'Naveen Kumar', age: 29, location: 'Bangalore', profession: 'Data Scientist', education: 'M.Tech', religion: 'Hindu', caste: 'Kamma', height: "5'10\"", score: 88, photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80', gender: 'groom' },
-  { id: 3, name: 'Divya Lakshmi', age: 24, location: 'Vijayawada', profession: 'Doctor', education: 'MBBS', religion: 'Hindu', caste: 'Brahmin', height: "5'5\"", score: 95, photo: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&q=80', gender: 'bride' },
-  { id: 4, name: 'Anil Kumar', age: 31, location: 'USA', profession: 'IT Manager', education: 'MS', religion: 'Hindu', caste: 'Reddy', height: "5'11\"", score: 90, photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80', gender: 'groom' },
-  { id: 5, name: 'Harika Sharma', age: 25, location: 'Visakhapatnam', profession: 'CA', education: 'CA Final', religion: 'Hindu', caste: 'Vaishya', height: "5'3\"", score: 87, photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80', gender: 'bride' },
-  { id: 6, name: 'Sai Kiran', age: 28, location: 'Hyderabad', profession: 'Entrepreneur', education: 'MBA', religion: 'Hindu', caste: 'Kamma', height: "5'9\"", score: 91, photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80', gender: 'groom' },
-  { id: 7, name: 'Ramya Sri', age: 27, location: 'Chennai', profession: 'Architect', education: 'B.Arch', religion: 'Hindu', caste: 'Reddy', height: "5'4\"", score: 85, photo: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&q=80', gender: 'bride' },
-  { id: 8, name: 'Karthik Varma', age: 30, location: 'Hyderabad', profession: 'Doctor', education: 'MD', religion: 'Hindu', caste: 'Brahmin', height: "5'10\"", score: 94, photo: 'https://images.unsplash.com/photo-1463453091185-61582044d556?w=400&q=80', gender: 'groom' },
-  { id: 9, name: 'Lalitha Devi', age: 23, location: 'Tirupati', profession: 'Teacher', education: 'B.Ed', religion: 'Hindu', caste: 'Kamma', height: "5'2\"", score: 82, photo: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&q=80', gender: 'bride' },
+  { id: 1, name: 'Sravani Reddy', age: 26, location: 'Hyderabad', profession: 'Software Engineer', education: 'B.Tech', religion: 'Hindu', caste: 'Reddy', height: "5'4\"", score: 92, photo: girlProfile1, gender: 'bride' },
+  { id: 2, name: 'Naveen Kumar', age: 29, location: 'Bangalore', profession: 'Data Scientist', education: 'M.Tech', religion: 'Hindu', caste: 'Kamma', height: "5'10\"", score: 88, photo: boyProfile1, gender: 'groom' },
+  { id: 3, name: 'Divya Lakshmi', age: 24, location: 'Vijayawada', profession: 'Doctor', education: 'MBBS', religion: 'Hindu', caste: 'Brahmin', height: "5'5\"", score: 95, photo: girlProfile2, gender: 'bride' },
+  { id: 4, name: 'Anil Kumar', age: 31, location: 'USA', profession: 'IT Manager', education: 'MS', religion: 'Hindu', caste: 'Reddy', height: "5'11\"", score: 90, photo: boyProfile2, gender: 'groom' },
+  { id: 5, name: 'Harika Sharma', age: 25, location: 'Visakhapatnam', profession: 'CA', education: 'CA Final', religion: 'Hindu', caste: 'Vaishya', height: "5'3\"", score: 87, photo: girlProfile3, gender: 'bride' },
+  { id: 6, name: 'Sai Kiran', age: 28, location: 'Hyderabad', profession: 'Entrepreneur', education: 'MBA', religion: 'Hindu', caste: 'Kamma', height: "5'9\"", score: 91, photo: boyProfile3, gender: 'groom' },
+  { id: 7, name: 'Ramya Sri', age: 27, location: 'Chennai', profession: 'Architect', education: 'B.Arch', religion: 'Hindu', caste: 'Reddy', height: "5'4\"", score: 85, photo: girlProfile4, gender: 'bride' },
+  { id: 8, name: 'Karthik Varma', age: 30, location: 'Hyderabad', profession: 'Doctor', education: 'MD', religion: 'Hindu', caste: 'Brahmin', height: "5'10\"", score: 94, photo: boyProfile4, gender: 'groom' },
+  { id: 9, name: 'Lalitha Devi', age: 23, location: 'Tirupati', profession: 'Teacher', education: 'B.Ed', religion: 'Hindu', caste: 'Kamma', height: "5'2\"", score: 82, photo: girlProfile1, gender: 'bride' },
 ]
 
 export const profileDetails = {
