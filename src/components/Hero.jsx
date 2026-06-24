@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ChevronDown, Shield, Phone, Globe, Star } from 'lucide-react'
 import { profiles } from '../data/profiles'
-import heroBg from '../assets/hero background.jpg'
+import heroBg from '../assets/hero-background.jpg'
 
 const words = ['Where', 'Telugu', 'Hearts', 'Find', 'Their', 'Home']
 

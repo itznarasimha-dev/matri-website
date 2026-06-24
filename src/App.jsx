@@ -32,23 +32,25 @@ function Layout() {
     <>
       <ScrollToTop />
       {!isDash && <Navbar />}
-      <Routes>
-        {/* Public */}
-        <Route path="/"                element={<Home />} />
-        <Route path="/login"           element={<Login />} />
-        <Route path="/register"        element={<Register />} />
-        <Route path="/about"           element={<About />} />
-        <Route path="/contact"         element={<Contact />} />
-        <Route path="/success-stories" element={<SuccessStoriesPage />} />
-        <Route path="/membership"      element={<Membership />} />
-        {/* Protected */}
-        <Route path="/dashboard"   element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-        <Route path="/matches"     element={<ProtectedRoute><Matches /></ProtectedRoute>} />
-        <Route path="/profile/:id" element={<ProtectedRoute><ProfileDetails /></ProtectedRoute>} />
-        <Route path="/my-profile"  element={<ProtectedRoute><MyProfile /></ProtectedRoute>} />
-        <Route path="/interests"   element={<ProtectedRoute><Interests /></ProtectedRoute>} />
-        <Route path="/saved"       element={<ProtectedRoute><SavedProfiles /></ProtectedRoute>} />
-      </Routes>
+      <div className={!isDash ? 'has-navbar' : ''}>
+        <Routes>
+          {/* Public */}
+          <Route path="/"                element={<Home />} />
+          <Route path="/login"           element={<Login />} />
+          <Route path="/register"        element={<Register />} />
+          <Route path="/about"           element={<About />} />
+          <Route path="/contact"         element={<Contact />} />
+          <Route path="/success-stories" element={<SuccessStoriesPage />} />
+          <Route path="/membership"      element={<Membership />} />
+          {/* Protected */}
+          <Route path="/dashboard"   element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route path="/matches"     element={<ProtectedRoute><Matches /></ProtectedRoute>} />
+          <Route path="/profile/:id" element={<ProtectedRoute><ProfileDetails /></ProtectedRoute>} />
+          <Route path="/my-profile"  element={<ProtectedRoute><MyProfile /></ProtectedRoute>} />
+          <Route path="/interests"   element={<ProtectedRoute><Interests /></ProtectedRoute>} />
+          <Route path="/saved"       element={<ProtectedRoute><SavedProfiles /></ProtectedRoute>} />
+        </Routes>
+      </div>
       {!isDash && <Footer />}
     </>
   )

@@ -21,7 +21,7 @@ export default function DashLayout({ children }) {
   const handleLogout = () => { logout(); navigate('/') }
 
   return (
-    <div style={{ background: '#F0F2F8', minHeight: '100vh', display: 'flex', flexDirection: 'column', marginTop: '-80px' }}>
+    <div style={{ background: '#F0F2F8', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <div style={{ display: 'flex', flex: 1, alignItems: 'flex-start', padding: '28px 20px', gap: 22, maxWidth: 1440, margin: '0 auto', width: '100%' }}>
 
         {/* ── Sidebar ── */}
