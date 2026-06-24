@@ -1,0 +1,78 @@
+import { Link } from 'react-router-dom'
+import { Check } from 'lucide-react'
+import { useReveal } from '../useReveal'
+
+const miniPlans = [
+  { name: 'Free',         price: '₹0',        active: false },
+  { name: 'Premium',      price: '₹999/mo',   active: true  },
+  { name: 'Premium Plus', price: '₹2,499/mo', active: false },
+]
+
+const bullets = [
+  'Unlimited profile views',
+  'Direct contact sharing',
+  'Dedicated relationship manager',
+]
+
+export default function MembershipTeaser() {
+  const ref = useReveal()
+
+  return (
+    <section className="py-16 md:py-28 relative overflow-hidden" style={{ background: '#2338B0' }}>
+      {/* subtle grid overlay */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+        }} />
+
+      <div ref={ref} className="reveal max-w-7xl mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+          {/* Left */}
+          <div>
+            <h2 className="font-display font-bold text-white italic leading-tight mb-6"
+              style={{ fontSize: 'clamp(2.2rem,5vw,3.5rem)' }}>
+              Find Your Match Faster<br />with Premium
+            </h2>
+            <ul className="space-y-3 mb-8">
+              {bullets.map(b => (
+                <li key={b} className="flex items-center gap-3 font-body text-base text-white">
+                  <Check className="w-5 h-5 shrink-0" style={{ color: '#F8B500' }} />
+                  {b}
+                </li>
+              ))}
+            </ul>
+            <Link to="/membership"
+              className="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-3.5 rounded-full font-body font-semibold text-base tracking-[0.08em] transition-all duration-200 select-none hover:bg-white hover:text-primary">
+              See All Plans →
+            </Link>
+          </div>
+
+          {/* Right — mini plan cards */}
+          <div className="flex flex-col gap-3 max-w-sm w-full mx-auto lg:mx-0">
+            {miniPlans.map(plan => (
+              <div key={plan.name}
+                className="flex items-center justify-between px-6 py-4 rounded-2xl transition-all duration-200"
+                style={
+                  plan.active
+                    ? { background: 'white', border: '2px solid #F8B500', transform: 'scale(1.04)', boxShadow: '0 8px 32px rgba(0,0,0,0.2)' }
+                    : { background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }
+                }
+              >
+                <span className="font-heading font-semibold text-lg"
+                  style={{ color: plan.active ? '#2338B0' : 'rgba(255,255,255,0.8)' }}>
+                  {plan.name}
+                </span>
+                <span className="font-mono font-bold text-xl"
+                  style={{ color: plan.active ? '#1A1F36' : 'rgba(255,255,255,0.6)' }}>
+                  {plan.price}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

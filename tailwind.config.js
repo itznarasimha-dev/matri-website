@@ -1,0 +1,61 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,jsx}'],
+  theme: {
+    extend: {
+      colors: {
+        primary:         '#2338B0',
+        'primary-dark':  '#1A2A8F',
+        'primary-light': '#3D52C8',
+        amber:           '#F8B500',
+        'amber-dark':    '#E5A000',
+        'amber-light':   '#FFCA28',
+        dark:            '#1A1F36',
+        'dark-mid':      '#2338B0',
+        gold:            '#F8B500',
+        'gold-light':    '#FFCA28',
+        cream:           '#F0F2F8',
+        'cream-deep':    '#E8EBF5',
+        muted:           '#6B7280',
+        border:          '#E2E5F0',
+      },
+      fontFamily: {
+        display: ['"Bodoni Moda"', '"Cormorant Garamond"', 'Georgia', 'serif'],
+        heading: ['"Fraunces"', '"Cormorant Garamond"', 'Georgia', 'serif'],
+        brand:   ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        body:    ['"Outfit"', 'system-ui', 'sans-serif'],
+        mono:    ['"JetBrains Mono"', 'monospace'],
+        telugu:  ['"Noto Serif Telugu"', 'serif'],
+      },
+      boxShadow: {
+        card:  '0 2px 16px rgba(35,56,176,0.08)',
+        hover: '0 12px 40px rgba(35,56,176,0.16)',
+        gold:  '0 4px 20px rgba(248,181,0,0.35)',
+        amber: '0 4px 20px rgba(248,181,0,0.35)',
+      },
+      transitionTimingFunction: {
+        silk:   'cubic-bezier(0.16, 1, 0.3, 1)',
+        bounce: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+      },
+      animation: {
+        'fade-up':      'fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) forwards',
+        'fade-in':      'fadeIn 0.6s ease forwards',
+        'float':        'float 3s ease-in-out infinite',
+        'heartbeat':    'heartBeat 3s ease-in-out infinite',
+        'shimmer':      'shimmer 2.5s linear infinite',
+        'lotus-spin':   'lotusSpin 20s linear infinite',
+        'draw-line':    'drawLine 1.2s cubic-bezier(0.16,1,0.3,1) forwards',
+      },
+      keyframes: {
+        fadeUp:    { '0%': { opacity:'0', transform:'translateY(24px)' }, '100%': { opacity:'1', transform:'translateY(0)' } },
+        fadeIn:    { '0%': { opacity:'0' }, '100%': { opacity:'1' } },
+        float:     { '0%,100%': { transform:'translateY(0)' }, '50%': { transform:'translateY(-8px)' } },
+        heartBeat: { '0%,100%': { transform:'scale(1)' }, '14%': { transform:'scale(1.2)' }, '28%': { transform:'scale(1)' }, '42%': { transform:'scale(1.1)' } },
+        shimmer:   { '0%': { backgroundPosition:'-200% 0' }, '100%': { backgroundPosition:'200% 0' } },
+        lotusSpin: { '0%': { transform:'rotate(0deg)' }, '100%': { transform:'rotate(360deg)' } },
+        drawLine:  { '0%': { strokeDashoffset:'100' }, '100%': { strokeDashoffset:'0' } },
+      },
+    },
+  },
+  plugins: [],
+}
