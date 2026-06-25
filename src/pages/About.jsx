@@ -9,8 +9,8 @@ import weddingAestheticsImg from '../assets/wedding aesthitics.jpg'
 const values = [
   { icon: Heart,  title: 'Love & Respect',  desc: 'We believe every person deserves to find a loving, respectful partner.' },
   { icon: Target, title: 'Trust First',      desc: 'Every profile is manually verified. We take trust seriously.' },
-  { icon: Users,  title: 'Family Values',    desc: 'We respect and celebrate Telugu family traditions and culture.' },
-  { icon: Globe,  title: 'Global Reach',     desc: 'Connecting Telugu hearts across India and 15+ countries worldwide.' },
+  { icon: Users,  title: 'Family Values',    desc: 'We respect and celebrate Indian family traditions and culture.' },
+  { icon: Globe,  title: 'Global Reach',     desc: 'Connecting Indian hearts across India and 15+ countries worldwide.' },
 ]
 
 const milestones = [
@@ -39,14 +39,15 @@ export default function About() {
           backgroundPosition: 'center top',
         }}
       >
-        <div className="absolute inset-0 pointer-events-none" />        <div className="relative z-10 max-w-2xl mx-auto px-6">
+        <div className="absolute inset-0 pointer-events-none" />
+        <div className="relative z-10 max-w-2xl mx-auto px-6">
           <LotusIcon size={40} color="#E8836A" className="mx-auto mb-4 opacity-70" />
           <span className="section-tag" style={{ color: '#E8836A', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>Our Story</span>
           <h1 className="font-display font-bold text-white mt-2 mb-4" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', textShadow: '0 2px 12px rgba(0,0,0,0.6)' }}>
             About <em className="not-italic" style={{ color: '#E8836A' }}>Mangalayam</em>
           </h1>
           <p className="font-body leading-relaxed" style={{ color: '#fff', fontWeight: 600, textShadow: '0 2px 12px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.8)', fontSize: '1.05rem' }}>
-            Born from a deep respect for Telugu culture and a passion for modern technology,
+            Born from a deep respect for Indian culture and a passion for modern technology,
             Mangalayam bridges tradition with innovation.
           </p>
         </div>
@@ -57,8 +58,8 @@ export default function About() {
         {/* Mission & Vision */}
         <div ref={ref1} className="reveal grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-14 sm:mb-20">
           {[
-            { icon: Target, title: 'Our Mission', text: 'To provide the most trusted, safe, and emotionally intelligent matrimony platform for Telugu families worldwide — combining the warmth of tradition with the power of modern technology.' },
-            { icon: Eye,    title: 'Our Vision',  text: 'To be the first choice for every Telugu family seeking a life partner — not just in India, but across every corner of the world where Telugu culture thrives.' },
+            { icon: Target, title: 'Our Mission', text: 'To provide the most trusted, safe, and emotionally intelligent matrimony platform for Indian families worldwide — combining the warmth of tradition with the power of modern technology.' },
+            { icon: Eye,    title: 'Our Vision',  text: 'To be the first choice for every Indian family seeking a life partner — not just in India, but across every corner of the world where Indian culture thrives.' },
           ].map(({ icon: Icon, title, text }) => (
             <div
               key={title}

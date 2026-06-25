@@ -6,6 +6,8 @@ import LotusIcon from '../components/LotusIcon'
 import { useAuth } from '../context/AuthContext'
 import loginBg from '../assets/login page background.jpg'
 import girlProfile1 from '../assets/girl profile 1.jpg'
+import girlProfile2 from '../assets/girl profile 2.jpg'
+import boyProfile1 from '../assets/boy profile.jpg'
 
 const mockUser = {
   id: 1,
@@ -24,9 +26,9 @@ const mockUser = {
 }
 
 const successAvatars = [
-  { photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80', name: 'Sravani, 26' },
-  { photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80', name: 'Naveen, 29' },
-  { photo: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=80&q=80', name: 'Divya, 24' },
+  { photo: girlProfile1, name: 'Sravani, 26' },
+  { photo: boyProfile1,  name: 'Naveen, 29' },
+  { photo: girlProfile2, name: 'Divya, 24' },
 ]
 
 export default function Login() {

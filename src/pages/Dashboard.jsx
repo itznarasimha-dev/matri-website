@@ -7,8 +7,9 @@ import girlProfile4 from '../assets/girl profile 4.jpg'
 import boyProfile1 from '../assets/boy profile.jpg'
 import boyProfile2 from '../assets/boy profile 2.jpg'
 import boyProfile3 from '../assets/boy profile 3.jpg'
+import boyProfile4 from '../assets/boy profile 4.jpg'
 import {
-  Heart, Eye, Star, MousePointerClick, CheckCircle, XCircle, MoreHorizontal,
+  Heart, Eye, Star, MousePointerClick, CheckCircle, XCircle, MoreHorizontal, Gift, Sparkles,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import DashLayout from "../components/DashLayout";
@@ -26,15 +27,15 @@ const MATCH_CARDS = [
 const CHAT_LIST = [
   { name: "Priya Sharma",  city: "Hyderabad",     msg: "Thank you for connecting!",  photo: girlProfile1 },
   { name: "Divya Lakshmi", city: "Vijayawada",    msg: "Looking forward to chatting", photo: girlProfile2 },
-  { name: "Harika Sharma", city: "Visakhapatnam", msg: "Hi! Saw your profile 😊",     photo: girlProfile3 },
+  { name: "Harika Sharma", city: "Visakhapatnam", msg: "Hi! Saw your profile",      photo: girlProfile3 },
   { name: "Ramya Sri",     city: "Chennai",       msg: "Would love to know more",     photo: girlProfile4 },
 ];
 
 const INTERESTS = [
-  { id: 1, name: "Rahul Verma",   city: "Mumbai",    age: 28, height: "5'9\"",  job: "Software Engineer", tier: "Platinum", time: "10:30 AM, 18 Aug 2024", photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" },
-  { id: 2, name: "Arjun Reddy",   city: "Hyderabad", age: 30, height: "5'11\"", job: "Doctor",            tier: "Gold",     time: "02:15 PM, 17 Aug 2024", photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" },
-  { id: 3, name: "Suresh Kiran",  city: "Bangalore", age: 27, height: "5'8\"",  job: "Data Scientist",    tier: "Free",     time: "09:00 AM, 16 Aug 2024", photo: "https://images.unsplash.com/photo-1463453091185-61582044d556?w=100&q=80" },
-  { id: 4, name: "Vikram Sharma", city: "Chennai",   age: 32, height: "6'0\"",  job: "Entrepreneur",      tier: "Gold",     time: "05:45 PM, 15 Aug 2024", photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" },
+  { id: 1, name: "Rahul Verma",   city: "Mumbai",    age: 28, height: "5'9\"",  job: "Software Engineer", tier: "Platinum", time: "10:30 AM, 18 Aug 2024", photo: boyProfile1 },
+  { id: 2, name: "Arjun Reddy",   city: "Hyderabad", age: 30, height: "5'11\"", job: "Doctor",            tier: "Gold",     time: "02:15 PM, 17 Aug 2024", photo: boyProfile2 },
+  { id: 3, name: "Suresh Kiran",  city: "Bangalore", age: 27, height: "5'8\"",  job: "Data Scientist",    tier: "Free",     time: "09:00 AM, 16 Aug 2024", photo: boyProfile3 },
+  { id: 4, name: "Vikram Sharma", city: "Chennai",   age: 32, height: "6'0\"",  job: "Entrepreneur",      tier: "Gold",     time: "05:45 PM, 15 Aug 2024", photo: boyProfile4 },
 ];
 
 const TIER = {
@@ -114,7 +115,6 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const [accepted, setAccepted] = useState([]);
   const [declined, setDeclined] = useState([]);
-  const [hovered, setHovered]   = useState(null);
 
   const completion   = user?.profileComplete ?? 72;
   const userPhoto    = user?.photo || MATCH_CARDS[0].photo;
@@ -129,7 +129,7 @@ export default function Dashboard() {
         <div style={{ background: "linear-gradient(135deg,#000080,#1a1aad)", borderRadius: 18, padding: "22px 28px", color: "#fff", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 14, boxShadow: "0 8px 32px rgba(0,0,128,0.25)" }}>
           <div>
             <div style={{ fontFamily: "inherit", fontSize: 26, fontWeight: 700 }}>
-              Welcome back, {userName} 🪷
+              Welcome back, {userName}
             </div>
             <div style={{ fontFamily: "inherit", fontSize: 13, opacity: 0.85, marginTop: 5 }}>
               You have <strong>{pendingCount} new interests</strong> and <strong>{user?.matchesCount ?? 47} matches</strong> waiting
@@ -188,7 +188,9 @@ export default function Dashboard() {
           {/* Plan Details */}
           <Card title="Plan Details">
             <div style={{ textAlign: "center", marginBottom: 14 }}>
-              <div style={{ fontSize: 52 }}>🎁</div>
+              <div style={{ width: 52, height: 52, borderRadius: 14, background: '#EEF1FF', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 8px' }}>
+                <Gift size={26} color="#000080" />
+              </div>
               <div style={{ fontFamily: "inherit", fontWeight: 700, fontSize: 16, color: "#111827", marginTop: 6 }}>
                 {user?.membershipPlan === "premium" ? "Premium Plan" : "Standard Plan"}
               </div>
@@ -199,7 +201,7 @@ export default function Dashboard() {
               <div>Valid till: <strong>24 June 2026</strong></div>
             </div>
             <Link to="/membership" style={{ display: "block", background: "linear-gradient(135deg,#000080,#1a1aad)", color: "#fff", textAlign: "center", padding: "10px", borderRadius: 10, fontFamily: "inherit", fontWeight: 700, fontSize: 13, textDecoration: "none", boxShadow: "0 4px 16px rgba(0,0,128,0.25)" }}>
-              Upgrade Now ✨
+              Upgrade Now <Sparkles size={13} style={{ display: 'inline', verticalAlign: 'middle', marginLeft: 4 }} />
             </Link>
           </Card>
 

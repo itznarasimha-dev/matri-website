@@ -26,6 +26,7 @@ export function ProfileCard({ profile }) {
           <img
             src={profile.photo}
             alt={profile.name}
+            loading="lazy"
             className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
           />
           {/* Gradient overlay */}

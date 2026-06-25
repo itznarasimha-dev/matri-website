@@ -27,7 +27,6 @@ export default {
         body:      ['"DM Sans"', 'system-ui', 'sans-serif'],
         sans:      ['"DM Sans"', 'system-ui', 'sans-serif'],
         mono:      ['"DM Sans"', 'monospace'],
-        telugu:    ['"Noto Serif Telugu"', 'serif'],
         outfit:    ['"DM Sans"', 'system-ui', 'sans-serif'],
         cormorant: ['"DM Sans"', 'system-ui', 'sans-serif'],
       },

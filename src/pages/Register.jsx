@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { Link, useNavigate, Navigate } from 'react-router-dom'
-import { Eye, EyeOff, Check } from 'lucide-react'
+import { Eye, EyeOff, Check, User, UserCheck, Users, UserPlus, PartyPopper } from 'lucide-react'
 import Toast from '../components/Toast'
 import LotusIcon from '../components/LotusIcon'
 import { useAuth } from '../context/AuthContext'
 import registerBg from '../assets/register page background.jpg'
+import girlProfile1 from '../assets/girl profile 1.jpg'
 
 const steps = ['Basic Info', 'Personal Details', 'Preferences']
 
@@ -49,6 +50,13 @@ function TextInput({ k, form, update, label, type = 'text' }) {
   )
 }
 
+const profileForOptions = [
+  { val: 'self',     label: 'Myself',      Icon: User      },
+  { val: 'son',      label: 'My Son',      Icon: UserCheck },
+  { val: 'daughter', label: 'My Daughter', Icon: Users     },
+  { val: 'relative', label: 'Relative',    Icon: UserPlus  },
+]
+
 export default function Register() {
   const { user, login } = useAuth()
   const [step, setStep]       = useState(0)
@@ -83,7 +91,7 @@ export default function Register() {
             <LotusIcon size={80} color="#E8836A" animate />
           </div>
           <h2 className="font-display text-white text-4xl font-bold mt-6 mb-3">Your journey has begun!</h2>
-          <p className="font-body text-white/60 text-lg mb-8">🪷 Welcome to Mangalayam</p>
+          <p className="font-body text-white/60 text-lg mb-8">Welcome to Mangalayam</p>
           <button
             onClick={() => navigate('/matches')}
             className="btn-primary text-base px-10 py-4"
@@ -143,12 +151,7 @@ export default function Register() {
               <div>
                 <label className="font-body text-xs font-medium block mb-2 text-muted">Profile For</label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                  {[
-                    { val: 'self',     label: 'Myself',     emoji: '👤' },
-                    { val: 'son',      label: 'My Son',     emoji: '👦' },
-                    { val: 'daughter', label: 'My Daughter', emoji: '👧' },
-                    { val: 'relative', label: 'Relative',   emoji: '👨‍👩‍👧' },
-                  ].map(({ val, label, emoji }) => (
+                  {profileForOptions.map(({ val, label, Icon }) => (
                     <button
                       key={val}
                       onClick={() => update('profileFor', val)}
@@ -159,7 +162,7 @@ export default function Register() {
                           : { border: '1px solid #E8D5B0', color: '#8B7355' }
                       }
                     >
-                      <span className="text-lg">{emoji}</span>
+                      <Icon className="w-5 h-5" />
                       {label}
                     </button>
                   ))}
@@ -252,7 +255,9 @@ export default function Register() {
                 className="rounded-2xl p-4 font-body text-sm"
                 style={{ background: 'rgba(0,0,128,0.04)', border: '1px solid rgba(0,0,128,0.12)', color: '#8B7355' }}
               >
-                <div className="font-semibold text-dark mb-1">🎉 Almost done!</div>
+                <div className="font-semibold text-dark mb-1 flex items-center gap-1.5">
+                  <PartyPopper className="w-4 h-4" style={{ color: '#000080' }} /> Almost done!
+                </div>
                 Complete your profile after registration to get the best matches.
               </div>
             </div>
@@ -288,7 +293,7 @@ export default function Register() {
                     gender: form.gender?.toLowerCase() || 'female',
                     location: form.location || 'India',
                     profession: form.profession || '',
-                    photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200',
+                    photo: girlProfile1,
                     membershipPlan: 'free',
                     profileComplete: 45,
                     matchesCount: 12,
@@ -301,7 +306,7 @@ export default function Register() {
                 }}
                 className="btn-gold flex-1 py-3.5 text-base"
               >
-                Create My Profile 🪷
+                Create My Profile
               </button>
             )}
           </div>

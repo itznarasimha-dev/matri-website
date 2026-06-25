@@ -47,7 +47,7 @@
 @layer base {
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { overflow-x: hidden; overflow-y: auto; overscroll-behavior-y: none; }
+  html { overflow-x: hidden; overflow-y: auto; overscroll-behavior-y: none; scroll-behavior: smooth; }
 
   body {
     overflow-x: hidden;
@@ -57,7 +57,7 @@
     font-size: 16px;
     line-height: 1.7;
     letter-spacing: 0em;
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -68,8 +68,20 @@
   }
 
   /* Responsive base */
-  img { max-width: 100%; }
+  img {
+    max-width: 100%;
+    display: block;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
   .container-pad { @apply px-4 sm:px-6 lg:px-8; }
+
+  /* Skip rendering off-screen sections */
+  section {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+  }
 
   @media (max-width: 640px) {
     .section-title  { font-size: 1.4rem !important; }
@@ -162,6 +174,7 @@
   .card {
     @apply bg-cream-deep rounded-2xl border border-border p-6 transition-all duration-300;
     box-shadow: var(--shadow-card);
+    will-change: transform;
   }
   .card:hover {
     transform: translateY(-8px);
@@ -180,25 +193,22 @@
 
   /* Scroll Reveal */
   .reveal {
-    opacity: 0;
-    transform: translateY(32px);
-    transition: opacity 0.7s var(--ease-silk), transform 0.7s var(--ease-silk);
+    opacity: 1;
+    transform: none;
   }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal.visible { opacity: 1; transform: none; }
 
   .reveal-left {
-    opacity: 0;
-    transform: translateX(-32px);
-    transition: opacity 0.7s var(--ease-silk), transform 0.7s var(--ease-silk);
+    opacity: 1;
+    transform: none;
   }
-  .reveal-left.visible { opacity: 1; transform: translateX(0); }
+  .reveal-left.visible { opacity: 1; transform: none; }
 
   .reveal-right {
-    opacity: 0;
-    transform: translateX(32px);
-    transition: opacity 0.7s var(--ease-silk), transform 0.7s var(--ease-silk);
+    opacity: 1;
+    transform: none;
   }
-  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+  .reveal-right.visible { opacity: 1; transform: none; }
 
   /* Gold shimmer gradient for buttons/accents */
   .gold-shimmer {
@@ -234,6 +244,15 @@
     background-size: 32px 32px;
   }
 
+  /* Smooth image load fade-in */
+  img {
+    animation: imgFadeIn 0.4s ease both;
+  }
+
+  /* Hide scrollbar but keep scroll */
+  .hide-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+
   /* Profile card hover reveal */
   .profile-card-overlay {
     @apply absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-300;
@@ -243,6 +262,10 @@
 }
 
 /* ── Keyframes ────────────────────────────────── */
+@keyframes imgFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 @keyframes shimmer {
   0%   { background-position: -200% 0; }
   100% { background-position:  200% 0; }
@@ -308,7 +331,7 @@
   to   { opacity: 1; transform: scale(1); }
 }
 
-/* ── FLOATING LABELS MOBILE FIX ──────────────── */
+/* ── MOBILE RESPONSIVE FIXES ─────────────────── */
 @media (max-width: 640px) {
   .mobile-panel { width: 100vw !important; }
   .navbar__inner { padding: 0 1rem; }
@@ -322,6 +345,22 @@
 
   /* Dashboard interest rows wrap better */
   .interest-row { flex-wrap: wrap; }
+
+  /* Sections off-screen skip less aggressively on mobile */
+  section { contain-intrinsic-size: 0 300px; }
+
+  /* Cards full width on mobile */
+  .card { padding: 1rem !important; }
+
+  /* Footer columns stack */
+  footer .grid { grid-template-columns: 1fr !important; }
+
+  /* Navbar padding on mobile */
+  nav > div { padding-left: 1rem !important; padding-right: 1rem !important; }
+
+  /* Prevent horizontal overflow on all elements */
+  * { max-width: 100%; }
+  img { height: auto; }
 }
 
 /* ── RESPONSIVE PADDING UTILITY ───────────────── */

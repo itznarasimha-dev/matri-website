@@ -4,14 +4,18 @@ import { useReveal } from '../useReveal'
 import { useCountUp } from '../useReveal'
 import CTASection from '../components/CTASection'
 import rosesBg from '../assets/roses background.jpg'
+import couple1 from '../assets/couples 1.jpg'
+import couple2 from '../assets/couples 2.jpg'
+import couple3 from '../assets/couples 3.jpg'
+import couple4 from '../assets/couples 4.jpg'
 
 const stories = [
   {
     names: 'Kiran & Swathi',
     married: 'March 2023',
     location: 'Hyderabad',
-    photo: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=800&q=80',
-    story: 'We both joined Mangalayam without much hope. But within a week, Kiran sent an interest and I noticed his genuine profile. After 4 months of conversations and family meetings, we got married in a beautiful Telugu ceremony in Hyderabad.',
+    photo: couple1,
+    story: 'We both joined Mangalayam without much hope. But within a week, Kiran sent an interest and I noticed his genuine profile. After 4 months of conversations and family meetings, we got married in a beautiful Indian ceremony in Hyderabad.',
     pull: '"Within a week we knew — Mangalayam found us our home."',
     timeline: ['Matched on Mangalayam', 'First phone call after 1 week', 'Met families after 2 months', 'Engagement ceremony', 'Grand wedding in Hyderabad'],
   },
@@ -19,8 +23,8 @@ const stories = [
     names: 'Rahul & Priya',
     married: 'January 2024',
     location: 'USA & Bangalore',
-    photo: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=80',
-    story: 'Being an NRI in the US, I was worried about finding a Telugu partner who understood my dual culture. Priya from Bangalore was perfect. The verified profile system gave my parents complete confidence to proceed.',
+    photo: couple2,
+    story: 'Being an NRI in the US, I was worried about finding a partner who understood my dual culture. Priya from Bangalore was perfect. The verified profile system gave my parents complete confidence to proceed.',
     pull: '"The verified profiles gave our families complete confidence."',
     timeline: ['Profiles matched', 'Video call introduction', 'Visited India to meet', 'Families gave blessings', 'Dream wedding in Bangalore'],
   },
@@ -28,7 +32,7 @@ const stories = [
     names: 'Arjun & Kavya',
     married: 'June 2023',
     location: 'Vijayawada',
-    photo: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80',
+    photo: couple3,
     story: 'Our parents registered us and within 3 weeks found each other on Mangalayam. The compatibility score was 95% and it was absolutely accurate! We are living proof that this platform works.',
     pull: '"95% compatibility score — it was absolutely accurate!"',
     timeline: ['Parents registered profiles', '95% compatibility match', 'Families met in Vijayawada', 'Traditional engagement', 'Beautiful wedding'],
@@ -37,7 +41,7 @@ const stories = [
     names: 'Venkat & Deepika',
     married: 'October 2023',
     location: 'Visakhapatnam',
-    photo: 'https://images.unsplash.com/photo-1550005809-91ad75fb315f?w=800&q=80',
+    photo: couple4,
     story: "I found Deepika's profile and was impressed by her dedication to her career while maintaining Telugu cultural values. We connected instantly and the rest is history.",
     pull: '"Telugu values, modern outlook — she was everything I hoped for."',
     timeline: ['Found each other online', 'Regular conversations', 'Beach meeting in Vizag', 'Parents approved', 'Destination wedding'],
@@ -63,7 +67,7 @@ function StoryCard({ s, i }) {
       {/* Photo — alternates side */}
       <div style={{ order: isEven ? 0 : 1 }}>
         <div className="relative rounded-3xl overflow-hidden aspect-[4/3]">
-          <img src={s.photo} alt={s.names} className="w-full h-full object-cover" />
+          <img src={s.photo} alt={s.names} loading="lazy" className="w-full h-full object-cover" />
         </div>
         <div className="flex items-center gap-2 mt-3">
           <Heart className="w-4 h-4" style={{ color: '#000080', fill: '#000080', animation: 'heartBeat 3s ease-in-out infinite' }} />

@@ -7,15 +7,16 @@ const navLinks = [
   { to: '/matches',         label: 'Find Partner' },
   { to: '/success-stories', label: 'Success Stories' },
   { to: '/membership',      label: 'Membership' },
+  { to: '/vision-mission',  label: 'Vision & Mission' },
   { to: '/about',           label: 'About Us' },
   { to: '/contact',         label: 'Contact' },
 ]
 
 const legalLinks = [
-  { to: '#', label: 'Privacy Policy' },
-  { to: '#', label: 'Terms of Service' },
-  { to: '#', label: 'Grievance' },
-  { to: '/contact', label: 'FAQ' },
+  { to: '/privacy-policy',   label: 'Privacy Policy' },
+  { to: '/terms-of-service', label: 'Terms of Service' },
+  { to: '/grievance',        label: 'Grievance' },
+  { to: '/faq',              label: 'FAQ' },
 ]
 
 const socials = [
@@ -67,7 +68,7 @@ export default function Footer() {
             </Link>
 
             <p className="font-body text-xs leading-relaxed mb-4" style={{ color: 'rgba(255,255,255,0.38)', maxWidth: 260 }}>
-              Trusted Telugu matrimony platform connecting hearts across India & NRI communities.
+              Trusted matrimony platform connecting hearts across India & NRI communities.
             </p>
 
             {/* Social icons */}
@@ -165,7 +166,7 @@ export default function Footer() {
             © 2025 Mangalayam. All rights reserved.
           </p>
           <p className="font-body flex items-center gap-1" style={{ fontSize: '11px', color: 'rgba(255,255,255,0.2)' }}>
-            Made with <Heart className="w-2.5 h-2.5 fill-current" style={{ color: '#E8836A' }} /> for Telugu Families
+            Made with <Heart className="w-2.5 h-2.5 fill-current" style={{ color: '#E8836A' }} /> for Indian Families
           </p>
         </div>
 

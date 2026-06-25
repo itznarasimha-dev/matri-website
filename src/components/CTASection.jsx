@@ -26,7 +26,7 @@ export default function CTASection() {
           Today
         </h2>
         <p className="font-body text-sm mb-6 max-w-xl mx-auto" style={{ color: '#1A1F36', fontWeight: 500, textShadow: '0 1px 4px rgba(255,255,255,0.7)' }}>
-          Join 2 lakh Telugu families who trust Mangalayam to find their life partner.
+          Join 2 lakh Indian families who trust Mangalayam to find their life partner.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
           <Link to="/register"

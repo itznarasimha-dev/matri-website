@@ -1,27 +1,30 @@
 import { Link } from 'react-router-dom'
 import { useReveal, useRevealStagger } from '../useReveal'
+import blogImg1 from '../assets/wedding background.jpg'
+import blogImg2 from '../assets/haldi background.jpg'
+import blogImg3 from '../assets/couple background.jpg'
 
 const posts = [
   {
     category: 'Wedding Tips',
     date: 'March 12, 2025',
-    title: '7 Telugu Wedding Rituals Every Couple Should Know',
-    excerpt: 'From Mangalasnanam to Saptapadi — a guide to the sacred ceremonies that make Telugu weddings truly special.',
-    photo: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&q=80',
+    title: '7 Indian Wedding Rituals Every Couple Should Know',
+    excerpt: 'From Haldi to Saptapadi — a guide to the sacred ceremonies that make Indian weddings truly special.',
+    photo: blogImg1,
   },
   {
     category: 'Astrology',
     date: 'February 28, 2025',
-    title: 'How Horoscope Compatibility Works in Telugu Matrimony',
+    title: 'How Horoscope Compatibility Works in Indian Matrimony',
     excerpt: 'Understanding Rashi, Nakshatra matching, and why our Vedic compatibility score is trusted by 2 lakh families.',
-    photo: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80',
+    photo: blogImg2,
   },
   {
     category: 'NRI Advice',
     date: 'February 10, 2025',
-    title: 'Finding a Telugu Partner as an NRI: A Complete Guide',
+    title: 'Finding a Life Partner as an NRI: A Complete Guide',
     excerpt: 'Tips on bridging the distance, managing time zones, and building trust when searching from abroad.',
-    photo: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600&q=80',
+    photo: blogImg3,
   },
 ]
 

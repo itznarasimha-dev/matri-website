@@ -1,24 +1,27 @@
 import { Link } from 'react-router-dom'
 import { Heart } from 'lucide-react'
 import { useReveal, useRevealStagger } from '../useReveal'
+import girlProfile1 from '../assets/girl profile 1.jpg'
+import girlProfile2 from '../assets/girl profile 2.jpg'
+import girlProfile3 from '../assets/girl profile 3.jpg'
+import boyProfile1 from '../assets/boy profile.jpg'
+import boyProfile2 from '../assets/boy profile 2.jpg'
+import boyProfile3 from '../assets/boy profile 3.jpg'
 
 const couples = [
   {
     names: 'Kiran & Swathi', date: 'March 2023', location: 'Hyderabad',
-    photo1: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&q=80',
-    photo2: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80',
+    photo1: girlProfile1, photo2: boyProfile1,
     quote: '"Found our perfect match within a week on Mangalayam."',
   },
   {
     names: 'Rahul & Priya', date: 'January 2024', location: 'USA & Bangalore',
-    photo1: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80',
-    photo2: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80',
+    photo1: girlProfile2, photo2: boyProfile2,
     quote: '"The verified profiles gave our families complete confidence."',
   },
   {
     names: 'Arjun & Kavya', date: 'June 2023', location: 'Vijayawada',
-    photo1: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80',
-    photo2: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80',
+    photo1: girlProfile3, photo2: boyProfile3,
     quote: '"95% compatibility score — it was absolutely accurate!"',
   },
 ]

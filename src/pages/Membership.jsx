@@ -170,7 +170,7 @@ export default function Membership() {
             <span style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 400, fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', color: 'rgba(255,255,255,0.9)', display: 'block', marginTop: 6, textShadow: '0 1px 6px rgba(0,0,0,0.5)' }}>with Premium &amp; Relationship Managers</span>
           </h1>
           <p className="font-body text-sm sm:text-base max-w-md mx-auto text-center" style={{ color: 'rgba(255,255,255,0.95)', fontWeight: 500, textShadow: '0 1px 6px rgba(0,0,0,0.5)' }}>
-            Simple, transparent pricing. Join 2 lakh+ Telugu families. No hidden charges.
+            Simple, transparent pricing. Join 2 lakh+ Indian families. No hidden charges.
           </p>
           {/* Stats row */}
           <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 mt-8">

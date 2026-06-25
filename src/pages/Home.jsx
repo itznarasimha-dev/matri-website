@@ -82,7 +82,7 @@ function WelcomeBar({ user }) {
             <img src={user.photo} alt={user.name} className="w-14 h-14 rounded-full object-cover"
               style={{ border: '2px solid #E8836A', boxShadow: '0 0 20px rgba(212,160,23,0.3)' }} />
             <div>
-              <p className="font-body text-sm mb-0.5" style={{ color: '#E8836A' }}>{greeting} 🪷</p>
+              <p className="font-body text-sm mb-0.5" style={{ color: '#E8836A' }}>{greeting}</p>
               <h1 className="font-display text-white font-bold"
                 style={{ fontSize: 'clamp(1.6rem,4vw,2.4rem)', letterSpacing: '-0.03em' }}>
                 {user.name}

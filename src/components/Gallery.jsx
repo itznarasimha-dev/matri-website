@@ -38,7 +38,7 @@ export default function Gallery() {
             <div key={ri} className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
               {row.map((p, i) => (
                 <div key={i} className="relative overflow-hidden rounded-xl group cursor-pointer h-[160px] sm:h-[200px] lg:h-[240px]">
-                  <img src={p.src} alt={p.label}
+                  <img src={p.src} alt={p.label} loading="lazy"
                     className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" />
                 </div>
               ))}

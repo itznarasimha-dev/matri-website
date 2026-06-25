@@ -1,27 +1,31 @@
 import { useState, useEffect } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useReveal } from '../useReveal'
+import girlProfile1 from '../assets/girl profile 1.jpg'
+import girlProfile2 from '../assets/girl profile 2.jpg'
+import girlProfile4 from '../assets/girl profile 4.jpg'
+import boyProfile2 from '../assets/boy profile 2.jpg'
 
 const testimonials = [
   {
-    quote: "Mangalayam matched us perfectly. Within two months of joining, we found each other and got married in a beautiful Telugu ceremony.",
+    quote: "Mangalayam matched us perfectly. Within two months of joining, we found each other and got married in a beautiful Indian ceremony.",
     name: 'Sravani & Naveen', age: 27, city: 'Hyderabad',
-    photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80',
+    photo: girlProfile1,
   },
   {
-    quote: "As an NRI, I was worried about finding a Telugu partner. Mangalayam's verified profiles and dedicated NRI support made everything seamless.",
+    quote: "As an NRI, I was worried about finding a partner who shared my values. Mangalayam's verified profiles and dedicated NRI support made everything seamless.",
     name: 'Anil Kumar', age: 31, city: 'USA',
-    photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80',
+    photo: boyProfile2,
   },
   {
     quote: "The horoscope compatibility feature was spot on. Our families trusted the platform completely and we couldn't be happier.",
     name: 'Divya & Karthik', age: 26, city: 'Vijayawada',
-    photo: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=200&q=80',
+    photo: girlProfile2,
   },
   {
     quote: "Premium membership gave us a dedicated relationship manager who guided us through every step. Worth every rupee.",
     name: 'Harika Sharma', age: 25, city: 'Visakhapatnam',
-    photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80',
+    photo: girlProfile4,
   },
 ]
 
@@ -84,7 +88,7 @@ export default function Testimonials() {
             </p>
 
             <div className="flex items-center gap-4">
-              <img src={t.photo} alt={t.name} className="w-12 h-12 rounded-full object-cover object-top"
+              <img src={t.photo} alt={t.name} loading="lazy" className="w-12 h-12 rounded-full object-cover object-top"
                 style={{ border: '2px solid rgba(0,0,128,0.25)' }} />
               <div>
                 <p className="font-heading font-semibold" style={{ color: '#1A1F36' }}>{t.name}</p>

@@ -5,9 +5,9 @@ import weddingHandsBg from '../assets/wedding hands background.jpg'
 
 const steps = [
   { icon: FileText,      title: 'Create Your Profile',  desc: 'Share your preferences, family background, and expectations to get started.' },
-  { icon: Search,        title: 'Browse Matches',        desc: 'AI-powered suggestions filtered by community, age, and location.' },
+  { icon: Search,        title: 'Browse Matches',        desc: 'Smart suggestions filtered by community, age, location, and lifestyle.' },
   { icon: MessageCircle, title: 'Connect Privately',     desc: 'Send interest, chat securely, share contact with mutual consent.' },
-  { icon: Sparkles,      title: 'Begin Your Journey',    desc: 'Meet families, exchange horoscopes, celebrate your match.' },
+  { icon: Sparkles,      title: 'Begin Your Journey',    desc: 'Meet families, exchange horoscopes, and celebrate your perfect match.' },
 ]
 
 export default function HowItWorks() {
